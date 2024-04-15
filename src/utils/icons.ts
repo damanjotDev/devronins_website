@@ -1,12 +1,15 @@
-import { FaChevronDown } from "react-icons/fa";
-import { FaAngleDown, FaRegCircleUser, FaCheck } from "react-icons/fa6"
+import { FaChevronDown, FaFacebookF, FaTwitter, FaInstagram, FaLongArrowAltRight } from "react-icons/fa";
+import { FaAngleDown, FaRegCircleUser, FaCheck, FaArrowRightLong } from "react-icons/fa6"
 import { IoClose, IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 import { IoLogoGoogleplus } from "react-icons/io";
 import { GrFacebookOption } from "react-icons/gr";
 import { RxDashboard } from "react-icons/rx";
-import { MdOutlineAnalytics } from "react-icons/md";
+import { MdOutlineAnalytics, MdOutlineMenu } from "react-icons/md";
 import { MdOutlineNotificationsNone } from "react-icons/md";
 import { ImAttachment } from "react-icons/im";
+import { GoArrowRight } from "react-icons/go";
+import { FiMenu } from "react-icons/fi";
+
 
 
 
@@ -22,5 +25,14 @@ export{
     FaRegCircleUser,
     IoSettingsOutline,
     IoLogOutOutline,
-    ImAttachment
+    ImAttachment,
+    FaChevronDown,
+    FaFacebookF,
+    FaTwitter,
+    FaInstagram,
+    FaLongArrowAltRight,
+    FaArrowRightLong,
+    GoArrowRight,
+    MdOutlineMenu,
+    FiMenu
 }

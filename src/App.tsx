@@ -8,7 +8,8 @@ function App() {
   return (
     <div className="
     xl:w-[85%] 
-    xl:m-auto min-h-[2000px]  h-auto border-2">
+    xl:m-auto 
+    h-auto">
       {/* <RouteHanding/> */}
       <Navbar/>
     </div>
