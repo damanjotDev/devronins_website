@@ -6,7 +6,7 @@ module.exports = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -17,16 +17,6 @@ module.exports = {
       },
     },
     extend: {
-      fontSize: {
-        'xs': '0.75rem', // Extra small
-        'sm': '0.875rem', // Small
-        'base': '1rem', // Base
-        'lg': '1.125rem', // Large
-        'xl': '1.25rem', // Extra large
-        '2xl': '1.5rem', // Double extra large
-        '3xl': '1.875rem', // Triple extra large
-        // Add more custom text sizes as needed
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -83,11 +73,5 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("tailwind-scrollbar"), 
-    require('@tailwindcss/forms')({
-    strategy: 'class'
-  })],
+  plugins: [require("tailwindcss-animate")],
 }
-

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Login } from './auth/login';
-import { Dashboard } from './main/dashboard';
+import { Dashboard } from './main/landing';
 import { RoutesName } from '../utils/constant';
 import { Sidebar } from '../components/navbars/sidebar';
 import { Navbar } from '../components/navbars/navbar';

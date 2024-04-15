@@ -4,7 +4,7 @@ const Dashboard = () => {
 
     return (
         <div className="w-full h-full bg-green-500">
-hifffs
+            hifffs
         </div>
     )
 }
