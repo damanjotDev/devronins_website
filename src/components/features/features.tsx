@@ -55,7 +55,7 @@ const Features = () => {
                 text-secondary-foreground'>
                     <TypographyP 
                     title='An IT firm or MSP who keeps your IT running smoothly'
-                    className='text-xl font-[250]'/>
+                    className='text-xl font-[250] text-center'/>
                 </div>
                
             </div>
