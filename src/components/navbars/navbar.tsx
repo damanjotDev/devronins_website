@@ -76,6 +76,25 @@ const Navbar = () => {
     }
   };
 
+  const dropDownMotion = {
+    rest: {
+      scale: 0,
+      transition: {
+        duration: 0.2,
+        type: "tween",
+        ease: "easeIn"
+      }
+    },
+    hover: {
+      scale: 1,
+      borderRadius: "5px",
+      transition: {
+        duration: 0.5,
+        type: "tween",
+        ease: "easeOut",
+      }
+    }
+  };
   return (
     <div className={`
         relative
@@ -90,9 +109,9 @@ const Navbar = () => {
           px-5
           py-3
           ${scrolled && "fixed xl:w-[85%] w-full"}`}
-          initial={{ opacity: 0, y: -10 }}
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1 , y: 0 }}
-          transition={{ duration: 0.2, delay: 0.1 }}>
+          transition={{ duration: 0.4, delay: 0.5 }}>
 
         {/* Logo Section */}
         <div className="
@@ -157,7 +176,7 @@ const Navbar = () => {
   
                     {/* Drop down section */}
   
-                    <div className={cn(`
+                    <motion.div className={cn(`
                     hidden
                     absolute
                     w-auto
@@ -165,11 +184,8 @@ const Navbar = () => {
                     top-[100%]
                     left-0
                     flex-col
-                    transition-all
-                    duration-500
-                    translate-y-[-20]
-                    group-hover:flex
-                    group-hover:translate-y-0`)}>
+                    group-hover:flex`)}
+                    variants={dropDownMotion}>
                      <div className={cn(`
                      bg-background 
                      shadow-lg 
@@ -201,7 +217,7 @@ const Navbar = () => {
                             
                           ))}
                      </div>
-                    </div>
+                    </motion.div>
                   </motion.div> 
                 ))}
           </div>
@@ -255,7 +271,7 @@ const Navbar = () => {
         block">
           <Sheet>
             <SheetTrigger><FiMenu size={30}/></SheetTrigger>
-            <SheetContent side="left"  className="w-[45%] flex flex-col">
+            <SheetContent side="left"  className="w-[300px] flex flex-col">
              
                   {/* Logo Section */}
                   <div className="
@@ -278,9 +294,9 @@ const Navbar = () => {
                         <TypographyH4 title={item.label}/>
                       </AccordionTrigger>
 
-                      <AccordionContent className="hover:text-primary-foreground flex flex-col gap-2">
+                      <AccordionContent >
                       {item?.dropdownItems?.map((ele)=>(
-                        <TypographyH5 title={ele}/>
+                        <TypographyH5 className="hover:text-primary-foreground flex flex-col gap-2" title={ele}/>
                       ))}
                       </AccordionContent>
                     </AccordionItem>
