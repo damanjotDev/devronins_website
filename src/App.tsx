@@ -12,14 +12,13 @@ function App() {
     w-full
     xl:w-[85%] 
     xl:m-auto 
-    h-[20000px]
-    lg:pt-[96px]
-    pt-[65px]">
+    h-auto
+    lg:pt-[96px] pt-[60px]">
 
       {/* <RouteHanding/> */}
       <Navbar/>
       <Hero/>
-      
+
     </div>
   );
 }

@@ -36,12 +36,8 @@ const Hero = () => {
 
 
   return (
-    <motion.div 
-    className={`relative w-full`}
-    initial={{x: -300}}
-    animate={{x: 0}}
-    transition={{duration: 0.5}}>
-       <div className={`
+    <div className={`relative w-full`}>
+       <motion.div className={`
           shadow-lg
           gradient1
           flex
@@ -49,8 +45,10 @@ const Hero = () => {
           items-center
           h-auto
           px-5 
-          pt-8 
-         `}>
+          pt-8`}
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          transition={{duration: 0.4, delay: 0.8}}>
 
             {/* Header section */}
             <div className="
@@ -58,26 +56,34 @@ const Hero = () => {
             flex-col
             items-center
             ">
-                <div 
+                <motion.div 
                 className="
                 text-[35px]
                 font-bold 
-                lg:text-[60px]">
+                lg:text-[60px]"
+                initial={{y: 40, opacity: 0}}
+                animate={{y: 0, opacity: 1}}
+                transition={{duration: 0.5, delay: 1.5}}>
                     Learning, working
-                </div>
-                <div 
+                </motion.div>
+                <motion.div 
                 className="
                 text-[35px]
                 font-bold 
                 lg:text-[60px]
-                mt-[-15px]">
+                mt-[-15px]"
+                initial={{y: 40, opacity: 0}}
+                animate={{y: 0, opacity: 1}}
+                transition={{duration: 0.5, delay: 1.5}}>
                     and <span className="text-primary-foreground">vacationing</span>
-                </div>
-                <div className="
+                </motion.div>
+                <motion.div className="
                 mt-4
                 flex
-                item-center
-                ">
+                item-center"
+                initial={{y: 40, opacity: 0}}
+                animate={{y: 0, opacity: 1}}
+                transition={{duration: 0.5, delay: 1.8}}>
                     <button className="
                     flex
                     items-center
@@ -95,7 +101,7 @@ const Hero = () => {
                     ">
                         <TypographyH4 className="font-[500] text-md" title="Contact us for hire"/>
                     </button>
-                </div>
+                </motion.div>
             </div>
 
             {/*Hero Image section */}
@@ -130,8 +136,8 @@ const Hero = () => {
             {/* Hero Background animation section */}
             <HeroBackgroundAnimation/>
             
-      </div>
-    </motion.div>
+      </motion.div>
+    </div>
   )
 }
 

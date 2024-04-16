@@ -28,18 +28,17 @@ const MobileNavbar = () => {
         block">
           <Sheet>
             <SheetTrigger><FiMenu size={30}/></SheetTrigger>
-            <SheetContent side="left"  className="w-[300px] flex flex-col">
+            <SheetContent side="left"  className="w-[300px] flex flex-col gap-1">
              
                   {/* Logo Section */}
                   <div className="
                       flex
                       items-center
                       justify-start
-                      mt-10
-                      ">
+                      mt-4">
                     <img
                     src="https://www.devronins.com/images/DevRonins.png"
-                    className="w-[220px] h-[40px]"
+                    className="object-contain max-w-[70%]"
                     />
                   </div>
 

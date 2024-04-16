@@ -29,17 +29,18 @@ const Navbar = () => {
           py-3`}
           initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1 , y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}>
+          transition={{ duration: 0.4, delay: 0.5 }}>
 
         {/* Logo Section */}
         <div className="
-             w-auto
+             w-[50%]
+             lg:w-[15%]
              flex
              items-center
             ">
           <img
             src="https://www.devronins.com/images/DevRonins.png"
-            className="w-[70%] h-[40px]"
+            className="object-contain w-[100%]"
           />
         </div>
 
