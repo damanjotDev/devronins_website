@@ -46,9 +46,9 @@ export function TypographyH5({title="hello", className=""}: TypographyProps) {
     )
 }
 
-export function TypographyP({title="hello"}: TypographyProps) {
+export function TypographyP({title="hello", className=""}: TypographyProps) {
     return (
-        <p className="leading-7 [&:not(:first-child)]:mt-6">
+        <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
             {title}
         </p>
     )
