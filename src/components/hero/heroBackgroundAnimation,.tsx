@@ -18,6 +18,7 @@ const HeroBackgroundAnimation = () => {
                     top: ['0%', '30%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />
 
                <motion.div
@@ -33,6 +34,7 @@ const HeroBackgroundAnimation = () => {
                     left: ['40%', '0%', '40%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />
 
                <motion.div
@@ -49,6 +51,7 @@ const HeroBackgroundAnimation = () => {
                     top: ['0%', '30%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />  
 
                 <motion.div
@@ -65,6 +68,7 @@ const HeroBackgroundAnimation = () => {
                     bottom: ['0%', '35%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />
 
                 <motion.div
@@ -80,6 +84,7 @@ const HeroBackgroundAnimation = () => {
                     top: ['0%', '100%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />
 
                 <motion.div
@@ -95,6 +100,7 @@ const HeroBackgroundAnimation = () => {
                     right: ['40%', '0%', '40%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />
 
                 <motion.div
@@ -111,6 +117,7 @@ const HeroBackgroundAnimation = () => {
                     bottom: ['0%', '35%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
+                viewport={{once: true}}
                 />
 
                 <motion.div
@@ -124,8 +131,9 @@ const HeroBackgroundAnimation = () => {
                 gradient5"
                 whileInView={{
                     top: ['0%', '100%', '0%'],
-                    transition: { duration: 40, ease: 'linear', repeat: Infinity }
+                    transition: { duration: 40, ease: 'linear', repeat: Infinity },
                 }}
+                viewport={{once: true}}
                 />
             </div>
   )

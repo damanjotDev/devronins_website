@@ -26,7 +26,8 @@ const HeroImageAnimation = () => {
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.6, delay: 2.1}}>
+                transition={{duration: 0.6, delay: 2.1}}
+                viewport={{once: true}}>
                 <img
                     src={SlackImage}
                     className="w-[100%] h-[100%]" />
@@ -48,7 +49,8 @@ const HeroImageAnimation = () => {
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.6, delay: 2.2}}>
+                transition={{duration: 0.6, delay: 2.2}}
+                viewport={{once: true}}>
                 <img
                     src={DiamondImage}
                     className="w-[100%] h-[100%]" />
@@ -70,7 +72,8 @@ const HeroImageAnimation = () => {
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.6, delay: 2.3}}>
+                transition={{duration: 0.6, delay: 2.3}}
+                viewport={{once: true}}>
                 <img
                     src={DriveImage}
                     className="w-[100%] h-[100%]" />
@@ -90,7 +93,8 @@ const HeroImageAnimation = () => {
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.6, delay: 2.4}}>
+                transition={{duration: 0.6, delay: 2.4}}
+                viewport={{once: true}}>
                 <img
                     src={SkypeImage}
                     className="w-[100%] h-[100%]" />
@@ -109,7 +113,8 @@ const HeroImageAnimation = () => {
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.6, delay: 2.5}}>
+                transition={{duration: 0.6, delay: 2.5}}
+                viewport={{once: true}}>
                 <img
                     src={LinedinImage}
                     className="w-[100%] h-[100%]" />

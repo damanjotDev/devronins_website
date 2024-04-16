@@ -48,7 +48,8 @@ const Hero = () => {
           pt-8`}
           initial={{opacity: 0}}
           whileInView={{opacity: 1}}
-          transition={{duration: 0.4, delay: 0.8}}>
+          transition={{duration: 0.4, delay: 0.8}}
+          viewport={{once: true}}>
 
             {/* Header section */}
             <div className="
@@ -63,7 +64,8 @@ const Hero = () => {
                 lg:text-[60px]"
                 initial={{y: 40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.5, delay: 1.5}}>
+                transition={{duration: 0.5, delay: 1.5}}
+                viewport={{once: true}}>
                     Learning, working
                 </motion.div>
                 <motion.div 
@@ -74,7 +76,8 @@ const Hero = () => {
                 mt-[-15px]"
                 initial={{y: 40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.5, delay: 1.5}}>
+                transition={{duration: 0.5, delay: 1.5}}
+                viewport={{once: true}}>
                     and <span className="text-primary-foreground">vacationing</span>
                 </motion.div>
                 <motion.div className="
@@ -83,7 +86,8 @@ const Hero = () => {
                 item-center"
                 initial={{y: 40, opacity: 0}}
                 whileInView={{y: 0, opacity: 1}}
-                transition={{duration: 0.5, delay: 1.8}}>
+                transition={{duration: 0.5, delay: 1.8}}
+                viewport={{once: true}}>
                     <button className="
                     flex
                     items-center
