@@ -4,6 +4,7 @@ import { TypographyH3, TypographyH4, TypographyP } from '../ui/Typography'
 const Features = () => {
   return (
     <div className='
+    h-[1000px]
     w-full
     realtive'>
 

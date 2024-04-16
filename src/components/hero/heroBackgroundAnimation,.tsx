@@ -13,7 +13,7 @@ const HeroBackgroundAnimation = () => {
                 h-3
                 rounded-full
                 gradient6"
-                animate={{
+                whileInView={{
                     left: ['0%', '30%', '0%'],
                     top: ['0%', '30%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
@@ -29,7 +29,7 @@ const HeroBackgroundAnimation = () => {
                 h-4
                 rounded-full
                 gradient3"
-                animate={{
+                whileInView={{
                     left: ['40%', '0%', '40%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
@@ -44,7 +44,7 @@ const HeroBackgroundAnimation = () => {
                 h-3
                 rounded-full
                 gradient5"
-                animate={{
+                whileInView={{
                     right: ['0%', '30%', '0%'],
                     top: ['0%', '30%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
@@ -60,7 +60,7 @@ const HeroBackgroundAnimation = () => {
                 h-2
                 rounded-full
                 gradient4"
-                animate={{
+                whileInView={{
                     left: ['0%', '35%', '0%'],
                     bottom: ['0%', '35%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
@@ -76,7 +76,7 @@ const HeroBackgroundAnimation = () => {
                 h-3
                 rounded-full
                 gradient5"
-                animate={{
+                whileInView={{
                     top: ['0%', '100%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
@@ -91,7 +91,7 @@ const HeroBackgroundAnimation = () => {
                 h-2
                 rounded-full
                 gradient6"
-                animate={{
+                whileInView={{
                     right: ['40%', '0%', '40%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}
@@ -106,7 +106,7 @@ const HeroBackgroundAnimation = () => {
                 h-4
                 rounded-full
                 gradient7"
-                animate={{
+                whileInView={{
                     right: ['0%', '35%', '0%'],
                     bottom: ['0%', '35%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
@@ -122,7 +122,7 @@ const HeroBackgroundAnimation = () => {
                 h-3
                 rounded-full
                 gradient5"
-                animate={{
+                whileInView={{
                     top: ['0%', '100%', '0%'],
                     transition: { duration: 40, ease: 'linear', repeat: Infinity }
                 }}

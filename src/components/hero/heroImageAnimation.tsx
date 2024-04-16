@@ -25,7 +25,7 @@ const HeroImageAnimation = () => {
                 h-[16%]
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.6, delay: 2.1}}>
                 <img
                     src={SlackImage}
@@ -47,7 +47,7 @@ const HeroImageAnimation = () => {
                 h-[17%]
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.6, delay: 2.2}}>
                 <img
                     src={DiamondImage}
@@ -69,7 +69,7 @@ const HeroImageAnimation = () => {
                 h-[16%]
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.6, delay: 2.3}}>
                 <img
                     src={DriveImage}
@@ -89,7 +89,7 @@ const HeroImageAnimation = () => {
                 h-[17%]
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.6, delay: 2.4}}>
                 <img
                     src={SkypeImage}
@@ -108,7 +108,7 @@ const HeroImageAnimation = () => {
                 h-[18%]
                 rounded-lg"
                 initial={{y: -40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.6, delay: 2.5}}>
                 <img
                     src={LinedinImage}

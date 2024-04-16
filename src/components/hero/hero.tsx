@@ -47,7 +47,7 @@ const Hero = () => {
           px-5 
           pt-8`}
           initial={{opacity: 0}}
-          animate={{opacity: 1}}
+          whileInView={{opacity: 1}}
           transition={{duration: 0.4, delay: 0.8}}>
 
             {/* Header section */}
@@ -62,7 +62,7 @@ const Hero = () => {
                 font-bold 
                 lg:text-[60px]"
                 initial={{y: 40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.5, delay: 1.5}}>
                     Learning, working
                 </motion.div>
@@ -73,7 +73,7 @@ const Hero = () => {
                 lg:text-[60px]
                 mt-[-15px]"
                 initial={{y: 40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.5, delay: 1.5}}>
                     and <span className="text-primary-foreground">vacationing</span>
                 </motion.div>
@@ -82,7 +82,7 @@ const Hero = () => {
                 flex
                 item-center"
                 initial={{y: 40, opacity: 0}}
-                animate={{y: 0, opacity: 1}}
+                whileInView={{y: 0, opacity: 1}}
                 transition={{duration: 0.5, delay: 1.8}}>
                     <button className="
                     flex

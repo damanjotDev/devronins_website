@@ -13,7 +13,7 @@ function App() {
     w-full
     xl:w-[85%] 
     xl:m-auto 
-    h-auto
+    h-[1000px]
     lg:pt-[96px] pt-[60px]">
 
       {/* <RouteHanding/> */}
