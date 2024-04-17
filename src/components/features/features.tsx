@@ -8,8 +8,8 @@ const featuresData = useFeatureCardData();
 
   return (
     <div className='
-    h-[1000px]
     w-full
+    h-full
     realtive'>
 
         <div className='

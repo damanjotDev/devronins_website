@@ -3,6 +3,8 @@ import 'chart.js/auto'; // for registering all charts in web
 import { Navbar } from './components/navbars/navbar';
 import { Hero } from './components/hero/hero';
 import Features from './components/features/features';
+import Experience from './components/experience/experience';
+import About from './components/about/about';
 
 
 function App() {
@@ -11,15 +13,17 @@ function App() {
     <div className="
     relative
     w-full
+    h-auto
     xl:w-[85%] 
     xl:m-auto 
-    h-[1000px]
     lg:pt-[96px] pt-[60px]">
 
       {/* <RouteHanding/> */}
       <Navbar/>
       <Hero/>
       <Features/>
+      <Experience/>
+      <About/>
 
     </div>
   );
