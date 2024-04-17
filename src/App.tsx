@@ -5,6 +5,8 @@ import { Hero } from './components/hero/hero';
 import Features from './components/features/features';
 import Experience from './components/experience/experience';
 import About from './components/about/about';
+import Analytics from './components/about copy/analytics';
+
 
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
       <Features/>
       <Experience/>
       <About/>
+      <Analytics/>
 
     </div>
   );
