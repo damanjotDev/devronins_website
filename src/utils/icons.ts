@@ -1,5 +1,5 @@
 import { FaChevronDown, FaFacebookF, FaTwitter, FaInstagram, FaLongArrowAltRight } from "react-icons/fa";
-import { FaAngleDown, FaRegCircleUser, FaCheck, FaArrowRightLong } from "react-icons/fa6"
+import { FaAngleDown, FaRegCircleUser, FaCheck, FaArrowRightLong, FaAngleRight } from "react-icons/fa6"
 import { IoClose, IoSettingsOutline, IoLogOutOutline } from "react-icons/io5";
 import { IoLogoGoogleplus } from "react-icons/io";
 import { GrFacebookOption } from "react-icons/gr";
@@ -34,5 +34,6 @@ export{
     FaArrowRightLong,
     GoArrowRight,
     MdOutlineMenu,
-    FiMenu
+    FiMenu,
+    FaAngleRight
 }

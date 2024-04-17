@@ -92,3 +92,7 @@
   .gradient7 {
     @apply bg-gradient-to-r from-emerald-400 to-cyan-400
   }
+
+  .shadow1 {
+    @apply shadow-[0px_0px_30px_20px_#cbd5e0]
+  }

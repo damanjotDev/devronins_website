@@ -22,9 +22,9 @@ export function TypographyH2({title="hello"}: TypographyProps) {
     )
 }
 
-export function TypographyH3({title="hello"}: TypographyProps) {
+export function TypographyH3({title="hello", className=""}: TypographyProps) {
     return (
-        <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+        <h3 className={cn("scroll-m-20 text-2xl font-semibold tracking-tight",className)}>
             {title}
         </h3>
     )
