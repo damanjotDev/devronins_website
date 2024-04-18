@@ -2,6 +2,7 @@ import React from 'react'
 import { TypographyH1, TypographyH3, TypographyH4, TypographyP } from '../ui/Typography'
 import { motion, useAnimation } from "../../utils/animation"
 import { MdDeveloperBoard } from "../../utils/icons"
+import { AnimatedCounter } from './animatedCounter'
 
 
 const progressData = [
@@ -80,10 +81,14 @@ const Analytics = () => {
                                 </div>
                                 <div className='flex
                                 items-center
-                                justify-center'>
-                                    <TypographyH1
+                                justify-center
+                                gap-1'>
+                                    {/* <TypographyH1
                                         title={`${item.value}+`}
-                                        className='font-bold ' />
+                                        className='font-bold ' /> */}
+                                        <AnimatedCounter from={0} to={item.value}/>
+                                        <TypographyH1
+                                        title='+' />
                                 </div>
                             </div>
 
@@ -93,7 +98,7 @@ const Analytics = () => {
                             justify-center'>
                                 <TypographyP 
                                     title={item.title}
-                                    className='text-white leading-5 font-[250]'/>
+                                    className='text-white leading-5'/>
                             </div>
                         </div>
                     ))}

@@ -48,15 +48,19 @@ const About = () => {
             gap-20'>
                 {/* Image Section */}
                 <Tilt>
-                    <div
+                    <motion.div
                         className='
                         flex 
                         items-center
-                        justify-center'>
+                        justify-center'
+                        initial={{x:'-7%'}}
+                        whileInView={{x:'0%'}}
+                        transition={{duration: .7}}
+                        viewport={{once: true}}>
                         <img
                             src='https://demo.casethemes.net/itfirm/wp-content/uploads/2021/12/h4-section-shape2.png'
                             className='w-full h-full' />
-                    </div>
+                    </motion.div>
                 </Tilt>
 
                 {/* Content Section */}

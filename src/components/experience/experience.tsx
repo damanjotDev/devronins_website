@@ -209,15 +209,19 @@ const Experience = () => {
                 </div>
                 {/* Image Section */}
                 <Tilt>
-                    <div
+                    <motion.div
                         className='
-                flex 
-                items-center
-                justify-center'>
+                        flex 
+                        items-center
+                        justify-center'
+                        initial={{x:'7%'}}
+                        whileInView={{x:'0%'}}
+                        transition={{duration: .7}}
+                        viewport={{once: true}}>
                         <img
                             src='https://demo.casethemes.net/itfirm/wp-content/uploads/2021/12/h4-section-shape1.png'
                             className='w-full h-full' />
-                    </div>
+                    </motion.div>
                 </Tilt>
 
                  {/* Hero image animation */}
