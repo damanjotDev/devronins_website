@@ -8,6 +8,7 @@ import About from './components/about/about';
 import Analytics from './components/analytics/analytics';
 import Steps from './components/steps/steps';
 import Reviews from './components/reviews/reviews';
+import Footer from './components/footer/fotter';
 
 
 
@@ -28,6 +29,7 @@ function App() {
       <Analytics/>
       <Steps/>
       <Reviews/>
+      <Footer/>
     </div>
   );
 }

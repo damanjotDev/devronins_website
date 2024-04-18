@@ -70,6 +70,12 @@ module.exports = {
         },
         violet1: {
           DEFAULT: "hsl(var(--violet1))",
+        },
+        darkblue1: {
+          DEFAULT: "hsl(var(--dark-blue1))",
+        },
+        darkblue2: {
+          DEFAULT: "hsl(var(--dark-blue2))",
         }
       },
       borderRadius: {

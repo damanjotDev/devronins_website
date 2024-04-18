@@ -14,9 +14,9 @@ export function TypographyH1({title="hello", className}: TypographyProps) {
 }
 
 
-export function TypographyH2({title="hello"}: TypographyProps) {
+export function TypographyH2({title="hello", className}: TypographyProps) {
     return (
-        <h2 className="scroll-m-20 pb-2 text-3xl font-bold tracking-tight first:mt-0">
+        <h2 className={cn("scroll-m-20 pb-2 text-3xl font-bold tracking-tight first:mt-0",className)}>
             {title}
         </h2>
     )
