@@ -13,6 +13,8 @@ const featuresData = useFeatureCardData();
     realtive'>
 
         <div className='
+         xl:w-[85%] 
+         xl:m-auto 
         flex
         flex-col
         items-center

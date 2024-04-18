@@ -27,9 +27,12 @@ const Experience = () => {
         <div className='
         w-full
         realtive
-        pt-20'>
+        pt-20
+        bg-background1'>
             {/* Experience Main section */}
             <div className='
+             xl:w-[85%] 
+             xl:m-auto 
             relative
             grid
             grid-cols-1
@@ -38,8 +41,7 @@ const Experience = () => {
             lg:px-20 
             px-5
             py-20
-            gap-20
-            bg-background1'>
+            gap-20'>
                 {/* Content Section */}
                 <div className='
                 flex

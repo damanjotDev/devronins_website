@@ -7,6 +7,7 @@ import Experience from './components/experience/experience';
 import About from './components/about/about';
 import Analytics from './components/analytics/analytics';
 import Steps from './components/steps/steps';
+import Reviews from './components/reviews/reviews';
 
 
 
@@ -16,9 +17,6 @@ function App() {
     <div className="
     relative
     w-full
-    h-auto
-    xl:w-[85%] 
-    xl:m-auto 
     lg:pt-[96px] pt-[60px]">
 
       {/* <RouteHanding/> */}
@@ -29,7 +27,7 @@ function App() {
       <About/>
       <Analytics/>
       <Steps/>
-
+      <Reviews/>
     </div>
   );
 }

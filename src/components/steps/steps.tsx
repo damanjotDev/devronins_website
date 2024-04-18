@@ -31,6 +31,8 @@ const Steps = () => {
         realtive'>
 
             <div className='
+            xl:w-[85%] 
+            xl:m-auto 
             flex
             flex-col
             items-center
@@ -206,7 +208,7 @@ const Steps = () => {
                             </div>
                             <GoArrowRight 
                             size={45}
-                            className="p-2 text-white bg-violet-500 rounded-full"/>
+                            className="p-2 text-white bg-violet-500 rounded-full rotate-180"/>
 
                             <div 
                             className='

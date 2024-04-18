@@ -17,8 +17,6 @@ const Navbar = () => {
           top-0
           z-[50]
           w-full
-          xl:w-[85%] 
-          xl:m-auto 
           shadow-lg
           bg-white
           flex
