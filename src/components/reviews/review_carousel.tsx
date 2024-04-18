@@ -17,8 +17,8 @@ export function CarouselDApiDemo() {
       <CarouselContent className="border-0 gap-[100%]">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index}>
-            <div className="p-4">
-              <Card className="border-0 shadow-[rgba(17,_17,_26,_0.1)_0px_0px_16px]">
+            <div className="p-2 lg:p-4">
+              <Card className="border-0 shadow-lg">
                 <CardContent 
                 className="
                 flex
