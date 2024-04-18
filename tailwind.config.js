@@ -64,6 +64,12 @@ module.exports = {
         },
         blue4: {
           DEFAULT: "hsl(var(--blue4))",
+        },
+        pink1: {
+          DEFAULT: "hsl(var(--pink1))",
+        },
+        violet1: {
+          DEFAULT: "hsl(var(--violet1))",
         }
       },
       borderRadius: {

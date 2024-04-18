@@ -5,7 +5,7 @@ import { motion } from "../../utils/animation";
 import { TypographyH1, TypographyH3, TypographyH4, TypographyH5, TypographyP } from "../ui/Typography";
 
 import { useNavbarRoutes } from "../../hooks/useNavbarRoutes";
-import { FaChevronDown, GoArrowRight, MdOutlineMenu, FiMenu} from "../../utils/icons"
+import { FaChevronDown, GoArrowRight} from "../../utils/icons"
 import { cn } from "../../lib/utils";
 import { useSocialLinkRoutes } from "../../hooks/useSocialLinkRoutes";
 

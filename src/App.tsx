@@ -6,6 +6,7 @@ import Features from './components/features/features';
 import Experience from './components/experience/experience';
 import About from './components/about/about';
 import Analytics from './components/analytics/analytics';
+import Steps from './components/steps/steps';
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <Experience/>
       <About/>
       <Analytics/>
+      <Steps/>
 
     </div>
   );
