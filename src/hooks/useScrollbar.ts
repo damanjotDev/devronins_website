@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-function useScrollNavbar() {
+function useScrollHook() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -23,4 +23,4 @@ function useScrollNavbar() {
   return scrolled;
 }
 
-export default useScrollNavbar;
+export default useScrollHook;

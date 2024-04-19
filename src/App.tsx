@@ -9,6 +9,7 @@ import Analytics from './components/analytics/analytics';
 import Steps from './components/steps/steps';
 import Reviews from './components/reviews/reviews';
 import Footer from './components/footer/fotter';
+import { ScrollToTop } from './components/scrollToTop/scrollToTop';
 
 
 
@@ -20,6 +21,7 @@ function App() {
     w-full
     lg:pt-[96px] pt-[60px]">
 
+      <ScrollToTop/>
       {/* <RouteHanding/> */}
       <Navbar/>
       <Hero/>

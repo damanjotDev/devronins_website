@@ -142,7 +142,7 @@ const Footer = () => {
                         </div>
 
                         <div className="flex w-full max-w-sm items-center">
-                            <Input className='bg-darkblue2 w-[80%] rounded-none border-0 focus:ring-0' type="email" placeholder="Email" />
+                            <Input className='bg-darkblue2 w-[80%] rounded-none border-0 focus-visible:ring-offset-0 text-white' type="email" placeholder="Email" />
                             <Button className='w-[20%] bg-primary rounded-none' type="submit"><FiSend size={20} className='text-white'/></Button>
                         </div>
 
