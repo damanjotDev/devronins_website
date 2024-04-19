@@ -13,7 +13,7 @@ const Footer = () => {
     return (
         <div className='
         w-full
-        realtive
+        relative
         bg-darkblue1
         h-auto'>
 
@@ -246,7 +246,6 @@ const Footer = () => {
             {/* Footer bottom section */}
             <div className='
             w-full
-            bg-darkblue2
             px-5
             py-7'>
                 <div className='

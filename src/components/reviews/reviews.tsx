@@ -11,7 +11,8 @@ const Reviews = () => {
         <div className='
         w-full
         h-full
-        relative'>
+        relative
+        mb-20'>
 
             <div className='
             xl:w-[85%] 
@@ -98,8 +99,7 @@ const Reviews = () => {
             absolute
             top-0
             h-full
-            w-[25%]
-            bg-yellow-400'>
+            w-[25%]'>
                 <img src={womenImage} className='w-full h-full'/>
             </div>
 
