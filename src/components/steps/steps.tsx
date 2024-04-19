@@ -191,7 +191,7 @@ const Steps = () => {
                             <div 
                             className='
                             relative 
-                            p-[1px] 
+                            w-[2px] 
                             bg-gray-300 
                             h-[30%]
                             rounded-full'>
@@ -213,7 +213,7 @@ const Steps = () => {
                             <div 
                             className='
                             relative 
-                            p-[1px] 
+                            w-[2px] 
                             bg-gray-300 
                             h-[30%]
                             rounded-full'>
@@ -382,6 +382,7 @@ const Steps = () => {
 
                     </div>
                     <div className='
+                    order-5
                     h-[300px] 
                     w-full
                     lg:col-span-5
@@ -450,6 +451,7 @@ const Steps = () => {
 
                     </div>
                     <div className='
+                     order-6
                      h-[250px]
                      lg:h-[300px] 
                      lg:col-span-5
