@@ -5,6 +5,7 @@ export const RoutesName = {
         NewPassword: '/newPassword',
         VerifyEmail: '/verifyEmail',
         Home: '/',
+        Contact:'/contact',
         Pages: '/#',
         Services: '/services',
         Portfolio: '/portfolio',

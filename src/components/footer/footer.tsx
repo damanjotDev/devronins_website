@@ -14,7 +14,6 @@ const Footer = () => {
         <div className='
         w-full
         realtive
-        mt-20
         bg-darkblue1
         h-auto'>
 

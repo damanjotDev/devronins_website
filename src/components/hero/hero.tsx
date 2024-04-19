@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { motion } from "../../utils/animation";
 import { TypographyH1, TypographyH3, TypographyH4, TypographyH5 } from "../ui/Typography";
 import { HeroBackgroundAnimation } from "./heroBackgroundAnimation,";
@@ -7,11 +7,12 @@ import HeroImage  from "../../assets/images/hero.png";
 import { TweenMax } from "../../utils/gsap"
 import { useRef } from "react";
 import { HeroImageAnimation } from "./heroImageAnimation";
+import { RoutesName } from '../../utils/constant';
 
 
 
 const Hero = () => {
-
+  const navigate = useNavigate()
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -101,8 +102,8 @@ const Hero = () => {
                     transition-all
                     duration-200
                     hover:text-white
-                    hover:bg-black
-                    ">
+                    hover:bg-black"
+                    onClick={()=>navigate(RoutesName.Contact)}>
                         <TypographyH4 className="font-[500] text-md" title="Contact us for hire"/>
                     </button>
                 </motion.div>

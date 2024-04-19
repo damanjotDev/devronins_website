@@ -85,7 +85,7 @@ const Reviews = () => {
                 w-full
                 h-full
                 absolute
-               opacity-[0.1]'>
+                opacity-[0.1]'>
                     <img src={worldmap} className='w-full h-full'/>
                 </div>
             </div>
