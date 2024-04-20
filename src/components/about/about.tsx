@@ -37,7 +37,7 @@ const About = () => {
 
             {/* Experience Main section */}
             <div className='
-            xl:w-[85%] 
+            xl:w-[lg] 
             xl:m-auto 
             relative
             grid

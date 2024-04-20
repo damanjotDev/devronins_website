@@ -31,7 +31,7 @@ const Steps = () => {
         realtive'>
 
             <div className='
-            xl:w-[85%] 
+            xl:w-[lg] 
             xl:m-auto 
             flex
             flex-col

@@ -13,8 +13,7 @@ const featuresData = useFeatureCardData();
     realtive'>
 
         <div className='
-         xl:w-[85%] 
-         xl:m-auto 
+         xl:w-[lg] 
         flex
         flex-col
         items-center
@@ -71,7 +70,6 @@ const featuresData = useFeatureCardData();
             {/* Features Section */}
             <motion.div className='
              w-full
-             lg:w-[85%]
              flex
              flex-col
              gap-8
@@ -150,7 +148,8 @@ const featuresData = useFeatureCardData();
                                 items-center
                                 justify-center
                                 w-auto
-                                h-auto'>
+                                h-auto
+                                z-10'>
                                     <TypographyH3 
                                     title={item.title} 
                                     className='text-white'/>

@@ -36,7 +36,7 @@ const Analytics = () => {
 
             {/* Experience Main section */}
             <div className='
-            xl:w-[85%] 
+            xl:w-[lg] 
             xl:m-auto 
             relative
             lg:px-20 
@@ -49,7 +49,6 @@ const Analytics = () => {
                 grid
                 grid-cols-1
                 lg:grid-cols-3
-                lg:w-[78%]
                 w-full
                 gap-20
                 bg-primary

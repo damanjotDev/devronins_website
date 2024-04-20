@@ -25,8 +25,8 @@ const Footer = () => {
             py-7'>
                 <div className='
                 mx-auto
-                xl:w-[55%]
-                lg:w-[80%]
+                xl:w-[lg]
+                lg:px-20 
                 flex
                 flex-col
                 md:flex-row
@@ -77,8 +77,8 @@ const Footer = () => {
             py-10'>
                 <div className='
                 mx-auto
-                xl:w-[55%]
-                lg:w-[80%]
+                xl:w-[lg]
+                lg:px-20 
                 grid
                 lg:grid-cols-4
                 gap-5'>

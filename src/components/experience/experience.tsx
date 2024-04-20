@@ -31,8 +31,7 @@ const Experience = () => {
         bg-background1'>
             {/* Experience Main section */}
             <div className='
-             xl:w-[85%] 
-             xl:m-auto 
+             xl:w-[lg] 
             relative
             grid
             grid-cols-1

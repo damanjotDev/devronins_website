@@ -120,8 +120,7 @@ export const LandingContactPage = () => {
         {/* Contact form section */}
         <div className='
         relative
-        xl:w-[60%] 
-        lg:w-[90%]
+        xl:w-[lg] 
         flex
         flex-col
         items-center
