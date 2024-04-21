@@ -97,7 +97,6 @@ const DesktopNavbar = () => {
 
                 {navbarRoutes?.map((item)=>(
                   <motion.div 
-                  key={new Date().toISOString()}
                   className="
                   relative
                   flex
@@ -154,7 +153,6 @@ const DesktopNavbar = () => {
                           {item?.dropdownItems?.map(({id, label, navigate})=>(
                           
                               <motion.div 
-                              key={new Date().toISOString()}
                               className="
                                 flex
                                 items-center
