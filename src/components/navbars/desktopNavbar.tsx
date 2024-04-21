@@ -96,7 +96,9 @@ const DesktopNavbar = () => {
               items-center">
 
                 {navbarRoutes?.map((item)=>(
-                  <motion.div className="
+                  <motion.div 
+                  key={new Date().toISOString()}
+                  className="
                   relative
                   flex
                   flex-col
@@ -149,16 +151,20 @@ const DesktopNavbar = () => {
                      flex
                      flex-col 
                      gap-4 ${item?.dropdownItems?.length && "p-5"}`)}>
-                          {item?.dropdownItems?.map((ele)=>(
+                          {item?.dropdownItems?.map(({id, label, navigate})=>(
                           
-                              <motion.div className="
+                              <motion.div 
+                              key={new Date().toISOString()}
+                              className="
                                 flex
                                 items-center
                                 w-[150px]
                                 gap-2"
                                 initial="rest" 
                                 whileHover="hover" 
-                                animate="rest">
+                                animate="rest"
+                                onClick={navigate}
+                                >
                                   <motion.div className="
                                   borber-b
                                   border-primary-foreground"
@@ -167,7 +173,7 @@ const DesktopNavbar = () => {
                                   flex
                                   items-center
                                   justify-center">
-                                    <TypographyH5 className="hover:text-primary-foreground" title={ele}/>
+                                    <TypographyH5 className="hover:text-primary-foreground" title={label}/>
                                   </div>
                                 </motion.div>
                             

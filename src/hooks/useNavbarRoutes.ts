@@ -15,6 +15,7 @@ const useNavbarRoutes = () =>{
             icon: RxDashboard,
             active: RoutesName.Home===location.pathname,
             label: 'Home'
+            
         },
         {
             id: 'Pages',
@@ -23,8 +24,16 @@ const useNavbarRoutes = () =>{
             active: RoutesName.Pages===location.pathname,
             label: 'Pages',
             dropdownItems: [
-                'Our Team',
-                'Team Details'
+                {
+                    id: 'our-team',
+                    navigate: () => navigate(RoutesName.OurTeam),
+                    label: 'Our Team',
+                },
+                {
+                    id: 'team-details',
+                    navigate: () => navigate(RoutesName.OurTeam),
+                    label: 'Team Details',
+                }
             ]
         },
         {
@@ -34,8 +43,16 @@ const useNavbarRoutes = () =>{
             active: RoutesName.Services===location.pathname,
             label: 'Services',
             dropdownItems: [
-                'Our Services',
-                'Service Details'
+                {
+                    id: 'our-services',
+                    navigate: () => navigate(RoutesName.OurTeam),
+                    label: 'Our Services',
+                },
+                {
+                    id: 'service-details',
+                    navigate: () => navigate(RoutesName.OurTeam),
+                    label: 'Service Details',
+                }
             ]
         },
         {
@@ -45,8 +62,16 @@ const useNavbarRoutes = () =>{
             active: RoutesName.Portfolio===location.pathname,
             label: 'Portfolio',
             dropdownItems: [
-                'Our Portfolio',
-                'Portfolio details'
+                {
+                    id: 'our-portfolio',
+                    navigate: () => navigate(RoutesName.OurTeam),
+                    label: 'Our Portfolio',
+                },
+                {
+                    id: 'portfolio-details',
+                    navigate: () => navigate(RoutesName.OurTeam),
+                    label: 'Portfolio Details',
+                }
             ]
         }
     ]

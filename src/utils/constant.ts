@@ -6,6 +6,7 @@ export const RoutesName = {
         VerifyEmail: '/verifyEmail',
         Home: '/',
         Contact:'/contact',
+        OurTeam:'/our-team',
         Pages: '/#',
         Services: '/services',
         Portfolio: '/portfolio',

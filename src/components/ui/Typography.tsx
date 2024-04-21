@@ -2,7 +2,8 @@ import { cn } from "../../lib/utils"
 
 interface TypographyProps {
     title: string;
-    className?: string
+    className?: string;
+    onClick?: Function;
 }
 
 export function TypographyH1({title="hello", className}: TypographyProps) {
@@ -38,9 +39,9 @@ export function TypographyH4({title="hello", className=""}: TypographyProps) {
     )
 }
 
-export function TypographyH5({title="hello", className=""}: TypographyProps) {
+export function TypographyH5({title="hello", className="", onClick}: TypographyProps) {
     return (
-        <h4 className={cn("scroll-m-20 text-md font-semibold tracking-tight", className)}>
+        <h4 onClick={()=> onClick && onClick()} className={cn("scroll-m-20 text-md font-semibold tracking-tight", className)}>
             {title}
         </h4>
     )
