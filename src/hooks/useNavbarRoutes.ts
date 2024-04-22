@@ -31,7 +31,7 @@ const useNavbarRoutes = () =>{
                 },
                 {
                     id: 'team-details',
-                    navigate: () => navigate(RoutesName.OurTeam),
+                    navigate: () => navigate(RoutesName.OurTeamDetails),
                     label: 'Team Details',
                 }
             ]
