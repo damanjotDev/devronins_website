@@ -237,12 +237,11 @@ export const LandingOurTeam = () => {
                     hidden
                     absolute
                     top-[-20px]
+                    bottom-[100px]
                     left-0
                     right-0
                     z-[16]
                     group-hover:flex
-                    h-full
-                    w-full
                     flex-col
                     items-center
                     justify-center
