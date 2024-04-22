@@ -7,6 +7,7 @@ export const RoutesName = {
         Home: '/',
         Contact:'/contact',
         OurTeam:'/our-team',
+        OurTeamDetails: '/team-details',
         Pages: '/#',
         Services: '/services',
         Portfolio: '/portfolio',

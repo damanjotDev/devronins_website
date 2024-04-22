@@ -82,8 +82,6 @@ export const LandingOurTeam = () => {
     },
   ]
 
-console.log('82', teamMembers)
-
   return (
     <div className='w-full h-full'>
       <Navbar />
@@ -251,7 +249,7 @@ console.log('82', teamMembers)
                         <TypographyH5 title={ele.description} className='text-white font-[400]' />
                       </div>
 
-                      <div className='flex p-2 bg-destructive group-hover:opacity-100'>
+                      <div onClick={()=> navigate(RoutesName.OurTeamDetails)} className='flex p-2 bg-destructive group-hover:opacity-100'>
                         <TypographyH5 title={'Read more'} className='text-white' />
                       </div>
                     </motion.div>

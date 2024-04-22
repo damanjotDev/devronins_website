@@ -49,7 +49,7 @@ export function TypographyH5({title="hello", className="", onClick}: TypographyP
 
 export function TypographyP({title="hello", className=""}: TypographyProps) {
     return (
-        <p className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}>
+        <p className={cn("leading-6 [&:not(:first-child)]:mt-6", className)}>
             {title}
         </p>
     )
