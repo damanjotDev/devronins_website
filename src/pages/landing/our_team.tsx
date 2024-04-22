@@ -182,9 +182,14 @@ export const LandingOurTeam = () => {
             sm:grid-cols-2
             gap-10'>
             {teamMembers?.map((ele, index) => (
-              <div  className='flex relative group'>
+              <motion.div  
+              className='flex relative group w-full'
+              initial={{y: 10, opacity: 0}}
+              whileInView={{y:0, opacity: 1}}
+              viewport={{once: true}}
+              transition={{duration:0.2*index}}>
                 <div key={index}
-                  className='h-[370px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border'>
+                  className='h-[370px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
                   <img src={ele.imageUrl} className='w-full h-full' />
 
@@ -291,7 +296,7 @@ export const LandingOurTeam = () => {
                     ))}
                     </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
