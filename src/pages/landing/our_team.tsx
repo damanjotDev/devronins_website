@@ -231,30 +231,35 @@ export const LandingOurTeam = () => {
                   opacity-95
                   group-hover:block
                   group-hover:bg-primary
-                 '>
-                    <motion.div className='
+                 '/>
+
+                  <motion.div className='
+                    hidden
+                    absolute
+                    top-[-20px]
+                    left-0
+                    right-0
+                    z-[16]
+                    group-hover:flex
                     h-full
                     w-full
-                 
-                    flex
                     flex-col
                     items-center
                     justify-center
                     py-10
                     px-5
                     gap-5'
-                    initial={{y: 40,  skewY: 6}}
-                    whileInView={{y:0, skewY: 6}}
+                    initial={{y: 40}}
+                    whileInView={{y:0}}
                     transition={{duration: 0.4}}>
                        <div className='flex text-center'>
                         <TypographyH5 title={ele.description} className='text-white font-[400]' />
                       </div>
 
-                      <div onClick={()=> navigate(RoutesName.OurTeamDetails)} className='flex p-2 bg-destructive group-hover:opacity-100'>
-                        <TypographyH5 title={'Read more'} className='text-white' />
+                      <div onClick={()=> navigate(RoutesName.OurTeamDetails)} className='flex'>
+                        <TypographyH5 title={'Read more'} className='text-white p-2 px-3 bg-destructive ' />
                       </div>
                     </motion.div>
-                  </div>
                 </div>
 
                  {/* social link section */}
