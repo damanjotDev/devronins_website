@@ -10,6 +10,7 @@ import Footer from '../../components/footer/footer';
 import HeroImage from "../../assets/images/hero.png"
 import { useSocialLinkRoutes } from '../../hooks/useSocialLinkRoutes';
 import { Progress } from '../../components/ui/progress';
+import { cn } from '../../lib/utils';
 
 
 
@@ -230,20 +231,21 @@ export const LandingOurTeamDetails = () => {
                         flex
                         items-center
                         justify-center
-                        gap-4
-                        bg-white
-                        border
-                        p-3
-                        border-primary'>
+                        bg-white'>
                             {teamMembersDetails.social_links?.map(({id, icon: Icon}, index)=>(
-                                <Icon 
-                                key={index} 
-                                className="
-                                h-[15px] 
-                                transition-all
-                                cursor-pointer
-                                text-muted-foreground
-                                hover:text-primary-foreground"/>
+                                 <div 
+                                 className={cn("flex border border-primary p-3 px-3",
+                                 index<teamMembersDetails.social_links?.length-1 &&"border-r-0"
+                                 )}>
+                                   <Icon 
+                                   key={index} 
+                                   className="
+                                   h-[15px] 
+                                   text-border
+                                   transition-all
+                                   cursor-pointer
+                                   hover:text-primary-foreground"/>
+                                 </div>
                             ))}
                         </div>
                     </div>

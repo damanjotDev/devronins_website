@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import HeroImage from "../../assets/images/hero.png"
 import { useSocialLinkRoutes } from '../../hooks/useSocialLinkRoutes';
+import { cn } from '../../lib/utils';
 
 
 
@@ -181,9 +182,9 @@ export const LandingOurTeam = () => {
             sm:grid-cols-2
             gap-10'>
             {teamMembers?.map((ele, index) => (
-              <div  className='flex relative'>
+              <div  className='flex relative group'>
                 <div key={index}
-                  className='h-[370px] relative p-3 bg-gray-400 overflow-hidden group hover:border-primary hover:border'>
+                  className='h-[370px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border'>
                   {/* Image Section */}
                   <img src={ele.imageUrl} className='w-full h-full' />
 
@@ -263,27 +264,26 @@ export const LandingOurTeam = () => {
                   transform -translate-x-1/2
                   top-[94%]
                   z-[20]
-                  group
                   '>
                     <div className='
                     flex
                     items-center
                     justify-center
-                    gap-4
-                    bg-white
-                    border
-                    p-3
-                    px-3
-                    group-hover:border-primary'>
+                    bg-white'>
                     {ele.social_links?.map(({id, icon: Icon}, index)=>(
-                          <Icon 
-                          key={index} 
-                          className="
-                          h-[15px] 
-                          text-border
-                          transition-all
-                          cursor-pointer
-                          hover:text-primary-foreground"/>
+                          <div 
+                          className={cn("flex border group-hover:border-primary p-3 px-3",
+                          index<ele.social_links?.length-1 &&"border-r-0"
+                          )}>
+                            <Icon 
+                            key={index} 
+                            className="
+                            h-[15px] 
+                            text-border
+                            transition-all
+                            cursor-pointer
+                            hover:text-primary-foreground"/>
+                          </div>
                     ))}
                     </div>
                 </div>
