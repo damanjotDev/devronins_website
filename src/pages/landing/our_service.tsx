@@ -13,73 +13,57 @@ import { cn } from '../../lib/utils';
 
 
 
-const LandingOurTeam = () => {
+ const LandingOurServices = () => {
   const navigate = useNavigate();
 
   const teamMembers = [
     {
       id: '1',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
+      title: "Backup & Recovery",
+      description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
       imageUrl: HeroImage
     },
     {
       id: '2',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
+      title: "VoIP Solutions",
+      description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
       imageUrl: HeroImage
     },
     {
-      id: '3',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
+        id: '3',
+        title: "Consulting Planning",
+        description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
+        imageUrl: HeroImage
     },
     {
-      id: '4',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
+        id: '4',
+        title: "IT Consultency",
+        description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
+        imageUrl: HeroImage
     },
     {
-      id: '5',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
+        id: '5',
+        title: "Internet Thinking",
+        description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
+        imageUrl: HeroImage
     },
     {
-      id: '6',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
+        id: '6',
+        title: "Security & Compliance",
+        description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
+        imageUrl: HeroImage
     },
     {
-      id: '7',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
+        id: '7',
+        title: "Web Development",
+        description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
+        imageUrl: HeroImage
     },
     {
-      id: '8',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
+        id: '8',
+        title: "Digital Marketing",
+        description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
+        imageUrl: HeroImage
     },
   ]
 
@@ -89,15 +73,15 @@ const LandingOurTeam = () => {
 
       {/* contact main section */}
       <div className='
-    flex
-    flex-col
-    '>
+        flex
+        flex-col
+        '>
         {/* Contact Background image section */}
         <div className='
-      relative
-      flex
-      items-center
-      justify-center'>
+        relative
+        flex
+        items-center
+        justify-center'>
           <img src={contactBackgroudImage} className='h-[200px] lg:h-[300px]' />
 
           <div className='
@@ -115,7 +99,7 @@ const LandingOurTeam = () => {
               gap-2
               '>
               <div className='flex text-white'>
-                <TypographyH1 title='Our Team' className='font-semibold' />
+                <TypographyH1 title='Backup & Recovery' className='font-semibold' />
               </div>
               <div className='flex items-center gap-2 text-white'>
                 <div
@@ -124,10 +108,12 @@ const LandingOurTeam = () => {
                   <TypographyP title='Home' className='opacity-85 ' />
                 </div>
 
-                <MdKeyboardDoubleArrowRight size={20} className='text-primary-foreground' />
+                <MdKeyboardDoubleArrowRight size={20} className='text-destructive' />
 
-                <div className='flex'>
-                  <TypographyP title='Our Team' className='opacity-85' />
+                <div
+                  className='flex cursor-pointer transition-all hover:text-primary-foreground'
+                  onClick={() => navigate(RoutesName.OurServices)}>
+                  <TypographyP title='Services' className='opacity-85 ' />
                 </div>
               </div>
             </div>
@@ -167,9 +153,9 @@ const LandingOurTeam = () => {
                     text-3xl
                     font-bold 
                     lg:text-4xl">
-                Passionate Personalities,
-                <span className="text-primary-foreground">{" Versatile "}</span>
-                Brains
+                We provide the necessary
+                <span className="text-primary-foreground">{" services "}</span>
+                to you
               </div>
             </div>
           </div>
@@ -190,18 +176,19 @@ const LandingOurTeam = () => {
               transition={{duration:0.3, delay: 0.2*index}}
               layout>
                 <div key={index}
-                  className='h-[370px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
+                  className='h-[300px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
                   <img src={ele.imageUrl} className='w-full h-full' />
 
                   {/* Introduction section */}
                   <div className='
+                  group-hover:hidden
                   absolute
                   bottom-[-20px]
                   left-0
                   right-0
                   w-full
-                  h-[120px]
+                  h-[100px]
                   bg-black
                   opacity-85
                   skew-y-[-6deg]
@@ -214,12 +201,11 @@ const LandingOurTeam = () => {
                     h-full
                     flex
                     flex-col
-                    items-center'>
+                    items-center
+                    justify-center
+                    mt-[-10px]'>
                       <div className='flex'>
-                        <TypographyH4 title={ele.name} className='text-white group-hover:text-black' />
-                      </div>
-                      <div className='flex'>
-                        <TypographyH5 title={ele.title} className='text-primary-foreground' />
+                        <TypographyH4 title={ele.title} className='text-white group-hover:text-black' />
                       </div>
                     </div>
                   </div>
@@ -228,24 +214,24 @@ const LandingOurTeam = () => {
                   <div className='
                   hidden
                   absolute
-                  top-[-20px]
+                  top-[0px]
                   left-0
                   right-0
-                  bottom-[100px]
-                  skew-y-[-6deg]
+                  bottom-[0px]
                   z-[15]
                   opacity-95
                   group-hover:block
                   group-hover:bg-primary
                  '/>
 
-                  <motion.div className='
+                 {/* on hover div content */}
+                    <motion.div className='
                     hidden
                     absolute
-                    top-[-20px]
-                    bottom-[100px]
+                    top-[0px]
                     left-0
                     right-0
+                    bottom-[0px]
                     z-[16]
                     group-hover:flex
                     flex-col
@@ -257,45 +243,14 @@ const LandingOurTeam = () => {
                     initial={{y: 40}}
                     whileInView={{y:0}}
                     transition={{duration: 0.4}}>
-                       <div className='flex text-center'>
+                        <div className='flex text-center'>
                         <TypographyH5 title={ele.description} className='text-white font-[400]' />
-                      </div>
+                        </div>
 
-                      <div onClick={()=> navigate(RoutesName.OurTeamDetails)} className='flex'>
+                        <div onClick={()=> navigate(RoutesName.OurServices+"/backup-recovery")} className='flex'>
                         <TypographyH5 title={'Read more'} className='text-white p-2 px-3 bg-destructive ' />
-                      </div>
+                        </div>
                     </motion.div>
-                </div>
-
-                 {/* social link section */}
-                 <div className='
-                  absolute
-                  left-1/2
-                  transform -translate-x-1/2
-                  top-[94%]
-                  z-[20]
-                  '>
-                    <div className='
-                    flex
-                    items-center
-                    justify-center
-                    bg-white'>
-                    {ele.social_links?.map(({id, icon: Icon}, index)=>(
-                          <div 
-                          className={cn("flex border group-hover:border-primary p-3 px-3",
-                          index<ele.social_links?.length-1 &&"border-r-0"
-                          )}>
-                            <Icon 
-                            key={index} 
-                            className="
-                            h-[15px] 
-                            text-border
-                            transition-all
-                            cursor-pointer
-                            hover:text-primary-foreground"/>
-                          </div>
-                    ))}
-                    </div>
                 </div>
               </motion.div>
             ))}
@@ -310,4 +265,4 @@ const LandingOurTeam = () => {
   )
 }
 
-export default LandingOurTeam
+export default LandingOurServices

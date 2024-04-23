@@ -8,6 +8,8 @@ export const RoutesName = {
         Contact:'/contact',
         OurTeam:'/our-team',
         OurTeamDetails: '/team-details',
+        OurServices:'/our-services',
+        OurServiceDetails:'/our-services/:id',
         Pages: '/#',
         Services: '/services',
         Portfolio: '/portfolio',

@@ -38,19 +38,19 @@ const useNavbarRoutes = () =>{
         },
         {
             id: 'services',
-            navigate: () => navigate(RoutesName.Services),
+            navigate: () => navigate(RoutesName.OurServices),
             icon: RxDashboard,
             active: RoutesName.Services===location.pathname,
             label: 'Services',
             dropdownItems: [
                 {
                     id: 'our-services',
-                    navigate: () => navigate(RoutesName.OurTeam),
+                    navigate: () => navigate(RoutesName.OurServices),
                     label: 'Our Services',
                 },
                 {
                     id: 'service-details',
-                    navigate: () => navigate(RoutesName.OurTeam),
+                    navigate: () => navigate(RoutesName.OurServices+"/backup-recovery"),
                     label: 'Service Details',
                 }
             ]
@@ -64,7 +64,7 @@ const useNavbarRoutes = () =>{
             dropdownItems: [
                 {
                     id: 'our-portfolio',
-                    navigate: () => navigate(RoutesName.OurTeam),
+                    navigate: () => navigate(RoutesName.OurServices),
                     label: 'Our Portfolio',
                 },
                 {

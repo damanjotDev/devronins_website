@@ -44,8 +44,7 @@ const sendMessageFormDefaultValues = {
   message: '',
   service_type: ''
 }
-
-export const LandingContactPage = () => {
+const LandingContactPage = () => {
   const navigate = useNavigate()
 
   const {
@@ -356,3 +355,5 @@ export const LandingContactPage = () => {
     </div>
   )
 }
+
+export default LandingContactPage

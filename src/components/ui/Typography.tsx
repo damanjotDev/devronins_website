@@ -47,6 +47,14 @@ export function TypographyH5({title="hello", className="", onClick}: TypographyP
     )
 }
 
+export function TypographyH6({title="hello", className=""}: TypographyProps) {
+    return (
+        <h4 className={cn("scroll-m-20 text-lg font-bold ",className)}>
+            {title}
+        </h4>
+    )
+}
+
 export function TypographyP({title="hello", className=""}: TypographyProps) {
     return (
         <p className={cn("leading-6 [&:not(:first-child)]:mt-6", className)}>

@@ -76,6 +76,9 @@ module.exports = {
         },
         darkblue2: {
           DEFAULT: "hsl(var(--dark-blue2))",
+        },
+        lightblue1: {
+          DEFAULT: "hsl(var(--light-blue1))",
         }
       },
       borderRadius: {
@@ -99,5 +102,5 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),require('tailwind-scrollbar'),],
 }
