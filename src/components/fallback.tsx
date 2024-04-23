@@ -4,11 +4,14 @@ import { motion } from "../utils/animation"
 const FallbackLoading = () => {
     return (
         <div className='
-   w-full 
-   h-screen
-   flex
-   items-center
-   justify-center'>
+        fixed
+        w-full 
+        top-0
+        bottom-0
+        h-screen
+        flex
+        items-center
+        justify-center'>
             <motion.div className='w-[25px] h-[25px] relative'
             initial={{opacity: 70}}
             animate={{opacity: 100}}

@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { cn } from '../../lib/utils';
 import useScrollHook from '../../hooks/useScrollbar'
 import { motion } from "../../utils/animation"
 import { GoArrowRight} from "../../utils/icons"
+import { useLocation } from 'react-router-dom';
 
 export const ScrollToTop = () => {
     const isScrolled = useScrollHook();
+    const { pathname } = useLocation()
 
     const handleScrollToTop = () => {
        window.scrollTo({top: 0, behavior: 'smooth'}) 
     }
+
+    useMemo(()=>{
+        handleScrollToTop()
+    },[pathname])
 
     return (
         <div className={cn("fixed bottom-[30px] right-[0px] z-20", isScrolled && "block")}>
@@ -30,4 +36,3 @@ export const ScrollToTop = () => {
         </div>
     )
 }
-

@@ -142,7 +142,7 @@ const LandingOurTeamDetails = () => {
                 lg:items-center
                 '>
               {/* Team member image */}
-              <div className='h-[540px] lg:w-[43%] bg-gray-400'>
+              <div className='lg:w-[43%] bg-gray-400 md:h-full h-[80%]'>
                 <img src={teamMembersDetails.imageUrl} className='h-full w-full ' />
               </div>
 

@@ -176,7 +176,7 @@ import { cn } from '../../lib/utils';
               transition={{duration:0.3, delay: 0.2*index}}
               layout>
                 <div key={index}
-                  className='h-[300px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
+                  className='md:h-[300px] h-[350px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
                   <img src={ele.imageUrl} className='w-full h-full' />
 
