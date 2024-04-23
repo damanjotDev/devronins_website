@@ -187,7 +187,8 @@ export const LandingOurTeam = () => {
               initial={{y: 10, opacity: 0}}
               whileInView={{y:0, opacity: 1}}
               viewport={{once: true}}
-              transition={{duration:0.2*index}}>
+              transition={{duration:0.3, delay: 0.2*index}}
+              layout>
                 <div key={index}
                   className='h-[370px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
