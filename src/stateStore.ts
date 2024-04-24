@@ -2,11 +2,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
 import IncDecReducer from './reducers/IncDecSlice'
+import ClientReviewReducer from "./reducers/client_review";
 
 const store = configureStore({
   reducer: {
-    IncDec: IncDecReducer, //convention is to to write the text preceding the word "Reducer"
-    //enter all your reducers here
+    IncDec: IncDecReducer,
+    ClientReview: ClientReviewReducer
   }
 })
 

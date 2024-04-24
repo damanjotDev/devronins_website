@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TypographyH2, TypographyH3, TypographyH4, TypographyP } from '../ui/Typography'
 import { motion, useAnimation } from "../../utils/animation"
 import { CarouselDApiDemo } from './review_carousel'
 import worldmap from "../../assets/images/worldmap.jpg"
 import womenImage from "../../assets/images/woman.png"
+import { useAppDispatch, useTypedSelector } from '../../stateStore'
+import { getClientReviews } from '../../services'
+
+
 const Reviews = () => {
-   
+    const dispatch = useAppDispatch()
+    const {loading, error, client_reviews } = useTypedSelector((state)=> state.ClientReview)
+    
+    useEffect(()=>{
+      dispatch(getClientReviews())
+    },[])
 
     return (
         <div className='
@@ -78,7 +87,7 @@ const Reviews = () => {
                 flex
                 items-center
                 justify-center'>
-                    <CarouselDApiDemo/>
+                    <CarouselDApiDemo data = {client_reviews}/>
                 </div>
 
                 {/* Background Image */}
@@ -118,4 +127,4 @@ const Reviews = () => {
     )
 }
 
-export default Reviews
+export default React.memo(Reviews)

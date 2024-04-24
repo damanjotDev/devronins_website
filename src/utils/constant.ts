@@ -20,3 +20,12 @@ export const RoutesName = {
 }
 
 export const AvailableRoutes = Object.values(RoutesName);
+
+//firebase collection names
+
+export const firebaseCollectionName = {
+        ClientReviews: 'client_reviews',
+        Devronins: 'devronins',
+        Services: 'services',
+        TeamMembers:'team_members'
+}

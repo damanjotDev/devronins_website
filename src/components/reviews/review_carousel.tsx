@@ -10,12 +10,14 @@ import {
 import { FaStar } from '../../utils/icons'
 import { TypographyH2, TypographyH3, TypographyH4, TypographyP } from "../ui/Typography"
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { ClientReviewModal } from "../../reducers/client_review";
 
-export function CarouselDApiDemo() {
+export function CarouselDApiDemo({data}:{data: ClientReviewModal[] | null}) {
+  
   return (
     <Carousel className="w-full transparent ">
       <CarouselContent className="border-0 gap-[100%]">
-        {Array.from({ length: 5 }).map((_, index) => (
+        {data?.map((item, index) => (
           <CarouselItem key={index}>
             <div className="p-2 lg:p-4">
               <Card className="border-0 shadow-lg">
@@ -38,7 +40,7 @@ export function CarouselDApiDemo() {
                     flex
                     text-secondary-foreground'>
                         <TypographyP
-                            title="“Working with several word press themes and templates the last years, I only can say this is the best in every level. I use it for my company and the reviews that I have already are all excellent. Support is helping to fix my issues now.”"
+                            title={item?.description}
                             className='text-xl' />
                   </div>
                   <div className="
@@ -47,7 +49,7 @@ export function CarouselDApiDemo() {
                   gap-3">
                    <Avatar className="w-[100px] h-[100px] border-[3px] border-primary flex items-center justify-center">
                    <Avatar className="w-[90%] h-[90%]">
-                    <AvatarImage src="https://github.com/shadcn.png"/>
+                    <AvatarImage src={item?.image_url}/>
                     <AvatarFallback>CN</AvatarFallback>
                     </Avatar>
                    </Avatar>
@@ -57,8 +59,8 @@ export function CarouselDApiDemo() {
                     flex-col
                     items-center
                     gap-1">
-                      <TypographyH3 title="Sachin Diwar"/>
-                      <TypographyH4 className="text-primary" title="CEO /Founder"/>
+                      <TypographyH3 title={item?.name}/>
+                      <TypographyH4 className="text-primary" title={item?.title}/>
                     </div>
                   </div>
                 </CardContent>

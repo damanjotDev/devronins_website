@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from '../../components/navbars/navbar';
 import { Hero } from '../../components/hero/hero';
 import Features from '../../components/features/features';
@@ -9,7 +9,10 @@ import Steps from '../../components/steps/steps';
 import Reviews from '../../components/reviews/reviews';
 import Footer from '../../components/footer/footer';
 
+
+
 export const LandingHomePage = () => {
+ 
   return (
     <div className='w-full h-full'>
       <Navbar/>
