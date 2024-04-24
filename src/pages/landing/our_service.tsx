@@ -11,7 +11,7 @@ import { cn } from '../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../stateStore';
 import { getServices } from '../../services';
 import useScrollHook from '../../hooks/useScrollbar';
-import { LoadingErrorWrapper } from '../../components/loading/loading_error_wrapper';
+import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapper';
 
 
 

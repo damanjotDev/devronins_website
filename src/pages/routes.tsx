@@ -2,7 +2,8 @@ import React, { Component, Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { LandingHomePage } from './landing/home';
 import { RoutesName } from '../utils/constant';
-import FallbackLoading from '../components/loading/fallback';
+import FallbackLoading from '../components/common/fallback';
+import NotFoundPage from '../components/common/not_found';
 const LandingContactPage = lazy(()=> import('./landing/contact'));
 const LandingOurTeam = lazy(()=> import('./landing/our_team'));
 const LandingOurTeamDetails  = lazy (()=> import('./landing/team_details'));
@@ -36,7 +37,8 @@ const RouteHanding = () => {
                         <Route path={RoutesName.OurServices} element={<Suspense fallback={<FallbackLoading/>}><LandingOurServices /></Suspense>} />
                         <Route path={RoutesName.OurServiceDetails} element={<Suspense fallback={<FallbackLoading/>}><LandingOurServiceDetails /></Suspense>} />
                         {/* Not Found route */}
-                        <Route path="*" element={<h1>Not Found</h1>} />
+                        <Route path="/not-found" element={<NotFoundPage/>} />
+                        <Route path="*" element={<NotFoundPage/>} />
                   </Routes>
             )
       }

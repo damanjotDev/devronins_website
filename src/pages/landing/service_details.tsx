@@ -10,7 +10,7 @@ import Footer from '../../components/footer/footer';
 import { cn } from '../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../stateStore';
 import { getServiceById, getServices } from '../../services';
-import { LoadingErrorWrapper } from '../../components/loading/loading_error_wrapper';
+import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapper';
 
 
 
@@ -22,7 +22,7 @@ const LandingOurServiceDetails = () => {
   const { serviceItemLoading, serviceListLoading, error, services, service: serviceDetails} = useTypedSelector((state)=> state.Services);
 
   useEffect(()=>{
-    dispatch(getServiceById({ serviceId: id, navigate: ()=> navigate('*'), }))
+    dispatch(getServiceById({ serviceId: id, navigate: ()=> navigate(RoutesName.NotFound)}))
   },[id])
 
   useEffect(()=>{

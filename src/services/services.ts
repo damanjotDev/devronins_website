@@ -23,7 +23,7 @@ export const getServiceById = createAsyncThunk<any,any>('servicesSlice/getServic
     } catch (err) {
         const error = err as any;
         if(error?.message==='document not found'){
-            params?.navigate('*')
+            params?.navigate()
         }
         console.log('33', error)
         return thunkApi.rejectWithValue(error.response?.status)
