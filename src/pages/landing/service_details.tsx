@@ -129,7 +129,7 @@ const LandingOurServiceDetails = () => {
                 overflow-y-auto 
                 scrollbar-none'>
                     {services?.map((ele,index)=>(
-                       <div className='flex w-full bg-card py-[14px] px-10'>
+                       <div onClick={()=> navigate(RoutesName.OurServices+"/"+ele?.id)}  className='flex w-full bg-card py-[14px] px-10'>
                          <TypographyH6 title={ele?.name || "n/a"} className='text-black' />
                        </div>
                     ))}
