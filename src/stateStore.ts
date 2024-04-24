@@ -1,13 +1,14 @@
 // stateStore.ts
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
-import IncDecReducer from './reducers/IncDecSlice'
-import ClientReviewReducer from "./reducers/client_review";
+import { ClientReviewReducer, IncDecReducer, ServicesReducer } from "./reducers";
+
 
 const store = configureStore({
   reducer: {
     IncDec: IncDecReducer,
-    ClientReview: ClientReviewReducer
+    ClientReview: ClientReviewReducer,
+    Services: ServicesReducer
   }
 })
 

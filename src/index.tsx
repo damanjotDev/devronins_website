@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import "./global.css"
 import App from './App';
 import store from './stateStore';
+import { ScrollToTop } from './components/scrollToTop/scrollToTop';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <BrowserRouter>
+      <ScrollToTop/>
       <App/>
     </BrowserRouter>
   </Provider>

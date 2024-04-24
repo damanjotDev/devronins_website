@@ -2,7 +2,7 @@ import React, { Component, Suspense, lazy } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { LandingHomePage } from './landing/home';
 import { RoutesName } from '../utils/constant';
-import FallbackLoading from '../components/fallback';
+import FallbackLoading from '../components/loading/fallback';
 const LandingContactPage = lazy(()=> import('./landing/contact'));
 const LandingOurTeam = lazy(()=> import('./landing/our_team'));
 const LandingOurTeamDetails  = lazy (()=> import('./landing/team_details'));
@@ -12,6 +12,7 @@ const LandingOurServiceDetails  = lazy(() => import('./landing/service_details')
 const RouteHanding = () => {
 
       const isLogin = false;
+      console.log('15')
 
       if (isLogin) {
             return (

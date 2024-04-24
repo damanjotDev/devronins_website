@@ -1,5 +1,5 @@
 import React from 'react'
-import { motion } from "../utils/animation"
+import { motion } from "../../utils/animation"
 
 const FallbackLoading = () => {
     return (

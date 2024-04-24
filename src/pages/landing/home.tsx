@@ -8,6 +8,7 @@ import Analytics from '../../components/analytics/analytics';
 import Steps from '../../components/steps/steps';
 import Reviews from '../../components/reviews/reviews';
 import Footer from '../../components/footer/footer';
+import { ScrollToTop } from '../../components/scrollToTop/scrollToTop';
 
 
 
@@ -15,6 +16,7 @@ export const LandingHomePage = () => {
  
   return (
     <div className='w-full h-full'>
+      <ScrollToTop/>
       <Navbar/>
       <Hero/>
       <Features/>

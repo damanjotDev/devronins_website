@@ -20,10 +20,22 @@ export const firebaseApi = {
     // GET request
     get: async (collectionName: string): Promise<any> => {
       try {
-        const dataCol = collection(db, 'client_reviews');
+        const dataCol = collection(db, collectionName);
         const dataSnapshot = await getDocs(dataCol);
         const dataList = dataSnapshot.docs.map(doc => doc.data());
         return dataList
+      } catch (error) {
+        throw error
+      }
+    },
+    getById: async ({collectionName, docId}:{collectionName: string, docId: string}): Promise<any> => {
+      try {
+        const dataCol = collection(db, collectionName);
+        const dataSnapshot = await getDocs(dataCol);
+        const dataList = dataSnapshot.docs.map(doc => doc.data());
+        const data = dataList?.find((ele)=> ele?.id===docId);
+        if(!data) throw({status: 401, message: 'document not found'});
+        return data
       } catch (error) {
         throw error
       }

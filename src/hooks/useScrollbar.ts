@@ -3,6 +3,10 @@ import { useState, useEffect } from 'react';
 function useScrollHook() {
   const [scrolled, setScrolled] = useState(false);
 
+  const handleScrollToTop = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'}) 
+ }
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -20,7 +24,7 @@ function useScrollHook() {
     };
   }, []);
 
-  return scrolled;
+  return {scrolled, handleScrollToTop};
 }
 
 export default useScrollHook;

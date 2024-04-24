@@ -15,7 +15,6 @@ function App() {
     w-full
     lg:pt-[96px] pt-[60px]">
       <MouseCursorBackground/>
-      <ScrollToTop/>
       <RouteHanding/>
     </div>
   );

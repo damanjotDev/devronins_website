@@ -21,6 +21,12 @@ export const RoutesName = {
 
 export const AvailableRoutes = Object.values(RoutesName);
 
+//--------------------funtion to convert valid route name
+
+export const ConvertIntoValidRoute = (path: string)=>{
+        return path?.toLocaleLowerCase()?.split(" ")?.join("-")
+}
+
 //firebase collection names
 
 export const firebaseCollectionName = {

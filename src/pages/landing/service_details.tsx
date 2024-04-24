@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
@@ -7,76 +7,28 @@ import { IoLocation, MdKeyboardDoubleArrowRight, IoPlanetOutline, FiPhone, TbAwa
 import { RoutesName } from '../../utils/constant';
 import { useLocation, useNavigate, useParams} from 'react-router-dom';
 import Footer from '../../components/footer/footer';
-import HeroImage from "../../assets/images/hero.png"
 import { cn } from '../../lib/utils';
+import { useAppDispatch, useTypedSelector } from '../../stateStore';
+import { getServiceById, getServices } from '../../services';
+import { LoadingErrorWrapper } from '../../components/loading/loading_error_wrapper';
 
 
 
 const LandingOurServiceDetails = () => {
   const navigate = useNavigate();
-  const path = useParams()?.id;
+  const { id } = useParams();
+  
+  const dispatch = useAppDispatch()
+  const { serviceItemLoading, serviceListLoading, error, services, service: serviceDetails} = useTypedSelector((state)=> state.Services);
 
-  const serviceDetails = {
-      id: '1',
-      title: "Backup & Recovery",
-      description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-      imageUrl: HeroImage,
-      infromation: 'With over a decade of experience, we’ve established ourselves as one of the pioneering agencies in the region. Our small, flexible, agile and design-led structures and processes allow us to be highly responsive and innovative. We’re made of passionate leaders, strategists, managers, developers, animators and designers who work together under one umbrella. We are a digitally-led, full-service creative agency. We combine strategy, marketing, design.'
-    }
-
-    const services = [
-        {
-          id: '1',
-          title: "Backup & Recovery",
-          description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-          imageUrl: HeroImage
-        },
-        {
-          id: '2',
-          title: "VoIP Solutions",
-          description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-          imageUrl: HeroImage
-        },
-        {
-            id: '3',
-            title: "Consulting Planning",
-            description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-            imageUrl: HeroImage
-        },
-        {
-            id: '4',
-            title: "IT Consultency",
-            description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-            imageUrl: HeroImage
-        },
-        {
-            id: '5',
-            title: "Internet Thinking",
-            description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-            imageUrl: HeroImage
-        },
-        {
-            id: '6',
-            title: "Security & Compliance",
-            description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-            imageUrl: HeroImage
-        },
-        {
-            id: '7',
-            title: "Web Development",
-            description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-            imageUrl: HeroImage
-        },
-        {
-            id: '8',
-            title: "Digital Marketing",
-            description: "Our goal is to propel your to business forward with world-class IT cybersecurity and technology. We provide the expert solutions.",
-            imageUrl: HeroImage
-        },
-      ]
+  useEffect(()=>{
+    dispatch(getServiceById({ serviceId: id, navigate: ()=> navigate('*'), }))
+    dispatch(getServices())
+  },[])
 
   return (
-    <div className='w-full h-full'>
+    <LoadingErrorWrapper loading={serviceItemLoading || serviceListLoading}>
+      <div className='w-full h-full'>
       <Navbar />
 
       {/* service details main section */}
@@ -107,7 +59,7 @@ const LandingOurServiceDetails = () => {
               gap-2
               '>
               <div className='flex text-white'>
-                <TypographyH1 title={serviceDetails.title} className='font-semibold' />
+                <TypographyH1 title={serviceDetails?.name || "n/a"} className='font-semibold' />
               </div>
               <div className='flex items-center gap-2 text-white'>
                 <div
@@ -127,7 +79,7 @@ const LandingOurServiceDetails = () => {
                 <MdKeyboardDoubleArrowRight size={20} className='text-destructive' />
 
                 <div className='flex'>
-                  <TypographyP title={serviceDetails.title} className='opacity-85' />
+                  <TypographyP title={serviceDetails?.name || "n/a"} className='opacity-85' />
                 </div>
               </div>
             </div>
@@ -178,7 +130,7 @@ const LandingOurServiceDetails = () => {
                 scrollbar-none'>
                     {services?.map((ele,index)=>(
                        <div className='flex w-full bg-card py-[14px] px-10'>
-                         <TypographyH6 title={ele.title} className='text-black' />
+                         <TypographyH6 title={ele?.name || "n/a"} className='text-black' />
                        </div>
                     ))}
                 </div>
@@ -273,7 +225,7 @@ const LandingOurServiceDetails = () => {
 
                            <div className='flex'>
                              <TypographyP 
-                             title={serviceDetails.infromation} 
+                             title={serviceDetails?.infromation || "n/a"} 
                              className='text-muted-foreground font-semibold'/>
                            </div>
                     </div>
@@ -449,6 +401,7 @@ const LandingOurServiceDetails = () => {
         </div>
       </div>
     </div>
+    </LoadingErrorWrapper>
   )
 }
 export default LandingOurServiceDetails

@@ -10,6 +10,7 @@ interface ClientReviewInitialStateType {
 } // the type of the initial state of slice.
 
 export interface ClientReviewModal {
+  id: string;
   name: string;
   title: string;
   image_url: string;

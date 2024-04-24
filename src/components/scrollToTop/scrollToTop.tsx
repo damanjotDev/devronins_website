@@ -6,15 +6,12 @@ import { GoArrowRight} from "../../utils/icons"
 import { useLocation } from 'react-router-dom';
 
 export const ScrollToTop = () => {
-    const isScrolled = useScrollHook();
-    const { pathname } = useLocation()
+    const {scrolled: isScrolled, handleScrollToTop} = useScrollHook();
+    const pathname = useLocation()
 
-    const handleScrollToTop = () => {
-       window.scrollTo({top: 0, behavior: 'smooth'}) 
-    }
-
-    useMemo(()=>{
+    useEffect(()=>{
         handleScrollToTop()
+        console.log('working')
     },[pathname])
 
     return (
