@@ -31,10 +31,12 @@ import { LoadingErrorWrapper } from '../../components/loading/loading_error_wrap
       <Navbar />
 
       {/* contact main section */}
-      <div className='
+      <motion.div className='
         flex
-        flex-col
-        '>
+        flex-col'
+        initial={{opacity: 0}}
+        animate={{opacity: 100}}
+        transition={{duration: 0.4}}>
         {/* Contact Background image section */}
         <div className='
         relative
@@ -222,7 +224,7 @@ import { LoadingErrorWrapper } from '../../components/loading/loading_error_wrap
         <div className='flex'>
           <Footer />
         </div>
-      </div>
+      </motion.div>
     </div>
     </LoadingErrorWrapper>
   )

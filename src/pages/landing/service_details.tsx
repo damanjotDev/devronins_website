@@ -23,6 +23,9 @@ const LandingOurServiceDetails = () => {
 
   useEffect(()=>{
     dispatch(getServiceById({ serviceId: id, navigate: ()=> navigate('*'), }))
+  },[id])
+
+  useEffect(()=>{
     dispatch(getServices())
   },[])
 
@@ -199,7 +202,7 @@ const LandingOurServiceDetails = () => {
                 <div className='
                 w-full
                 flex'>
-                    <img src='https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/service3-800x570.jpg'
+                    <img src={serviceDetails?.image_url}
                     className='lg:h-full w-full h-[50%]'/>
                 </div>
 

@@ -12,11 +12,7 @@ const FallbackLoading = () => {
         flex
         items-center
         justify-center'>
-            <motion.div className='w-[50px] h-[50px] relative'
-            initial={{opacity: 70}}
-            animate={{opacity: 100}}
-            transition={{duration: 0.1}}
-            exit={{opacity: 70}}>
+            <motion.div className='w-[50px] h-[50px] relative'>
                 <motion.div
                     className='w-[25px] h-[25px]  rounded-[50%] border-[3px] border-blue1 absolute flex items-center justify-center'
                     animate={{
