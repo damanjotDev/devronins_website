@@ -13,6 +13,8 @@ import { Loader2 } from 'lucide-react';
 import worldmap from "../../assets/images/worldmap.jpg"
 import Map from "../../components/map/map";
 import { yupResolver, yup, useForm, SubmitHandler, FieldValues } from "../../utils/react-hook-form"
+import { SendMail } from "../../services/sendMail";
+import { useState } from "react";
 
 const ServiceType = [
   'Success Fulfill',
@@ -45,12 +47,14 @@ const sendMessageFormDefaultValues = {
 }
 const LandingContactPage = () => {
   const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
 
   const {
     register,
     handleSubmit,
     setValue,
     watch,
+    reset,
     formState: {
       errors,
     }
@@ -59,8 +63,17 @@ const LandingContactPage = () => {
     resolver: yupResolver(sendMessageFormValidation),
   });
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    setLoading(true)
+    await SendMail({
+      from_name: data.name,
+      message: data.message,
+      service_type: data.service_type,
+      contact_no: data?.phone || "N/A",
+      email: data.email
+    })
+    setLoading(false)
+    reset()
   }
 
   return (
@@ -284,23 +297,23 @@ const LandingContactPage = () => {
 
                   <div className="grid w-full items-center gap-1.5">
                     <label htmlFor="name" className='text-sm'>Name (required)</label>
-                    <Input type="text" id="name" placeholder="Your name*" {...register('name')} error={errors?.name?.message}/>
+                    <Input disabled={loading} type="text" id="name" placeholder="Your name*" {...register('name')} error={errors?.name?.message}/>
                   </div>
 
                   <div className="grid w-full items-center gap-1.5">
                     <label htmlFor="email" className='text-sm'>Email adress (required)</label>
-                    <Input type="email" id="email" placeholder="Mail*" {...register('email')} error={errors?.email?.message}/>
+                    <Input disabled={loading} type="email" id="email" placeholder="Mail*" {...register('email')} error={errors?.email?.message}/>
                   </div>
 
                   <div className="grid w-full items-center gap-1.5">
                     <label htmlFor="phone" className='text-sm'>Phone (optional)</label>
-                    <Input type="text" id="phone" placeholder="Your phone" {...register('phone')} error={errors?.phone?.message}/>
+                    <Input disabled={loading} type="text" id="phone" placeholder="Your phone" {...register('phone')} error={errors?.phone?.message}/>
                   </div>
 
                   <div className="grid w-full items-center gap-1.5">
                     <label htmlFor="service_type" className='text-sm'>Services (required)</label>
-                    <Select onValueChange={(value)=> setValue('service_type', value)} value={watch('service_type')}>
-                      <SelectTrigger className="w-full" error={errors?.service_type?.message}>
+                    <Select  onValueChange={(value)=> setValue('service_type', value)} value={watch('service_type')}>
+                      <SelectTrigger disabled={loading} className="w-full" error={errors?.service_type?.message}>
                         <SelectValue placeholder="Select Service"/>
                       </SelectTrigger>
                       <SelectContent >
@@ -314,11 +327,11 @@ const LandingContactPage = () => {
 
                   <div className="grid w-full items-center gap-1.5 lg:col-span-2">
                     <label htmlFor="message" className='text-sm'>Your message</label>
-                    <Textarea id="message" placeholder="Type message*" className='h-[140px]' {...register('message')} error={errors?.message?.message}/>
+                    <Textarea disabled={loading} id="message" placeholder="Type message*" className='h-[140px]' {...register('message')} error={errors?.message?.message}/>
                   </div>
 
                   <Button type='submit' className='w-40 h-[auto] rounded-none gradient8 text-sm text-white py-3'>
-                    {false && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                     Send Message
                   </Button>
                 </form>
