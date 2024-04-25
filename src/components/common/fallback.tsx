@@ -4,6 +4,7 @@ import { motion } from "../../utils/animation"
 const FallbackLoading = () => {
     return (
         <div className='
+        z-[1000]
         fixed
         w-full 
         top-0
@@ -11,7 +12,8 @@ const FallbackLoading = () => {
         h-screen
         flex
         items-center
-        justify-center'>
+        justify-center
+        bg-white'>
             <motion.div className='w-[50px] h-[50px] relative'>
                 <motion.div
                     className='w-[25px] h-[25px]  rounded-[50%] border-[3px] border-blue1 absolute flex items-center justify-center'

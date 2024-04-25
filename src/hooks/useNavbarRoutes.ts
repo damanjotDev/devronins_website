@@ -10,7 +10,7 @@ const useNavbarRoutes = () =>{
 
     const routes = [
         {
-            id: 'Home',
+            id: '1',
             navigate: () => navigate(RoutesName.Home),
             icon: RxDashboard,
             active: RoutesName.Home===location.pathname,
@@ -18,57 +18,57 @@ const useNavbarRoutes = () =>{
             
         },
         {
-            id: 'Pages',
+            id: '2',
             navigate: () => navigate(RoutesName.Pages),
             icon: MdOutlineAnalytics,
             active: RoutesName.Pages===location.pathname,
             label: 'Pages',
             dropdownItems: [
                 {
-                    id: 'our-team',
+                    id: '1',
                     navigate: () => navigate(RoutesName.OurTeam),
                     label: 'Our Team',
                 },
                 {
-                    id: 'team-details',
+                    id: '2',
                     navigate: () => navigate(RoutesName.OurTeamDetails),
                     label: 'Team Details',
                 }
             ]
         },
         {
-            id: 'services',
+            id: '3',
             navigate: () => navigate(RoutesName.OurServices),
             icon: RxDashboard,
             active: RoutesName.Services===location.pathname,
             label: 'Services',
             dropdownItems: [
                 {
-                    id: 'our-services',
+                    id: '1',
                     navigate: () => navigate(RoutesName.OurServices),
                     label: 'Our Services',
                 },
                 {
-                    id: 'service-details',
+                    id: '2',
                     navigate: () => navigate(RoutesName.OurServices+"/backup-recovery"),
                     label: 'Service Details',
                 }
             ]
         },
         {
-            id: 'Portfolio',
+            id: '4',
             navigate: () => navigate(RoutesName.Customer),
             icon: MdOutlineAnalytics,
             active: RoutesName.Portfolio===location.pathname,
             label: 'Portfolio',
             dropdownItems: [
                 {
-                    id: 'our-portfolio',
+                    id: '1',
                     navigate: () => navigate(RoutesName.OurServices),
                     label: 'Our Portfolio',
                 },
                 {
-                    id: 'portfolio-details',
+                    id: '2',
                     navigate: () => navigate(RoutesName.OurTeam),
                     label: 'Portfolio Details',
                 }

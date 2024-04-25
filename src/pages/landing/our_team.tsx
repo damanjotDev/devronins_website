@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
 import { IoLocation, MdKeyboardDoubleArrowRight, FaFacebookF, FaTwitter, FaInstagram } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../../components/footer/footer';
 import { cn } from '../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../stateStore';
 import { getTeamMembers } from '../../services';
@@ -27,7 +25,6 @@ const LandingOurTeam = () => {
   return (
     <LoadingErrorWrapper loading={teamMembersListLoading}>
       <div className='w-full h-full'>
-      <Navbar />
 
       {/* contact main section */}
       <div className='
@@ -125,13 +122,13 @@ const LandingOurTeam = () => {
             gap-10'>
             {teamMembers?.map((ele, index) => (
               <motion.div  
+              key={ele.id}
               className='flex relative group w-full'
               initial={{y: 10, opacity: 0}}
               whileInView={{y:0, opacity: 1}}
               viewport={{once: true}}
-              transition={{duration:0.3, delay: 0.2*index}}
-              layout>
-                <div key={ele.id}
+              transition={{duration:0.3, delay: 0.2*index}}>
+                <div
                   className='h-[370px] relative overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
                   <img src={ele.image_url} className='w-full h-full' />
@@ -224,6 +221,7 @@ const LandingOurTeam = () => {
                     bg-white'>
                     {ele.social_links?.map(({id, social_link, social_type}, index)=>(
                           <div 
+                            key={id}
                             className={cn("flex border group-hover:border-primary p-3 px-3",
                             ele.social_links!==null && index<ele.social_links?.length-1 &&"border-r-0"
                             )}>
@@ -250,10 +248,6 @@ const LandingOurTeam = () => {
               </motion.div>
             ))}
           </div>
-        </div>
-
-        <div className='flex'>
-          <Footer />
         </div>
       </div>
     </div>

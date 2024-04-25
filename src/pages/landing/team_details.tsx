@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
-import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
 import { MdKeyboardDoubleArrowRight, FaCheckCircle, FiPhone, MdOutlineMarkEmailRead, IoLocationOutline, FaFacebookF, FaTwitter, FaInstagram } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
 import { useNavigate, useParams } from 'react-router-dom';
-import Footer from '../../components/footer/footer';
-import HeroImage from "../../assets/images/hero.png"
-import { useSocialLinkRoutes } from '../../hooks/useSocialLink';
 import { Progress } from '../../components/ui/progress';
 import { cn } from '../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../stateStore';
@@ -67,7 +63,6 @@ const LandingOurTeamDetails = () => {
   return (
     <LoadingErrorWrapper loading={teamMemberItemLoading || teamMembersListLoading}>
       <div className='w-full h-full'>
-      <Navbar />
 
       {/* contact main section */}
       <div className='
@@ -239,6 +234,7 @@ const LandingOurTeamDetails = () => {
                         bg-white'>
                   {teamMember?.social_links?.map(({id, social_link, social_type}, index) => (
                     <div 
+                      key={id}
                       className={cn("flex border group-hover:border-primary p-3 px-3",
                       teamMember.social_links!==null && index<teamMember.social_links?.length-1 &&"border-r-0"
                       )}>
@@ -298,7 +294,9 @@ const LandingOurTeamDetails = () => {
                            flex-col
                            gap-3'>
                     {addtionalSkills?.map((skill, index) => (
-                      <div className='flex gap-4 items-center'>
+                      <div 
+                      key={index+1}
+                      className='flex gap-4 items-center'>
                         <div className='flex'>
                           <FaCheckCircle size={20} />
                         </div>
@@ -328,12 +326,12 @@ const LandingOurTeamDetails = () => {
 
                   {progressData?.map((item) => (
                     <div className='
-                            lg:w-[80%]
-                            w-full
-                            flex
-                            flex-col
-                            gap-3
-                            text-secondary-foreground'
+                      lg:w-[80%]
+                      w-full
+                      flex
+                      flex-col
+                      gap-3
+                      text-secondary-foreground'
                       key={item.id}>
                       <div className='
                                 flex
@@ -392,10 +390,6 @@ const LandingOurTeamDetails = () => {
             </div>
 
           </div>
-        </div>
-
-        <div className='flex'>
-          <Footer />
         </div>
       </div>
     </div>

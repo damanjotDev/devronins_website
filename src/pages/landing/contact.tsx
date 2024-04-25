@@ -1,5 +1,5 @@
 
-import { Navbar } from '../../components/navbars/navbar';
+
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
 import { IoLocation, MdKeyboardDoubleArrowRight } from "../../utils/icons"
@@ -11,7 +11,6 @@ import { Textarea } from '../../components/ui/textarea';
 import { Button } from '../../components/ui/button';
 import { Loader2 } from 'lucide-react';
 import worldmap from "../../assets/images/worldmap.jpg"
-import Footer from '../../components/footer/footer';
 import Map from "../../components/map/map";
 import { yupResolver, yup, useForm, SubmitHandler, FieldValues } from "../../utils/react-hook-form"
 
@@ -66,7 +65,6 @@ const LandingContactPage = () => {
 
   return (
     <div className='w-full h-full'>
-      <Navbar />
 
       {/* contact main section */}
       <div className='
@@ -307,7 +305,7 @@ const LandingContactPage = () => {
                       </SelectTrigger>
                       <SelectContent >
                         {ServiceType?.map((item,index)=>(
-                          <SelectItem value={item}>{item}</SelectItem>
+                          <SelectItem key={index+1} value={item}>{item}</SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -347,9 +345,6 @@ const LandingContactPage = () => {
         h-[300px]
         pt-20'>
           <Map />
-        </div>
-        <div className='flex'>
-          <Footer />
         </div>
       </div>
     </div>

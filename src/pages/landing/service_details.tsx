@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH2, TypographyH4, TypographyH5, TypographyH6, TypographyP } from '../../components/ui/Typography';
 import { IoLocation, MdKeyboardDoubleArrowRight, IoPlanetOutline, FiPhone, TbAward, MdMoneyOff, SiNamecheap, FaLink } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
 import { useLocation, useNavigate, useParams} from 'react-router-dom';
-import Footer from '../../components/footer/footer';
 import { cn } from '../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../stateStore';
 import { getServiceById, getServices } from '../../services';
@@ -32,7 +30,6 @@ const LandingOurServiceDetails = () => {
   return (
     <LoadingErrorWrapper loading={serviceItemLoading || serviceListLoading}>
       <div className='w-full h-full'>
-      <Navbar />
 
       {/* service details main section */}
       <div className='
@@ -132,7 +129,10 @@ const LandingOurServiceDetails = () => {
                 overflow-y-auto 
                 scrollbar-none'>
                     {services?.map((ele,index)=>(
-                       <div onClick={()=> navigate(RoutesName.OurServices+"/"+ele?.id)}  className='flex w-full bg-card py-[14px] px-10'>
+                       <div
+                        key={ele.id} 
+                        onClick={()=> navigate(RoutesName.OurServices+"/"+ele?.id)}  
+                        className='flex w-full bg-card py-[14px] px-10'>
                          <TypographyH6 title={ele?.name || "n/a"} className='text-black' />
                        </div>
                     ))}
@@ -397,10 +397,6 @@ const LandingOurServiceDetails = () => {
                  </div>
             </div>
           </div>
-        </div>
-
-        <div className='flex'>
-          <Footer />
         </div>
       </div>
     </div>

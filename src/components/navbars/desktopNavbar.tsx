@@ -1,5 +1,5 @@
 
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import useScrollNavbar from "../../hooks/useScrollbar";
 import { motion } from "../../utils/animation";
 import { TypographyH1, TypographyH3, TypographyH4, TypographyH5, TypographyP } from "../ui/Typography";
@@ -8,15 +8,17 @@ import { useNavbarRoutes } from "../../hooks/useNavbarRoutes";
 import { FaChevronDown, GoArrowRight} from "../../utils/icons"
 import { cn } from "../../lib/utils";
 import { useSocialLinkRoutes } from "../../hooks/useSocialLink";
+import { RoutesName } from "../../utils/constant";
+import { SocialLinks } from "../common/socialLinks";
+import { useTypedSelector } from "../../stateStore";
 
 
 const DesktopNavbar = () => {
   const navbarRoutes = useNavbarRoutes();
   const socialLinkRoutes =  useSocialLinkRoutes();
-  const { pathname } = useLocation();
-  const scrolled = useScrollNavbar();
+  const navigate = useNavigate()
 
-
+  const { devroninsDetails, error, devroninsDetailsLoading} = useTypedSelector((state)=> state.Devronins);
 
   const textMotion = {
     rest: {
@@ -97,6 +99,7 @@ const DesktopNavbar = () => {
 
                 {navbarRoutes?.map((item)=>(
                   <motion.div 
+                  key={item.id}
                   className="
                   relative
                   flex
@@ -153,15 +156,16 @@ const DesktopNavbar = () => {
                           {item?.dropdownItems?.map(({id, label, navigate})=>(
                           
                               <motion.div 
+                              key={id}
                               className="
-                                flex
-                                items-center
-                                w-[150px]
-                                gap-2"
-                                initial="rest" 
-                                whileHover="hover" 
-                                animate="rest"
-                                onClick={navigate}
+                              flex
+                              items-center
+                              w-[150px]
+                              gap-2"
+                              initial="rest" 
+                              whileHover="hover" 
+                              animate="rest"
+                              onClick={navigate}
                                 >
                                   <motion.div className="
                                   borber-b
@@ -187,16 +191,10 @@ const DesktopNavbar = () => {
           <div className="
           flex
           items-center
-          gap-3">
-            {socialLinkRoutes?.map(({id, icon: Icon})=> 
-            <Icon 
-            size={18} 
-            className="
-            mt-[-6px] 
-            text-border
-            transition-all
-            cursor-pointer
-            hover:text-primary-foreground"/> )}
+          justify-center">
+           {devroninsDetails?.social_links?
+           <SocialLinks items={devroninsDetails?.social_links} className="border-none p-[6px]"/>
+           :null}
           </div>
 
           {/* Free Quote */}
@@ -218,8 +216,8 @@ const DesktopNavbar = () => {
             transition-all
             duration-200
             hover:text-white
-            hover:bg-primary
-            ">
+            hover:bg-primary"
+            onClick={()=> navigate(RoutesName.Contact)}>
               <TypographyH5 className="font-[600]" title="Free Quote"/>
               <GoArrowRight 
               size={20}

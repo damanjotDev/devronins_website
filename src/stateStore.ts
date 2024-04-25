@@ -1,7 +1,7 @@
 // stateStore.ts
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch, useSelector, TypedUseSelectorHook } from "react-redux";
-import { ClientReviewReducer, IncDecReducer, ServicesReducer, TeamMemberReducer } from "./reducers";
+import { ClientReviewReducer, IncDecReducer, ServicesReducer, TeamMemberReducer, DevroninsReducer } from "./reducers";
 
 
 const store = configureStore({
@@ -9,7 +9,8 @@ const store = configureStore({
     IncDec: IncDecReducer,
     ClientReview: ClientReviewReducer,
     Services: ServicesReducer,
-    TeamMember: TeamMemberReducer
+    TeamMember: TeamMemberReducer,
+    Devronins: DevroninsReducer
   }
 })
 

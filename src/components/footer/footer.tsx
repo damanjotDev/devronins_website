@@ -1,14 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { TypographyH2, TypographyH3, TypographyH4, TypographyP } from '../ui/Typography'
 import { motion, useAnimation } from "../../utils/animation"
-import { useFeatureCardData } from '../../hooks/useFeaturesCard'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { FiSend, IoLocation, BsTelephoneFill } from "../../utils/icons"
-import { useSocialLinkRoutes } from '../../hooks/useSocialLink'
+import { useAppDispatch, useTypedSelector } from '../../stateStore'
+import { getDevroninsDetails } from '../../services'
+import { SocialLinks } from '../common/socialLinks'
+import { useNavigate } from 'react-router-dom'
+import { RoutesName } from '../../utils/constant'
+
+const images = [
+    "https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/theme4.jpg",
+    "https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/service7-600x678.jpg",
+    "https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/service2-800x570.jpg",
+    "https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/service4-800x570.jpg",
+    "https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/service8-600x678.jpg",
+    "https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/service3-800x570.jpg"
+]
 
 const Footer = () => {
-    const socialLinkRoutes =  useSocialLinkRoutes();
+    const navigate = useNavigate();
+    const dispatch = useAppDispatch()
+    const { devroninsDetails, error, devroninsDetailsLoading} = useTypedSelector((state)=> state.Devronins);
+
+    useEffect(()=>{
+        dispatch(getDevroninsDetails())
+    },[])
 
     return (
         <div className='
@@ -61,8 +79,8 @@ const Footer = () => {
                         group
                         transition-all
                         duration-200
-                        hover:gradient5
-                        ">
+                        hover:gradient5"
+                        onClick={()=> navigate(RoutesName.Contact)}>
                             <TypographyH4 className="font-[500] text-md text-white" title="Get a quote" />
                         </button>
                     </div>
@@ -114,8 +132,8 @@ const Footer = () => {
                             group
                             transition-all
                             duration-200
-                            hover:gradient5
-                            ">
+                            hover:gradient5"
+                            onClick={()=> navigate(RoutesName.OurServices)}>
                                 <TypographyP className=" text-sm text-white" title="About us" />
                             </button>
                     </div>
@@ -157,15 +175,9 @@ const Footer = () => {
                         flex
                         items-center
                         gap-3">
-                            {socialLinkRoutes?.map(({id, icon: Icon})=> 
-                            <Icon 
-                            size={18} 
-                            className="
-                            mt-[-6px] 
-                            text-border
-                            transition-all
-                            cursor-pointer
-                            hover:text-primary-foreground"/> )}
+                           {devroninsDetails?.social_links?
+                           <SocialLinks items={devroninsDetails.social_links}/>:
+                           null}
                         </div>
                     </div>
 
@@ -187,8 +199,7 @@ const Footer = () => {
                            </div>
                            <div className='flex'>
                            <TypographyP
-                                title='30 Commercial Road
-                                Fratton, Australia'
+                                title={devroninsDetails?.address}
                                 className='text-sm leading-normal text-white font-light opacity-65' />
                            </div>
                         </div>
@@ -199,7 +210,7 @@ const Footer = () => {
                            </div>
                            <div className='flex'>
                            <TypographyP
-                                title='1-888-452-1505'
+                                title={devroninsDetails?.contact_no}
                                 className='text-sm leading-normal text-white font-light opacity-65' />
                            </div>
                         </div>
@@ -212,8 +223,7 @@ const Footer = () => {
                             </div>
                             <div className='flex'>
                                 <TypographyP
-                                title='Mon – Sat: 8 am – 5 pm,
-                                Sunday: CLOSED'
+                                title={devroninsDetails?.open_hours}
                                 className='text-sm leading-normal text-white font-light opacity-65' />
                             </div>
                         </div>
@@ -232,9 +242,9 @@ const Footer = () => {
                         </div>
 
                         <div className='grid grid-cols-3 gap-2'>
-                            {Array.from({length:6})?.map((ele)=>(
-                                <div className='h-[65px] bg-gray-400'>
-
+                            {images?.map((ele, index)=>(
+                                <div key={index} className='h-[65px] bg-gray-400'>
+                                    <img src={ele} className='h-full w-full' alt='imgaes'/>
                                 </div>
                             ))}
                         </div>

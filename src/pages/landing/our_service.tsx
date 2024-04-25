@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
 import { IoLocation, MdKeyboardDoubleArrowRight } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../../components/footer/footer';
 import { cn } from '../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../stateStore';
 import { getServices } from '../../services';
@@ -25,10 +23,11 @@ import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapp
     dispatch(getServices())
   },[])
 
+  console.log('services', services)
+
   return (
     <LoadingErrorWrapper loading={serviceListLoading}>
       <div className='w-full h-full'>
-      <Navbar />
 
       {/* contact main section */}
       <motion.div className='
@@ -130,13 +129,13 @@ import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapp
             gap-10'>
             {services?.map((ele, index) => (
               <motion.div  
+              key={ele.id}
               className='flex relative group w-full'
               initial={{y: 10, opacity: 0}}
               whileInView={{y:0, opacity: 1}}
               viewport={{once: true}}
               transition={{duration:0.3, delay: 0.2*index}}>
-                <div key={index}
-                  className='md:h-[300px] h-[350px] relative overflow-hidden hover:border-primary hover:border w-full'>
+                <div className='md:h-[300px] h-[350px] relative overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
                   <img src={ele.image_url} className='w-full h-full' />
 
@@ -221,9 +220,6 @@ import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapp
           </div>
         </div>
 
-        <div className='flex'>
-          <Footer />
-        </div>
       </motion.div>
     </div>
     </LoadingErrorWrapper>
