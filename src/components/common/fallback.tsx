@@ -22,7 +22,7 @@ const FallbackLoading = () => {
                     transition={{
                         duration: 2,
                         ease: "linear",
-                        loop: Infinity,
+                        repeat: Infinity,
                     }}
                 >
                     <div className='h-[50%] w-[50%] bg-blue1 rounded-[50%]' />
@@ -36,7 +36,7 @@ const FallbackLoading = () => {
                     transition={{
                         duration: 2,
                         ease: "linear",
-                        loop: Infinity,
+                        repeat: Infinity,
                     }}
                 />
                 <motion.div
@@ -48,7 +48,7 @@ const FallbackLoading = () => {
                     transition={{
                         duration: 2,
                         ease: "linear",
-                        loop: Infinity,
+                        repeat: Infinity,
                     }}
                 />
                 <motion.div
@@ -60,7 +60,7 @@ const FallbackLoading = () => {
                     transition={{
                         duration: 2,
                         ease: "linear",
-                        loop: Infinity,
+                        repeat: Infinity,
                     }}
                 />
             </motion.div>

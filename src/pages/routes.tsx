@@ -13,7 +13,6 @@ const LandingOurServiceDetails  = lazy(() => import('./landing/service_details')
 const RouteHanding = () => {
 
       const isLogin = false;
-      console.log('15')
 
       if (isLogin) {
             return (

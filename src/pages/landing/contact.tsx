@@ -331,12 +331,12 @@ const LandingContactPage = () => {
           {/* World Map Bacground image */}
 
           <div className='
-                w-[125%]
+                w-full
                 h-auto
                 absolute
                 opacity-[0.1]
                 z-[-10]'>
-            <img src={worldmap} className='w-full h-full' />
+            {/* <img src={worldmap} className='w-full h-full' /> */}
           </div>
 
         </div>
