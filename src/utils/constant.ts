@@ -7,7 +7,7 @@ export const RoutesName = {
         Home: '/',
         Contact:'/contact',
         OurTeam:'/our-team',
-        OurTeamDetails: '/team-details',
+        OurTeamDetails: 'our-team/:id',
         OurServices:'/our-services',
         OurServiceDetails:'/our-services/:id',
         NotFound: '/not-found',

@@ -5,7 +5,7 @@ import { useFeatureCardData } from '../../hooks/useFeaturesCard'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { FiSend, IoLocation, BsTelephoneFill } from "../../utils/icons"
-import { useSocialLinkRoutes } from '../../hooks/useSocialLinkRoutes'
+import { useSocialLinkRoutes } from '../../hooks/useSocialLink'
 
 const Footer = () => {
     const socialLinkRoutes =  useSocialLinkRoutes();

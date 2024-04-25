@@ -7,7 +7,7 @@ import { TypographyH1, TypographyH3, TypographyH4, TypographyH5, TypographyP } f
 import { useNavbarRoutes } from "../../hooks/useNavbarRoutes";
 import { FaChevronDown, GoArrowRight} from "../../utils/icons"
 import { cn } from "../../lib/utils";
-import { useSocialLinkRoutes } from "../../hooks/useSocialLinkRoutes";
+import { useSocialLinkRoutes } from "../../hooks/useSocialLink";
 
 
 const DesktopNavbar = () => {

@@ -1,31 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
-import { MdKeyboardDoubleArrowRight, FaCheckCircle, FiPhone, MdOutlineMarkEmailRead, IoLocationOutline } from "../../utils/icons"
+import { MdKeyboardDoubleArrowRight, FaCheckCircle, FiPhone, MdOutlineMarkEmailRead, IoLocationOutline, FaFacebookF, FaTwitter, FaInstagram } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
 import HeroImage from "../../assets/images/hero.png"
-import { useSocialLinkRoutes } from '../../hooks/useSocialLinkRoutes';
+import { useSocialLinkRoutes } from '../../hooks/useSocialLink';
 import { Progress } from '../../components/ui/progress';
 import { cn } from '../../lib/utils';
+import { useAppDispatch, useTypedSelector } from '../../stateStore';
+import {  getTeamMemberById, getTeamMembers } from '../../services';
+import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapper';
 
 
 
 const LandingOurTeamDetails = () => {
   const navigate = useNavigate();
+  const { id } = useParams();
+  
+  const dispatch = useAppDispatch()
+  const { teamMemberItemLoading, teamMembersListLoading, error, teamMember} = useTypedSelector((state)=> state.TeamMember);
 
-  const teamMembersDetails =
-  {
-    id: '1',
-    title: "Founder & CEO",
-    name: 'Ashish Sudra',
-    description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-    social_links: useSocialLinkRoutes(),
-    imageUrl: HeroImage
-  }
 
   const progressData = [
     {
@@ -55,8 +53,20 @@ const LandingOurTeamDetails = () => {
     'Committed To Helping Our Clients.'
   ]
 
+  useEffect(()=>{
+    dispatch(getTeamMemberById({ 
+      memberId: id,
+      navigate: ()=> navigate(RoutesName.NotFound)
+      }))
+  },[id])
+
+  useEffect(()=>{
+    dispatch(getTeamMembers())
+  },[])
+
   return (
-    <div className='w-full h-full'>
+    <LoadingErrorWrapper loading={teamMemberItemLoading || teamMembersListLoading}>
+      <div className='w-full h-full'>
       <Navbar />
 
       {/* contact main section */}
@@ -99,8 +109,9 @@ const LandingOurTeamDetails = () => {
                 <MdKeyboardDoubleArrowRight size={20} className='text-primary-foreground' />
 
                 <div className='flex'>
-                  <TypographyP title='Our Team' className='opacity-85' />
+                  <TypographyP title='Team Details' className='opacity-85' />
                 </div>
+                
               </div>
             </div>
           </div>
@@ -143,7 +154,7 @@ const LandingOurTeamDetails = () => {
                 '>
               {/* Team member image */}
               <div className='lg:w-[43%] bg-gray-400 md:h-full h-[80%]'>
-                <img src={teamMembersDetails.imageUrl} className='h-full w-full ' />
+                <img src={teamMember?.image_url} className='h-full w-full ' />
               </div>
 
               {/* Team member profile details */}
@@ -158,10 +169,10 @@ const LandingOurTeamDetails = () => {
                         flex
                         flex-col'>
                   <div className='flex'>
-                    <TypographyH2 title={teamMembersDetails.name} className='font-bold text-4xl' />
+                    <TypographyH2 title={teamMember?.name} className='font-bold text-4xl' />
                   </div>
                   <div className='flex'>
-                    <TypographyP title={teamMembersDetails.title} className='text-primary font-semibold' />
+                    <TypographyP title={teamMember?.title} className='text-primary font-semibold' />
                   </div>
                 </div>
 
@@ -170,7 +181,7 @@ const LandingOurTeamDetails = () => {
                         flex
                         flex-col'>
                   <div className='flex'>
-                    <TypographyP title={teamMembersDetails.description} className='text-muted-foreground font-semibold' />
+                    <TypographyP title={'Newton virtual desktop offers a fast and reliable workspace from anywhere. A truly powerful tool where your data and applications are secured in a private location in the prestigious Telehouse data centre in London.'} className='text-muted-foreground font-semibold' />
                   </div>
                 </div>
 
@@ -186,12 +197,7 @@ const LandingOurTeamDetails = () => {
                     <div className='flex flex-col'>
                       <div className='flex'>
                         <TypographyH4
-                          title='+880 154 654 457 45'
-                          className='font-semibold text-lg' />
-                      </div>
-                      <div className='flex'>
-                        <TypographyH4
-                          title='+880 154 654 457 45'
+                          title={teamMember?.contact_no}
                           className='font-semibold text-lg' />
                       </div>
                     </div>
@@ -204,7 +210,7 @@ const LandingOurTeamDetails = () => {
                     <div className='flex flex-col'>
                       <div className='flex'>
                         <TypographyH4
-                          title='Support@gmail.com'
+                          title={teamMember?.email}
                           className='font-semibold text-lg' />
                       </div>
                     </div>
@@ -217,8 +223,7 @@ const LandingOurTeamDetails = () => {
                     <div className='flex flex-col'>
                       <div className='flex lg:w-[60%]'>
                         <TypographyH4
-                          title='Ave 14th Street, khulna-1212,
-                                        San Franciso, USA 4200.'
+                          title={teamMember?.address}
                           className='font-semibold text-lg' />
                       </div>
                     </div>
@@ -232,20 +237,28 @@ const LandingOurTeamDetails = () => {
                         items-center
                         justify-center
                         bg-white'>
-                  {teamMembersDetails.social_links?.map(({ id, icon: Icon }, index) => (
-                    <div
-                      className={cn("flex border border-primary p-3 px-3",
-                        index < teamMembersDetails.social_links?.length - 1 && "border-r-0"
+                  {teamMember?.social_links?.map(({id, social_link, social_type}, index) => (
+                    <div 
+                      className={cn("flex border group-hover:border-primary p-3 px-3",
+                      teamMember.social_links!==null && index<teamMember.social_links?.length-1 &&"border-r-0"
                       )}>
-                      <Icon
-                        key={index}
-                        className="
-                          h-[15px] 
-                          text-border
-                          transition-all
-                          cursor-pointer
-                          hover:text-primary-foreground"/>
-                    </div>
+                      {social_type === 'facebook' ? (
+                      <FaFacebookF
+                        className="h-[15px] text-border transition-all cursor-pointer hover:text-primary-foreground"
+                        onClick={() => window.open(social_link, '_blank')}
+                      />
+                      ) : social_type === 'twitter' ? (
+                      <FaTwitter
+                        className="h-[15px] text-border transition-all cursor-pointer hover:text-primary-foreground"
+                        onClick={() =>  window.open(social_link, '_blank')}
+                      />
+                      ) : social_type==='instagram'?(
+                      <FaInstagram
+                        className="h-[15px] text-border transition-all cursor-pointer hover:text-primary-foreground"
+                        onClick={() => window.open(social_link, '_blank')}
+                      />
+                    ):null}
+                  </div>
                   ))}
                 </div>
               </div>
@@ -372,7 +385,7 @@ const LandingOurTeamDetails = () => {
 
                 <div className='flex'>
                   <TypographyP
-                    title={'Solly good codswallop what a plonker he nicked it bog-standard porkies gosh the full monty, wind up at public school hanky panky cheeky bugger Richard do one some dodgy chav bite your arm off. Argy-bargy excuse my French brown bread up the duff bleeder fanny around spend a penny barmy bonnet, bubble and squeak brolly bugger no biggie smashing get stuffed mate old lurgy, cup of tea nice one mufty that I knackered some dodgy chav. Say vagabond morish crikey excuse my French bonnet William blatant spend a penny, knackered bite your arm off what a plonker blimey smashing a blinding shot pardon me grub, wind up cracking goal Jeffrey hanky panky are you taking the piss such a fibber hunky-dory.'}
+                    title={teamMember?.infromation}
                     className='text-muted-foreground font-semibold' />
                 </div>
               </div>
@@ -386,6 +399,7 @@ const LandingOurTeamDetails = () => {
         </div>
       </div>
     </div>
+    </LoadingErrorWrapper>
   )
 }
 

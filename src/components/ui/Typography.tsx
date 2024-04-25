@@ -1,7 +1,7 @@
 import { cn } from "../../lib/utils"
 
 interface TypographyProps {
-    title: string;
+    title?: string;
     className?: string;
     onClick?: Function;
 }

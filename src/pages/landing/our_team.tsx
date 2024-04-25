@@ -1,90 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Navbar } from '../../components/navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
-import { IoLocation, MdKeyboardDoubleArrowRight } from "../../utils/icons"
+import { IoLocation, MdKeyboardDoubleArrowRight, FaFacebookF, FaTwitter, FaInstagram } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/footer/footer';
-import HeroImage from "../../assets/images/hero.png"
-import { useSocialLinkRoutes } from '../../hooks/useSocialLinkRoutes';
 import { cn } from '../../lib/utils';
+import { useAppDispatch, useTypedSelector } from '../../stateStore';
+import { getTeamMembers } from '../../services';
+import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapper';
 
 
 
 const LandingOurTeam = () => {
-  const navigate = useNavigate();
 
-  const teamMembers = [
-    {
-      id: '1',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '2',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '3',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '4',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '5',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '6',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '7',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-    {
-      id: '8',
-      title: "Founder & CEO",
-      name: 'Ashish Sudra',
-      description: "Lead the team of passionate developers, designers and the strategists with a lot of thought and analysis come true!",
-      social_links: useSocialLinkRoutes(),
-      imageUrl: HeroImage
-    },
-  ]
+  const navigate = useNavigate();
+  const { teamMembers, teamMembersListLoading, error} = useTypedSelector((state)=> state.TeamMember);
+  const dispatch = useAppDispatch();
+
+  useEffect(()=>{
+    dispatch(getTeamMembers())
+  },[]);
 
   return (
-    <div className='w-full h-full'>
+    <LoadingErrorWrapper loading={teamMembersListLoading}>
+      <div className='w-full h-full'>
       <Navbar />
 
       {/* contact main section */}
@@ -189,10 +131,10 @@ const LandingOurTeam = () => {
               viewport={{once: true}}
               transition={{duration:0.3, delay: 0.2*index}}
               layout>
-                <div key={index}
-                  className='h-[370px] relative p-3 bg-gray-400 overflow-hidden hover:border-primary hover:border w-full'>
+                <div key={ele.id}
+                  className='h-[370px] relative overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
-                  <img src={ele.imageUrl} className='w-full h-full' />
+                  <img src={ele.image_url} className='w-full h-full' />
 
                   {/* Introduction section */}
                   <div className='
@@ -216,10 +158,10 @@ const LandingOurTeam = () => {
                     flex-col
                     items-center'>
                       <div className='flex'>
-                        <TypographyH4 title={ele.name} className='text-white group-hover:text-black' />
+                        <TypographyH4 title={ele?.name} className='text-white group-hover:text-black' />
                       </div>
                       <div className='flex'>
-                        <TypographyH5 title={ele.title} className='text-primary-foreground' />
+                        <TypographyH5 title={ele?.title} className='text-primary-foreground' />
                       </div>
                     </div>
                   </div>
@@ -258,10 +200,10 @@ const LandingOurTeam = () => {
                     whileInView={{y:0}}
                     transition={{duration: 0.4}}>
                        <div className='flex text-center'>
-                        <TypographyH5 title={ele.description} className='text-white font-[400]' />
+                        <TypographyH5 title={ele?.description} className='text-white font-[400]' />
                       </div>
 
-                      <div onClick={()=> navigate(RoutesName.OurTeamDetails)} className='flex'>
+                      <div onClick={()=> navigate(RoutesName.OurTeam+"/"+ele?.id)} className='flex'>
                         <TypographyH5 title={'Read more'} className='text-white p-2 px-3 bg-destructive ' />
                       </div>
                     </motion.div>
@@ -280,19 +222,27 @@ const LandingOurTeam = () => {
                     items-center
                     justify-center
                     bg-white'>
-                    {ele.social_links?.map(({id, icon: Icon}, index)=>(
+                    {ele.social_links?.map(({id, social_link, social_type}, index)=>(
                           <div 
-                          className={cn("flex border group-hover:border-primary p-3 px-3",
-                          index<ele.social_links?.length-1 &&"border-r-0"
-                          )}>
-                            <Icon 
-                            key={index} 
-                            className="
-                            h-[15px] 
-                            text-border
-                            transition-all
-                            cursor-pointer
-                            hover:text-primary-foreground"/>
+                            className={cn("flex border group-hover:border-primary p-3 px-3",
+                            ele.social_links!==null && index<ele.social_links?.length-1 &&"border-r-0"
+                            )}>
+                            {social_type === 'facebook' ? (
+                            <FaFacebookF
+                              className="h-[15px] text-border transition-all cursor-pointer hover:text-primary-foreground"
+                              onClick={() => window.open(social_link, '_blank')}
+                            />
+                            ) : social_type === 'twitter' ? (
+                            <FaTwitter
+                              className="h-[15px] text-border transition-all cursor-pointer hover:text-primary-foreground"
+                              onClick={() =>  window.open(social_link, '_blank')}
+                            />
+                            ) : social_type==='instagram'?(
+                            <FaInstagram
+                              className="h-[15px] text-border transition-all cursor-pointer hover:text-primary-foreground"
+                              onClick={() => window.open(social_link, '_blank')}
+                            />
+                            ):null}
                           </div>
                     ))}
                     </div>
@@ -307,6 +257,7 @@ const LandingOurTeam = () => {
         </div>
       </div>
     </div>
+    </LoadingErrorWrapper>
   )
 }
 
