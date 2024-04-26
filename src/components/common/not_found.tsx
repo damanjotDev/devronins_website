@@ -1,20 +1,16 @@
 import React, { useEffect } from 'react';
-import { Navbar } from '../navbars/navbar'
 import { motion } from "../../utils/animation"
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../ui/Typography';
 import { IoLocation, MdKeyboardDoubleArrowRight } from "../../utils/icons"
 import { RoutesName } from '../../utils/constant';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../footer/footer';
 import { cn } from '../../lib/utils';
 
 const NotFoundPage = () => {
   const navigate = useNavigate();
   return (
     <div className='w-full h-full'>
-      <Navbar />
-
       {/* contact main section */}
       <motion.div className='
         flex
@@ -96,10 +92,6 @@ const NotFoundPage = () => {
             </button>
           </div>
 
-        </div>
-
-        <div className='flex'>
-          <Footer />
         </div>
       </motion.div>
     </div>

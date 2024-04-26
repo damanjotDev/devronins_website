@@ -17,16 +17,18 @@ import {
 } from "../../components/ui/accordion"
 import { useNavbarRoutes } from "../../hooks/useNavbarRoutes";
 import { FiMenu } from "../../utils/icons";
+import { useState } from "react";
 
 
 const MobileNavbar = () => {
   const navbarRoutes = useNavbarRoutes();
+  const [open, setOpen] = useState(false)
 
   return (
         <div className="
         lg:hidden
         block">
-          <Sheet>
+          <Sheet open={open} onOpenChange={(value)=> setOpen(!open)}>
             <SheetTrigger><FiMenu size={30}/></SheetTrigger>
             <SheetContent side="left"  className="w-[300px] flex flex-col gap-1">
              
@@ -56,7 +58,10 @@ const MobileNavbar = () => {
                         key={id} 
                         className="hover:text-primary-foreground flex flex-col" 
                         title={label}
-                        onClick={navigate}/>
+                        onClick={()=>{
+                          setOpen(false)
+                          navigate()
+                        }}/>
                       ))}
                       </AccordionContent>
                     </AccordionItem>
