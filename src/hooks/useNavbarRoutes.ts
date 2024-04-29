@@ -57,9 +57,9 @@ const useNavbarRoutes = () =>{
         },
         {
             id: '4',
-            navigate: () => navigate(RoutesName.Portfolio),
+            navigate: () => navigate(RoutesName.OurPortfolio),
             icon: MdOutlineAnalytics,
-            active: RoutesName.Portfolio===location.pathname,
+            active: RoutesName.OurPortfolio===location.pathname,
             label: 'Portfolio',
             dropdownItems: [
                 {

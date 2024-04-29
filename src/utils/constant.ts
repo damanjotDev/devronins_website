@@ -15,7 +15,6 @@ export const RoutesName = {
         NotFound: '/not-found',
         Pages: '/#',
         Services: '/services',
-        Portfolio: '/portfolio',
         Analytics: '/analytics',
         Customer: '/customer',
         Orders: '/orders',

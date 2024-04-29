@@ -6,6 +6,8 @@ import FallbackLoading from '../components/common/fallback';
 import NotFoundPage from '../components/common/not_found';
 import { Navbar } from '../components/navbars/navbar';
 import Footer from '../components/footer/footer';
+import OurLandingPortfolio from './landing/portfolio/porfolio';
+import OurLandingPortfolioDetails from './landing/portfolio/portfolio_details';
 const LandingContactPage = lazy(() => import('./landing/contact'));
 const LandingOurTeam = lazy(() => import('./landing/our_team'));
 const LandingOurTeamDetails = lazy(() => import('./landing/team_details'));
@@ -39,6 +41,8 @@ const RouteHanding = () => {
                               <Route path={RoutesName.OurTeamDetails} element={<Suspense fallback={<FallbackLoading />}><LandingOurTeamDetails /></Suspense>} />
                               <Route path={RoutesName.OurServices} element={<Suspense fallback={<FallbackLoading />}><LandingOurServices /></Suspense>} />
                               <Route path={RoutesName.OurServiceDetails} element={<Suspense fallback={<FallbackLoading />}><LandingOurServiceDetails /></Suspense>} />
+                              <Route path={RoutesName.OurPortfolio} element={<Suspense fallback={<FallbackLoading />}><OurLandingPortfolio /></Suspense>} />
+                              <Route path={RoutesName.OurPortfolioDetails} element={<Suspense fallback={<FallbackLoading />}><OurLandingPortfolioDetails /></Suspense>} />
                               {/* Not Found route */}
                               <Route path="/not-found" element={<NotFoundPage />} />
                               <Route path="*" element={<NotFoundPage />} />
@@ -50,3 +54,4 @@ const RouteHanding = () => {
 }
 
 export { RouteHanding }
+// OurLandingPortfolioDetails
