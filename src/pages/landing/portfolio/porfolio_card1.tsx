@@ -1,16 +1,29 @@
 import { cn } from '../../../lib/utils';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useImageSize } from 'react-image-size';
 import {motion} from "../../../utils/animation"
 import { TypographyH6 } from '../../../components/ui/Typography';
 import { useNavigate } from 'react-router-dom';
 import { RoutesName } from '../../../utils/constant';
 
+interface PortFolioCard1Props {
+    id: string;
+    image_url: string;
+    title: string;
+    project_images: {
+        id: string;
+        image_url: string
+    }[]
+}
 
-const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string}}) => {
+
+const PorfolioCard1 = ({item}:{item: PortFolioCard1Props}) => {
     const navigate = useNavigate();
 
-    const [dimensions, { loading, error }] = useImageSize(item.image_url);
+    const timerId = useRef<any>(null)
+
+    const [imageNumber, setImageNumber] = useState(0)
+    const [dimensions, { loading, error }] = useImageSize(item.project_images[imageNumber]?.image_url);
     const [deviceType, setDeviceType] = useState('mobile')
 
     const handleImageLoad = (width: number, height: number) => {
@@ -34,6 +47,19 @@ const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string
         }
     },[dimensions])
 
+    useEffect(()=>{
+        timerId.current = setInterval(()=>{
+            setImageNumber((prev)=>{
+                if(prev===item.project_images?.length-1){
+                    return 0
+                }
+                return prev+1
+            })
+        },2000)
+
+        return ()=> clearInterval(timerId.current)
+    },[])
+
     if(loading){
         return <h1>loading...</h1>
     }
@@ -51,16 +77,14 @@ const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string
         key={item.id}
         initial={{x: 40}}
         whileInView={{x:0}}
-        transition={{duration: 0.3}}
+        transition={{duration: 1}}
         viewport={{once: true}}
         onClick={()=> navigate(RoutesName.OurPortfolio+"/"+item.id)}>
             <motion.div 
             className={cn("relative px-2 py-1",
                 deviceType==="mobile"?
-                "h-[270px] w-[140px]"
-                :"h-[240px] w-[400px]")}
-                whileHover={{scale: 1.1}}
-                transition={{duration: 0.4}}>
+                "md:h-[520px] md:w-[260px]"
+                :"h-[auto] lg:w-[60%] md:w-[70%] w-full")}>
                 {/* device image */}
                 <div className='
                 absolute
@@ -74,7 +98,7 @@ const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string
                     } className='w-full h-full'/>
                 </div> 
                 <img
-                src={item.image_url}
+                src={item.project_images[imageNumber]?.image_url}
                 alt="Your Image"
                 className='w-full h-full'/>
             </motion.div>
@@ -89,6 +113,6 @@ const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string
     )
 }
 
-export default PorfolioCard
+export default PorfolioCard1
 
 // https://portal.devronins.com/mac.png

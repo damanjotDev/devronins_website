@@ -1,22 +1,23 @@
 import React, { useEffect } from 'react';
 import { motion } from "../../../utils/animation"
 import contactBackgroudImage from "../../../assets/images/conatctBackground.png"
-import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../../../components/ui/Typography';
-import { IoLocation, MdKeyboardDoubleArrowRight, FaFacebookF, FaTwitter, FaInstagram } from "../../../utils/icons"
+import { TypographyH1, TypographyH2, TypographyH4, TypographyH5, TypographyP } from '../../../components/ui/Typography';
+import { IoLocation, MdKeyboardDoubleArrowRight, FaFacebookF, FaTwitter, FaInstagram, FaCheckCircle } from "../../../utils/icons"
 import { RoutesName } from '../../../utils/constant';
 import { useNavigate } from 'react-router-dom';
 import { cn } from '../../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../../stateStore';
 import { getTeamMembers } from '../../../services';
 import { LoadingErrorWrapper } from '../../../components/common/loading_error_wrapper';
-import PorfolioCard from './porfolio_card';
 import { title } from 'process';
+import { Progress } from '../../../components/ui/progress';
+import PorfolioCard1 from './porfolio_card1';
 
 const dummyData = [
   {
     id:"1",
     image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1665384783424.png?alt=media&token=c72b177b-b52b-43db-a1fa-a8e6d6853368",
-    title: "Business Card Generator App"
+    title: "Business Card Generator App",
   },
   {
     id:"2",
@@ -41,9 +42,63 @@ const dummyData = [
   {
     id:"6",
     image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664252867201.jfif?alt=media&token=87108311-30da-4625-995e-c3aa4f5ef6ac",
-    title: "Smart Lock"
+    title: "Smart Lock",
   }
 ]
+
+const portfolioDetails = {
+    id:"1",
+    image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1665384783424.png?alt=media&token=c72b177b-b52b-43db-a1fa-a8e6d6853368",
+    title: "Business Card Generator App",
+    description : "ArborHawk serves arborists by facilitating immediate generation of arborist reports. The Arborist Report Generator (ARG) boasts a user-friendly interface, streamlining the creation of expert reports covering tree removal permits, tree protection zone plans, heritage tree documentation, residential requests, and commuting plans. Utilizing highly advanced AI language models, the ARG significantly reduces the time typically spent on traditional report writing.",
+    project_images : [
+        {
+            id:'1',
+            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1665384783424.png?alt=media&token=c72b177b-b52b-43db-a1fa-a8e6d6853368",
+        },
+        {
+            id:"2",
+            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664254124844.jfif?alt=media&token=db9bd1a0-e236-4a05-a1d6-e95b77cfa04f",
+        },
+        {
+            id:"3",
+            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1669285103822.png?alt=media&token=efcc86bb-3bab-45ee-b4fd-cef2058a77a1",
+        },
+        {
+            id:"4",
+            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664161188116.png?alt=media&token=dc254cc2-a9b1-47ec-baf3-b1cebfb0f4ab",
+        },
+    ],
+}
+const addtionalSkills = [
+    'Experienced Attorneys Professional.',
+    'Experienced Attorneys Approach.',
+    'Independence Makes Difference.',
+    'Committed To Helping Our Clients.'
+  ]
+
+  const progressData = [
+    {
+      id: 1,
+      title: 'ReactJs',
+      value: 90,
+      fillColor: "gradient4"
+    },
+    {
+      id: 2,
+      title: 'ChatGPT',
+      value: 95,
+      fillColor: "gradient7"
+    },
+    {
+      id: 3,
+      title: 'React Native',
+      value: 80,
+      fillColor: "gradient6"
+    }
+  ]
+
+
 
 const OurLandingPortfolioDetails = () => {
 
@@ -86,7 +141,7 @@ const OurLandingPortfolioDetails = () => {
               gap-2
               '>
               <div className='flex text-white'>
-                <TypographyH1 title='Our Portfolio' className='font-semibold' />
+                <TypographyH1 title='Arborist Report Generator' className='font-semibold' />
               </div>
               <div className='flex items-center gap-2 text-white'>
                 <div
@@ -105,28 +160,172 @@ const OurLandingPortfolioDetails = () => {
           </div>
         </div>
 
-        {/* portfolio section */}
+        {/* Portfolio Details Main section */}
         <div className='
         relative
-        xl:w-[75%] 
-        mx-auto
-        grid
-        grid-cols-1
-        lg:grid-cols-3
-        md:grid-cols-2
+        xl:w-[lg] 
+        flex
+        flex-col
         items-center
         h-auto
         px-5
         pt-20
         lg:px-20
         pb-20
-        md:gap-y-20
-        md:gap-x-20
+        lg:gap-20
         gap-10
         '>
-          {dummyData?.map((item)=>(
-            <PorfolioCard item={item}/>
-          ))}
+            {/* portfolio project images */}
+            <div className='
+            w-full
+            h-full
+            flex
+            items-center
+            justify-center'>
+                <PorfolioCard1 item={portfolioDetails}/>
+            </div>
+          {/* porfolio detail section */}
+          <div className='
+            w-full
+            lg:w-[85%]
+            flex
+            flex-col
+            gap-10
+            p-5
+            lg:p-10
+            bg-white
+            shadow-lg'>
+            {/* skills section */}
+            <div className='
+                w-full
+                flex
+                flex-col
+                lg:flex-row
+                gap-8
+                lg:items-center
+                '>
+              {/* Team member Activity section */}
+              <div className=' lg:w-[50%]'>
+
+                {/* Section 1 */}
+                <div className='
+                    flex
+                    flex-col
+                    gap-5'>
+
+                  <div className='flex -mb-3'>
+                    <TypographyH2 title={'Activities'} className='font-bold text-4xl' />
+                  </div>
+
+                  <div className='flex'>
+                    <TypographyP
+                      title={'A hosted desktop solution allows for the delivery of a consistent and scalable IT experience for all users in an organisation.'}
+                      className='text-muted-foreground font-semibold' />
+                  </div>
+
+                  {/* Addional skills */}
+                  <div className='
+                           flex
+                           flex-col
+                           gap-3'>
+                    {addtionalSkills?.map((skill, index) => (
+                      <div 
+                      key={index+1}
+                      className='flex gap-4 items-center'>
+                        <div className='flex'>
+                          <FaCheckCircle size={20} />
+                        </div>
+                        <div className='flex'>
+                          <TypographyP
+                            title={skill}
+                            className='font-semibold' />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Team member profile details */}
+              <div className='
+                     lg:w-[50%] 
+                     flex
+                     flex-col
+                     gap-8
+                     '>
+                {/* Progress Section */}
+                <div className='
+                    flex
+                    flex-col
+                    gap-5'>
+
+                  {progressData?.map((item) => (
+                    <div className='
+                      lg:w-[80%]
+                      w-full
+                      flex
+                      flex-col
+                      gap-3
+                      text-secondary-foreground'
+                      key={item.id}>
+                      <div className='
+                                flex
+                                items-center
+                                justify-between
+                                '>
+
+                        <div>
+                          <TypographyP
+                            title={item.title}
+                            className='font-bold' />
+                        </div>
+                        <div>
+                          <TypographyP
+                            title={`${item.value}%`}
+                            className='font-bold' />
+                        </div>
+                      </div>
+                      <Progress
+                        value={item.value}
+                        className='h-2 rounded-full'
+                        filledStyle={item.fillColor} />
+                    </div>
+                  ))}
+
+                </div>
+              </div>
+            </div>
+
+            {/* Addition infromation */}
+
+            <div className='
+                w-full
+                flex
+                flex-col
+                lg:flex-row
+                gap-8
+                lg:items-center
+                '>
+              {/* Team member Additional infromation section */}
+              <div className='
+                        flex
+                        flex-col
+                        gap-5'>
+
+                <div className='flex -mb-3'>
+                  <TypographyH2 title={'Description'} className='font-bold text-4xl' />
+                </div>
+
+                <div className='flex'>
+                  <TypographyP
+                    title={portfolioDetails?.description}
+                    className='text-muted-foreground font-semibold' />
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </div>

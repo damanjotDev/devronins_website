@@ -11,7 +11,7 @@ export const RoutesName = {
         OurServices:'/our-services',
         OurServiceDetails:'/our-services/:id',
         OurPortfolio:'/our-portfolio',
-        OurPortfolioDetails: 'our-portfolio/:id',
+        OurPortfolioDetails: '/our-portfolio/:id',
         NotFound: '/not-found',
         Pages: '/#',
         Services: '/services',
