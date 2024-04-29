@@ -47,12 +47,15 @@ const MobileNavbar = () => {
                   {/* Mobile Navigation section */}
                   <Accordion type="single" collapsible className="w-full gap-2">
                     {navbarRoutes?.map((item)=>(
-                      <AccordionItem value={item.id}>
+                      <AccordionItem onClick={()=>{
+                        setOpen(false)
+                        item.navigate()
+                      }} value={item.id}>
                       <AccordionTrigger className="py-3" >
                         <TypographyH4 title={item.label}/>
                       </AccordionTrigger>
 
-                      <AccordionContent className="flex flex-col gap-2">
+                      {/* <AccordionContent className="flex flex-col gap-2">
                       {item?.dropdownItems?.map(({id,label,navigate})=>(
                         <TypographyH5
                         key={id} 
@@ -63,7 +66,7 @@ const MobileNavbar = () => {
                           navigate()
                         }}/>
                       ))}
-                      </AccordionContent>
+                      </AccordionContent> */}
                     </AccordionItem>
                     ))}
                   </Accordion>

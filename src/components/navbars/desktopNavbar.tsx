@@ -115,16 +115,17 @@ const DesktopNavbar = () => {
                     <div className="
                     flex
                     items-center
-                    gap-2">
+                    gap-2"
+                    onClick={item.navigate}>
                       <TypographyH4 title={item.label}/>
-                      <FaChevronDown 
+                      {/* <FaChevronDown 
                       size={15} 
                       className="
                       mt-2 
                       transition-all 
                       duration-500 
                       ease-in-out 
-                      group-hover:rotate-180"/>
+                      group-hover:rotate-180"/> */}
                     </div>
   
                     <motion.div className="
@@ -136,7 +137,7 @@ const DesktopNavbar = () => {
   
                     {/* Drop down section */}
   
-                    <motion.div className={cn(`
+                    {/* <motion.div className={cn(`
                     hidden
                     absolute
                     w-auto
@@ -181,7 +182,7 @@ const DesktopNavbar = () => {
                             
                           ))}
                      </div>
-                    </motion.div>
+                    </motion.div> */}
                   </motion.div> 
                 ))}
           </div>

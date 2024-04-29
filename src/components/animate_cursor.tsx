@@ -26,6 +26,7 @@ const MouseCursorBackground = () => {
         pointerEvents: 'none',
         zIndex: '100'
       }}
+      className='hidden md:block'
     >
       <div
         style={{

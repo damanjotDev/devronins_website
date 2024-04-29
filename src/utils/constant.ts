@@ -10,6 +10,8 @@ export const RoutesName = {
         OurTeamDetails: 'our-team/:id',
         OurServices:'/our-services',
         OurServiceDetails:'/our-services/:id',
+        OurPortfolio:'/our-portfolio',
+        OurPortfolioDetails: 'our-portfolio/:id',
         NotFound: '/not-found',
         Pages: '/#',
         Services: '/services',

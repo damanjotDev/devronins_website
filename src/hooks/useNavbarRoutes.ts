@@ -19,10 +19,10 @@ const useNavbarRoutes = () =>{
         },
         {
             id: '2',
-            navigate: () => navigate(RoutesName.Pages),
+            navigate: () => navigate(RoutesName.OurTeam),
             icon: MdOutlineAnalytics,
-            active: RoutesName.Pages===location.pathname,
-            label: 'Pages',
+            active: RoutesName.OurTeam===location.pathname,
+            label: 'Our team',
             dropdownItems: [
                 {
                     id: '1',
@@ -57,7 +57,7 @@ const useNavbarRoutes = () =>{
         },
         {
             id: '4',
-            navigate: () => navigate(RoutesName.Customer),
+            navigate: () => navigate(RoutesName.Portfolio),
             icon: MdOutlineAnalytics,
             active: RoutesName.Portfolio===location.pathname,
             label: 'Portfolio',
