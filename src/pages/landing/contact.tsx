@@ -2,7 +2,7 @@
 
 import contactBackgroudImage from "../../assets/images/conatctBackground.png"
 import { TypographyH1, TypographyH4, TypographyH5, TypographyP } from '../../components/ui/Typography';
-import { IoLocation, MdKeyboardDoubleArrowRight } from "../../utils/icons"
+import { FiPhone, IoLocation, IoLocationOutline, MdKeyboardDoubleArrowRight, MdOutlineMarkEmailRead } from "../../utils/icons"
 import { useNavigate } from 'react-router-dom';
 import { RoutesName } from '../../utils/constant';
 import { Input } from '../../components/ui/input';
@@ -14,7 +14,10 @@ import worldmap from "../../assets/images/worldmap.jpg"
 import Map from "../../components/map/map";
 import { yupResolver, yup, useForm, SubmitHandler, FieldValues } from "../../utils/react-hook-form"
 import { SendMail } from "../../services/sendMail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useTypedSelector } from "../../stateStore";
+import { getDevroninsDetails } from "../../services";
+import { LoadingErrorWrapper } from "../../components/common/loading_error_wrapper";
 
 const ServiceType = [
   'Success Fulfill',
@@ -49,6 +52,13 @@ const LandingContactPage = () => {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
 
+  const dispatch = useAppDispatch()
+  const { devroninsDetails, error, devroninsDetailsLoading} = useTypedSelector((state)=> state.Devronins);
+
+  useEffect(()=>{
+      dispatch(getDevroninsDetails())
+  },[])
+
   const {
     register,
     handleSubmit,
@@ -77,6 +87,7 @@ const LandingContactPage = () => {
   }
 
   return (
+   <LoadingErrorWrapper loading={devroninsDetailsLoading}>
     <div className='w-full h-full'>
 
       {/* contact main section */}
@@ -171,11 +182,11 @@ const LandingContactPage = () => {
             </div>
 
             <div className='
-                 flex
-                 lg:flex-row
-                 lg:items-center
-                 flex-col
-                 gap-5'>
+                flex
+                lg:flex-row
+                lg:items-center
+                flex-col
+                gap-5'>
               {/* Address Section  */}
               <div className='
                     grid
@@ -184,21 +195,21 @@ const LandingContactPage = () => {
                     lg:w-[30%]'>
 
                 <div className='
-                       bg-accent
-                       lg:py-8
-                       lg:px-10
-                       px-5
-                       py-5
-                       flex
-                       gap-4'>
+                      bg-accent
+                      lg:py-8
+                      lg:px-10
+                      px-5
+                      py-5
+                      flex
+                      gap-4'>
                   <div className='flex'>
-                    <IoLocation size={50} className='text-primary' />
+                    <IoLocationOutline size={50} className='text-primary' />
                   </div>
 
                   <div className='
-                           flex
-                           flex-col
-                           gap-2'>
+                          flex
+                          flex-col
+                          gap-2'>
                     <div className='
                                 flex
                                 '>
@@ -209,71 +220,71 @@ const LandingContactPage = () => {
                                 flex
                                 '>
                       <TypographyP
-                        title='Digital Agency Network 20 Eastbourne Terrace London W2 6LG'
+                        title={devroninsDetails?.address}
                         className='text-sm leading-normal opacity-70' />
                     </div>
                   </div>
                 </div>
 
                 <div className='
-                       bg-accent
-                       lg:py-8
-                       lg:px-10
-                       px-5
-                       py-5
-                       flex
-                       gap-4'>
+                      bg-accent
+                      lg:py-8
+                      lg:px-10
+                      px-5
+                      py-5
+                      flex
+                      gap-4'>
                   <div className='flex'>
-                    <IoLocation size={50} className='text-primary' />
+                    <FiPhone size={40} className='text-primary' />
                   </div>
 
                   <div className='
-                           flex
-                           flex-col
-                           gap-2'>
+                          flex
+                          flex-col
+                          gap-2'>
                     <div className='
                                 flex
                                 '>
-                      <TypographyH5 title='Official address:' className='text-black text-lg' />
+                      <TypographyH5 title='Telephone number:' className='text-black text-lg' />
                     </div>
 
                     <div className='
                                 flex
                                 '>
                       <TypographyP
-                        title='Digital Agency Network 20 Eastbourne Terrace London W2 6LG'
+                        title={devroninsDetails?.contact_no}
                         className='text-sm leading-normal opacity-70' />
                     </div>
                   </div>
                 </div>
 
                 <div className='
-                       bg-accent
-                       lg:py-8
-                       lg:px-10
-                       px-5
-                       py-5
-                       flex
-                       gap-4'>
+                      bg-accent
+                      lg:py-8
+                      lg:px-10
+                      px-5
+                      py-5
+                      flex
+                      gap-4'>
                   <div className='flex'>
-                    <IoLocation size={50} className='text-primary' />
+                    <MdOutlineMarkEmailRead size={50} className='text-primary' />
                   </div>
 
                   <div className='
-                           flex
-                           flex-col
-                           gap-2'>
+                          flex
+                          flex-col
+                          gap-2'>
                     <div className='
                                 flex
                                 '>
-                      <TypographyH5 title='Official address:' className='text-black text-lg' />
+                      <TypographyH5 title='Mail address:' className='text-black text-lg' />
                     </div>
 
                     <div className='
                                 flex
                                 '>
                       <TypographyP
-                        title='Digital Agency Network 20 Eastbourne Terrace London W2 6LG'
+                        title={'devronins_offical@devronins.com'}
                         className='text-sm leading-normal opacity-70' />
                     </div>
                   </div>
@@ -361,6 +372,7 @@ const LandingContactPage = () => {
         </div>
       </div>
     </div>
+   </LoadingErrorWrapper>
   )
 }
 

@@ -236,8 +236,8 @@ const Steps = () => {
                     <div className='
                      order-2
                      lg:order-none
-                     h-[250px]
-                     lg:h-[300px] 
+                     h-[200px]
+                     md:h-[300px] 
                      lg:col-span-5
                      flex
                      items-center'>
@@ -275,8 +275,8 @@ const Steps = () => {
                     <div className='
                      order-4
                      lg:order-none
-                     h-[250px]
-                     lg:h-[300px] 
+                     h-[200px]
+                     md:h-[300px] 
                      lg:col-span-5
                      flex
                      items-center'>
@@ -452,8 +452,8 @@ const Steps = () => {
                     </div>
                     <div className='
                      order-6
-                     h-[250px]
-                     lg:h-[300px] 
+                     h-[200px]
+                     md:h-[300px] 
                      lg:col-span-5
                      flex
                      items-center'>

@@ -205,7 +205,7 @@ const LandingOurTeamDetails = () => {
                     <div className='flex flex-col'>
                       <div className='flex'>
                         <TypographyH4
-                          title={teamMember?.email}
+                          title={teamMember?.address}
                           className='font-semibold text-lg' />
                       </div>
                     </div>
@@ -218,7 +218,7 @@ const LandingOurTeamDetails = () => {
                     <div className='flex flex-col'>
                       <div className='flex lg:w-[60%]'>
                         <TypographyH4
-                          title={teamMember?.address}
+                          title={teamMember?.email}
                           className='font-semibold text-lg' />
                       </div>
                     </div>

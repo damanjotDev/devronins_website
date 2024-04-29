@@ -44,6 +44,7 @@ const DevroninsSlice = createSlice({
     })
     builder.addCase(getDevroninsDetails.fulfilled, (state, action) => {
       state.devroninsDetails = action.payload
+      state.devroninsDetailsLoading = false
     })
     builder.addCase(getDevroninsDetails.rejected, (state, action) => {
       state.error = true
