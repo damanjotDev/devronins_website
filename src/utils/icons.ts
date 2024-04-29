@@ -1,4 +1,4 @@
-import { FaChevronDown, FaFacebookF, FaTwitter, FaInstagram, FaLongArrowAltRight, FaStar, FaCheckCircle, FaLink } from "react-icons/fa";
+import { FaChevronDown, FaFacebookF, FaTwitter, FaInstagram, FaLongArrowAltRight, FaStar, FaCheckCircle, FaLink, FaLinkedinIn } from "react-icons/fa";
 import { FaAngleDown, FaRegCircleUser, FaCheck, FaArrowRightLong, FaAngleRight } from "react-icons/fa6"
 import { IoClose, IoSettingsOutline, IoLogOutOutline, IoLocation, IoLocationOutline, IoPlanetOutline } from "react-icons/io5";
 import { IoLogoGoogleplus } from "react-icons/io";
@@ -55,5 +55,6 @@ export{
     TbAward,
     MdMoneyOff,
     SiNamecheap,
-    FaLink
+    FaLink,
+    FaLinkedinIn
 }

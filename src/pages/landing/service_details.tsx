@@ -139,7 +139,7 @@ const LandingOurServiceDetails = () => {
                 </div>
 
                 {/* contact section */}
-                <div className='relative w-full'>
+                <div className='relative w-full h-[62%]'>
                     <img src="https://demo.casethemes.net/itfirm/wp-content/uploads/2021/09/bg-info-box1.jpg"
                     className='w-full lg:h-full h-[60%]'/>
 
@@ -177,7 +177,8 @@ const LandingOurServiceDetails = () => {
                                 <div className='flex py-2 px-4 md:py-3 md:px-6 bg-white'>
                                   <TypographyP title="Let's start now" className=' font-semibold'/>
                                 </div>
-                                <div className='flex bg-primary items-center px-3 md:px-5'>
+                                <div className='flex bg-primary items-center px-3 md:px-5'
+                                onClick={()=> navigate(RoutesName.Contact)}>
                                     <FaLink size={15} className='text-white'/>
                                 </div>
                             </div>
