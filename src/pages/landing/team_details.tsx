@@ -148,8 +148,8 @@ const LandingOurTeamDetails = () => {
                 lg:items-center
                 '>
               {/* Team member image */}
-              <div className='lg:w-[43%] bg-gray-400 md:h-full h-[80%]'>
-                <img src={teamMember?.image_url} className='h-full w-full ' />
+              <div className='lg:w-[43%] bg-black'>
+                <img src={teamMember?.image_url} className='md:h-[700px] h-[500px] w-full ' />
               </div>
 
               {/* Team member profile details */}
