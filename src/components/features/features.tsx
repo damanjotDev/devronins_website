@@ -13,7 +13,7 @@ const featuresData = useFeatureCardData();
     realtive'>
 
         <div className='
-         xl:w-[lg] 
+        xl:w-[85%] 
         flex
         flex-col
         items-center
@@ -21,7 +21,8 @@ const featuresData = useFeatureCardData();
         lg:px-20 
         px-5
         pt-20
-        gap-20'>
+        gap-20
+        mx-auto'>
              {/* Header section */}
              <div className="
             flex
@@ -103,7 +104,8 @@ const featuresData = useFeatureCardData();
                             transition-all
                             duration-200
                             hover:bg-blue3
-                            lg:hover:scale-y-125'>
+                            lg:hover:scale-y-110
+                            lg:hover:scale-x-110'>
         
                                 <div className='
                                 top-[-10%]
