@@ -270,7 +270,7 @@ const OurLandingPortfolioDetails = () => {
                   <div className='flex'>
                     <TypographyP
                       title={portfolioDetails?.description}
-                      className='text-muted-foreground font-semibold' />
+                      className='text-muted-foreground' />
                   </div>
 
                 </div>
@@ -331,7 +331,7 @@ const OurLandingPortfolioDetails = () => {
               viewport={{once: true}}>
               <img src={technology.icon} className='w-[100px] h-[100px]'/>
               <div className=''>
-                <TypographyP title={technology.title} />
+                <TypographyP title={technology.title} className='font-semibold' />
               </div>
             </motion.div>
             ))}
@@ -394,18 +394,18 @@ const OurLandingPortfolioDetails = () => {
                     <div className='flex group-hover:animate-bounce'>
                       {/* <FaCheckCircle size={20} /> */}
                       {type==='ios'?
-                      <img src={availablePlateform['ios']} className='w-12 h-12'/>
+                      <img src={availablePlateform['ios']} className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :type==='web'?
-                      <img src={availablePlateform['web']} className='w-12 h-12'/>
+                      <img src={availablePlateform['web']} className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :type==='android'?
-                      <img src={availablePlateform['android']} className='w-12 h-12'/>
+                      <img src={availablePlateform['android']} className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :null
                       }
                     </div>
                     <div className='flex'>
                       <TypographyP
                         title={description}
-                        className='font-semibold' />
+                        className='font-semibold text-blue-500 underline' />
                     </div>
                   </motion.div>
                 ))}
