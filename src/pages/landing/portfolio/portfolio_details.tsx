@@ -322,12 +322,10 @@ const OurLandingPortfolioDetails = () => {
               flex
               flex-col
               gap-1
-              items-center
-              hover:border-[2px]
-              hover:border-primary'
-              initial={{x:50,opacity: 0}}
+              items-center'
+              initial={{x:70,opacity: 0}}
               whileInView={{x:0, opacity: 100}}
-              transition={{duration: 0.4, delay: 0.1*index}}
+              transition={{duration: 0.4, delay: 0.3*index, ease:'easeIn'}}
               viewport={{once: true}}>
               <img src={technology.icon} className='w-[100px] h-[100px]'/>
               <div className=''>
@@ -355,7 +353,7 @@ const OurLandingPortfolioDetails = () => {
             className='w-full z-[10]'
             initial={{x:-50, opacity: 0}}
             whileInView={{x: 0, opacity: 100}}
-            transition={{duration: 0.5}}
+            transition={{duration: 0.5, ease:'easeIn'}}
             viewport={{once: true}}>
              <Tilt>
                <img src={PlayStore} className='w-full md:h-[650px]'/>
@@ -389,12 +387,12 @@ const OurLandingPortfolioDetails = () => {
                   className='flex gap-5 items-center group'
                   initial={{x:50, opacity: 0}}
                   whileInView={{x: 0, opacity: 100}}
-                  transition={{duration: 0.4, delay: 0.1*index}}
+                  transition={{duration: 0.4, delay: 0.1*index, ease:'easeIn'}}
                   viewport={{once: true}}>
                     <div className='flex group-hover:animate-bounce text-blue-500'>
                       {/* <FaCheckCircle size={20} /> */}
                       {type==='ios'?
-                      <FaAppStoreIos className='w-8 h-8 lg:w-10 lg:h-10'/>
+                      <FaAppStoreIos className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :type==='web'?
                       <BsBrowserChrome className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :type==='android'?
