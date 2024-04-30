@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from "../../../utils/animation"
 import contactBackgroudImage from "../../../assets/images/conatctBackground.png"
-import { TypographyH1, TypographyH2, TypographyH4, TypographyH5, TypographyP } from '../../../components/ui/Typography';
+import { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyH5, TypographyP } from '../../../components/ui/Typography';
 import { IoLocation, MdKeyboardDoubleArrowRight, FaFacebookF, FaTwitter, FaInstagram, FaCheckCircle } from "../../../utils/icons"
 import { RoutesName } from '../../../utils/constant';
 import { useNavigate } from 'react-router-dom';
@@ -9,10 +9,11 @@ import { cn } from '../../../lib/utils';
 import { useAppDispatch, useTypedSelector } from '../../../stateStore';
 import { getTeamMembers } from '../../../services';
 import { LoadingErrorWrapper } from '../../../components/common/loading_error_wrapper';
-import { title } from 'process';
-import { Progress } from '../../../components/ui/progress';
 import PorfolioCard1 from './porfolio_card1';
 import { useProjectPlatformHook } from './project-platform-hook';
+import PlayStore from '../../../assets/images/play-app-store.png'
+import WebsiteBackground from '../../../assets/images/website-background.jpg'
+import { Tilt } from '../../../utils/parallax';
 
 const dummyData = [
   {
@@ -249,52 +250,9 @@ const OurLandingPortfolioDetails = () => {
                 gap-8
                 lg:items-center
                 '>
-               {/* available platform  section */}
-               {addtionalSkills?.length?
-                 <div className=' lg:w-[50%]'>
-
-                 <div className='
-                     flex
-                     flex-col
-                     gap-5'>
- 
-                   <div className='flex -mb-3'>
-                     <TypographyH2 title={'Available Platforms'} className='font-bold lg:text-4xl text-2xl' />
-                   </div>
- 
-                   <div className='
-                            flex
-                            flex-col
-                            gap-5'>
-                     {addtionalSkills?.map(({id, type, description}, index) => (
-                       <div 
-                       key={id}
-                       className='flex gap-4 items-center'>
-                         <div className='flex hover:animate-bounce'>
-                           {/* <FaCheckCircle size={20} /> */}
-                           {type==='ios'?
-                           <img src={availablePlateform['ios']} className='w-8 h-8'/>
-                           :type==='web'?
-                           <img src={availablePlateform['web']} className='w-8 h-8'/>
-                           :type==='android'?
-                           <img src={availablePlateform['android']} className='w-8 h-8'/>
-                           :null
-                           }
-                         </div>
-                         <div className='flex'>
-                           <TypographyP
-                             title={description}
-                             className='font-semibold' />
-                         </div>
-                       </div>
-                     ))}
-                   </div>
-                 </div>
-               </div>:null}
 
               {/* Description section */}
               <div className='
-                     lg:w-[50%] 
                      flex
                      flex-col
                      gap-8
@@ -322,6 +280,152 @@ const OurLandingPortfolioDetails = () => {
           </div>
 
         </div>
+
+        {/* Technology section */}
+        <div className='
+         bg-secondary
+         py-10
+         pb-20
+         px-5
+         lg:px-20
+         w-full
+         flex
+         flex-col
+         items-center
+         justify-center
+         gap-10'>
+
+          <div className='
+          flex
+          items-center
+          gap-5
+          text-primary-foreground'>
+              <span className='h-[9px] w-[9px] bg-primary rounded-full'/>
+              <TypographyH2 title={'Technology'} className='font-bold lg:text-4xl text-2xl' />
+              <span className='h-[9px] w-[9px] bg-primary rounded-full'/>
+          </div>
+
+          <div className='
+          flex
+          flex-wrap
+          lg:gap-10
+          gap-5
+          items-center'>
+            {portfolioDetails?.technologyDetails?.map((technology, index)=>(
+              <motion.div 
+              className='
+              relative
+              p-4 
+              bg-white 
+              rounded-lg 
+              shadow-lg 
+              flex
+              flex-col
+              gap-1
+              items-center
+              hover:border-[2px]
+              hover:border-primary'
+              initial={{x:50,opacity: 0}}
+              whileInView={{x:0, opacity: 100}}
+              transition={{duration: 0.4, delay: 0.1*index}}
+              viewport={{once: true}}>
+              <img src={technology.icon} className='w-[100px] h-[100px]'/>
+              <div className=''>
+                <TypographyP title={technology.title} />
+              </div>
+            </motion.div>
+            ))}
+          </div>
+        </div>
+
+         {/* platform card section */}
+         <div className='
+         relative
+         py-10
+          px-5
+          lg:px-20
+          w-full
+          grid
+          grid-cols-1
+          lg:grid-cols-2
+          gap-10
+          bg-background1
+          items-center'>
+            <motion.div 
+            className='w-full z-[10]'
+            initial={{x:-50, opacity: 0}}
+            whileInView={{x: 0, opacity: 100}}
+            transition={{duration: 0.5}}
+            viewport={{once: true}}>
+             <Tilt>
+               <img src={PlayStore} className='w-full md:h-[650px]'/>
+             </Tilt>
+            </motion.div>
+
+            <div className='
+                flex
+                flex-col
+                gap-5
+                z-[10]'>
+
+               <div className='
+                flex
+                items-center
+                gap-5
+                text-primary-foreground'>
+                    <span className='h-[9px] w-[9px] bg-primary rounded-full'/>
+                    <TypographyH2 title={'Available Platforms'} className='font-bold lg:text-4xl text-2xl' />
+                    <span className='h-[9px] w-[9px] bg-primary rounded-full'/>
+                </div>
+
+              <div className='
+                flex
+                flex-col
+                gap-5
+                lg:gap-7'>
+                {addtionalSkills?.map(({id, type, description}, index) => (
+                  <motion.div 
+                  key={id}
+                  className='flex gap-5 items-center group'
+                  initial={{x:50, opacity: 0}}
+                  whileInView={{x: 0, opacity: 100}}
+                  transition={{duration: 0.4, delay: 0.1*index}}
+                  viewport={{once: true}}>
+                    <div className='flex group-hover:animate-bounce'>
+                      {/* <FaCheckCircle size={20} /> */}
+                      {type==='ios'?
+                      <img src={availablePlateform['ios']} className='w-12 h-12'/>
+                      :type==='web'?
+                      <img src={availablePlateform['web']} className='w-12 h-12'/>
+                      :type==='android'?
+                      <img src={availablePlateform['android']} className='w-12 h-12'/>
+                      :null
+                      }
+                    </div>
+                    <div className='flex'>
+                      <TypographyP
+                        title={description}
+                        className='font-semibold' />
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <motion.div className='
+            absolute
+            top-[20%]
+            right-0
+            h-[60%]
+            w-[40%]
+            gradient4
+            blur-[100px]
+            opacity-50'
+            animate={{scale: [0.7, 1, 0.7]}}
+            transition={{duration: 2, ease: "linear",
+            repeat: Infinity,}}/>
+              
+          </div>
       </div>
     </div>
     </LoadingErrorWrapper>
