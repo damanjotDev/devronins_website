@@ -12,6 +12,7 @@ import { LoadingErrorWrapper } from '../../../components/common/loading_error_wr
 import { title } from 'process';
 import { Progress } from '../../../components/ui/progress';
 import PorfolioCard1 from './porfolio_card1';
+import { useProjectPlatformHook } from './project-platform-hook';
 
 const dummyData = [
   {
@@ -55,26 +56,47 @@ const portfolioDetails = {
         {
             id:'1',
             image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1665384783424.png?alt=media&token=c72b177b-b52b-43db-a1fa-a8e6d6853368",
+            width: 1440,
+            height: 3040
         },
         {
             id:"2",
             image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664254124844.jfif?alt=media&token=db9bd1a0-e236-4a05-a1d6-e95b77cfa04f",
+            width: 311,
+            height: 162
         },
         {
             id:"3",
             image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1669285103822.png?alt=media&token=efcc86bb-3bab-45ee-b4fd-cef2058a77a1",
+            width: 1517,
+            height: 931
         },
         {
             id:"4",
             image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664161188116.png?alt=media&token=dc254cc2-a9b1-47ec-baf3-b1cebfb0f4ab",
+            width: 250,
+            height: 541
         },
     ],
 }
-const addtionalSkills = [
-    'Experienced Attorneys Professional.',
-    'Experienced Attorneys Approach.',
-    'Independence Makes Difference.',
-    'Committed To Helping Our Clients.'
+
+
+  const addtionalSkills = [
+    {
+      id: '1',
+      type: "web",
+      description: 'Available on website'
+    },
+    {
+      id: '2',
+      type: "ios",
+      description: 'Download from Ios App Store'
+    },
+    {
+      id: '3',
+      type: "android",
+      description: 'Download from Play Store'
+    },
   ]
 
   const progressData = [
@@ -105,6 +127,7 @@ const OurLandingPortfolioDetails = () => {
   const navigate = useNavigate();
   const { teamMembers, teamMembersListLoading, error} = useTypedSelector((state)=> state.TeamMember);
   const dispatch = useAppDispatch();
+  const availablePlateform = useProjectPlatformHook();
 
   useEffect(()=>{
     dispatch(getTeamMembers())
@@ -141,7 +164,7 @@ const OurLandingPortfolioDetails = () => {
               gap-2
               '>
               <div className='flex text-white'>
-                <TypographyH1 title='Arborist Report Generator' className='font-semibold' />
+                <TypographyH1 title='Our Portfolio' className='font-semibold' />
               </div>
               <div className='flex items-center gap-2 text-white'>
                 <div
@@ -152,8 +175,15 @@ const OurLandingPortfolioDetails = () => {
 
                 <MdKeyboardDoubleArrowRight size={20} className='text-primary-foreground' />
 
-                <div className='flex'>
+                <div className='flex'
+                onClick={()=> navigate(-1)}>
                   <TypographyP title='Our Portfolio' className='opacity-85' />
+                </div>
+
+                <MdKeyboardDoubleArrowRight size={20} className='text-primary-foreground' />
+
+                <div className='flex'>
+                  <TypographyP title='Arborist Report Generator' className='opacity-85' />
                 </div>
               </div>
             </div>
@@ -195,7 +225,7 @@ const OurLandingPortfolioDetails = () => {
             lg:p-10
             bg-white
             shadow-lg'>
-            {/* skills section */}
+           
             <div className='
                 w-full
                 flex
@@ -204,56 +234,56 @@ const OurLandingPortfolioDetails = () => {
                 gap-8
                 lg:items-center
                 '>
-              {/* Team member Activity section */}
-              <div className=' lg:w-[50%]'>
+               {/* available platform  section */}
+               {addtionalSkills?.length?
+                 <div className=' lg:w-[50%]'>
 
-                {/* Section 1 */}
-                <div className='
-                    flex
-                    flex-col
-                    gap-5'>
-
-                  <div className='flex -mb-3'>
-                    <TypographyH2 title={'Activities'} className='font-bold text-4xl' />
-                  </div>
-
-                  <div className='flex'>
-                    <TypographyP
-                      title={'A hosted desktop solution allows for the delivery of a consistent and scalable IT experience for all users in an organisation.'}
-                      className='text-muted-foreground font-semibold' />
-                  </div>
-
-                  {/* Addional skills */}
-                  <div className='
-                           flex
-                           flex-col
-                           gap-3'>
-                    {addtionalSkills?.map((skill, index) => (
-                      <div 
-                      key={index+1}
-                      className='flex gap-4 items-center'>
-                        <div className='flex'>
-                          <FaCheckCircle size={20} />
-                        </div>
-                        <div className='flex'>
-                          <TypographyP
-                            title={skill}
-                            className='font-semibold' />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Team member profile details */}
+                 <div className='
+                     flex
+                     flex-col
+                     gap-5'>
+ 
+                   <div className='flex -mb-3'>
+                     <TypographyH2 title={'Available Platforms'} className='font-bold text-4xl' />
+                   </div>
+ 
+                   <div className='
+                            flex
+                            flex-col
+                            gap-5'>
+                     {addtionalSkills?.map(({id, type, description}, index) => (
+                       <div 
+                       key={id}
+                       className='flex gap-4 items-center'>
+                         <div className='flex'>
+                           {/* <FaCheckCircle size={20} /> */}
+                           {type==='ios'?
+                           <img src={availablePlateform['ios']} className='w-8 h-8'/>
+                           :type==='web'?
+                           <img src={availablePlateform['web']} className='w-8 h-8'/>
+                           :type==='android'?
+                           <img src={availablePlateform['android']} className='w-8 h-8'/>
+                           :null
+                           }
+                         </div>
+                         <div className='flex'>
+                           <TypographyP
+                             title={description}
+                             className='font-semibold' />
+                         </div>
+                       </div>
+                     ))}
+                   </div>
+                 </div>
+               </div>:null}
+              {/* Technology section */}
               <div className='
                      lg:w-[50%] 
                      flex
                      flex-col
                      gap-8
                      '>
-                {/* Progress Section */}
+              
                 <div className='
                     flex
                     flex-col
@@ -296,7 +326,7 @@ const OurLandingPortfolioDetails = () => {
               </div>
             </div>
 
-            {/* Addition infromation */}
+            {/* Project description */}
 
             <div className='
                 w-full
