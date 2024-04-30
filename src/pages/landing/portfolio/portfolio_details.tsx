@@ -331,6 +331,23 @@ const OurLandingPortfolioDetails = () => {
               <div className=''>
                 <TypographyP title={technology.title} className='font-semibold' />
               </div>
+
+              <motion.div
+              className='absolute border-[1px] border-primary top-0 left-0 right-0'
+              whileInView={{width:['0%', '50%', '100%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+               <motion.div
+              className='absolute border-[1px] border-primary top-0 bottom-0 right-0'
+              whileInView={{height:['0%', '50%', '100%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+              <motion.div
+              className='absolute border-[1px] border-primary left-[100%] bottom-0 right-0'
+              whileInView={{left:['100%', '50%', '0%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+              <motion.div
+              className='absolute border-[1px] border-primary top-[100%] bottom-0 left-0'
+              whileInView={{top:['100%', '50%', '0%']}}
+              transition={{duration: 1, ease:'linear'}}/>
             </motion.div>
             ))}
           </div>
