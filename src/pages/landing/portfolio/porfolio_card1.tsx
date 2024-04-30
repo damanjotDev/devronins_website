@@ -7,9 +7,39 @@ import { useNavigate } from 'react-router-dom';
 import { RoutesName } from '../../../utils/constant';
 import { Carousel, CarouselContent, CarouselItem } from '../../../components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
-import AppStoreImage from "../../../assets/images/app-store-1.png"
+import Iphone from "../../../assets/images/iphone-14.png"
 
-export function CardCarousel({ items }: { items: { id: string, image_url: string, width: number, height: number }[] }) {
+interface PortfolioDetails {
+    createdAt: number;
+    link: string;
+    id: string;
+    images: ImageDetails[];
+    description: string;
+    technologies: string[];
+    isDeleted: number;
+    name: string;
+    technologyDetails: TechnologyDetails[];
+  }
+  
+  interface ImageDetails {
+    image: string;
+    actualHeight: number;
+    actualWidth: number;
+    isCover: boolean;
+    type: string;
+    height: number;
+  }
+  
+  interface TechnologyDetails {
+    id: string;
+    icon: string;
+    description: string;
+    isDeleted: number;
+    title: string;
+    createdAt: number;
+  }
+
+export function CardCarousel({ items }: { items: ImageDetails[] }) {
 
     const handleImageLoad = (width: number, height: number) => {
 
@@ -37,13 +67,13 @@ export function CardCarousel({ items }: { items: { id: string, image_url: string
             className=''
         >
             <CarouselContent>
-                {items?.map((ele)=>(
-                     <CarouselItem key={ele.id} 
+                {items?.map((ele, index)=>(
+                     <CarouselItem key={index+1} 
                      className='flex items-center justify-center'>
                      <motion.div
-                         className={cn("relative px-2 py-1",
-                         handleImageLoad(ele.width, ele.height) === "mobile" ?
-                         "md:h-[590px] md:w-[280px] h-[450px]"
+                         className={cn("relative px-2",
+                         ele.type === "iphone" ?
+                         "md:h-[590px] md:w-[280px] h-[450px] py-1"
                          : "md:h-[590px] lg:w-[60%] md:w-[70%] w-full")}
                          initial={{x:'100%'}}
                          animate={{x:'0%'}}
@@ -55,17 +85,20 @@ export function CardCarousel({ items }: { items: { id: string, image_url: string
                          bottom-0
                          left-0
                          right-0'>
-                             <img src={handleImageLoad(ele.width, ele.height) === "mobile" ?
-                                 'https://portal.devronins.com/iphone.png' :
+                             <img src={ele.type === "iphone" ?
+                                 Iphone :
                                  'https://portal.devronins.com/mac.png'
                              } className='w-full h-full' />
                          </div>
-
-                         <img 
-                         src={ele.image_url}
-                         alt="Your Image"
-                         className='w-full h-full' 
-                        />
+                         <div className={
+                            cn("w-full h-full bg-white pt-8",
+                            ele.type === "iphone" && 'pt-2 px-1')}>
+                            <img 
+                            src={ele.image}
+                            alt="Your Image"
+                            className='w-auto h-full rounded-[40px]' 
+                            />
+                         </div>
                      </motion.div>
                  </CarouselItem>
                 ))}
@@ -74,21 +107,7 @@ export function CardCarousel({ items }: { items: { id: string, image_url: string
     )
 }
 
-
-interface PortFolioCard1Props {
-    id: string;
-    image_url: string;
-    title: string;
-    project_images: {
-        id: string;
-        image_url: string;
-        height: number;
-        width: number
-    }[]
-}
-
-
-const PorfolioCard1 = ({ item }: { item: PortFolioCard1Props }) => {
+const PorfolioCard1 = ({ item }: { item: PortfolioDetails }) => {
     return (
         <motion.div
             className='
@@ -104,12 +123,12 @@ const PorfolioCard1 = ({ item }: { item: PortFolioCard1Props }) => {
             whileInView={{ x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}>
-            <CardCarousel items={item.project_images} />
+            <CardCarousel items={item.images} />
             <div className='
             flex 
             items-center
             justify-center'>
-                <TypographyH6 title={item?.title} />
+                <TypographyH6 title={item?.name} />
             </div>
         </motion.div>
     )

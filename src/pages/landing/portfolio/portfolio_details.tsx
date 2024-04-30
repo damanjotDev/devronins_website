@@ -48,38 +48,78 @@ const dummyData = [
 ]
 
 const portfolioDetails = {
-    id:"1",
-    image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1665384783424.png?alt=media&token=c72b177b-b52b-43db-a1fa-a8e6d6853368",
-    title: "Business Card Generator App",
-    description : "ArborHawk serves arborists by facilitating immediate generation of arborist reports. The Arborist Report Generator (ARG) boasts a user-friendly interface, streamlining the creation of expert reports covering tree removal permits, tree protection zone plans, heritage tree documentation, residential requests, and commuting plans. Utilizing highly advanced AI language models, the ARG significantly reduces the time typically spent on traditional report writing.",
-    project_images : [
-        {
-            id:'1',
-            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1665384783424.png?alt=media&token=c72b177b-b52b-43db-a1fa-a8e6d6853368",
-            width: 1440,
-            height: 3040
-        },
-        {
-            id:"2",
-            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664254124844.jfif?alt=media&token=db9bd1a0-e236-4a05-a1d6-e95b77cfa04f",
-            width: 311,
-            height: 162
-        },
-        {
-            id:"3",
-            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1669285103822.png?alt=media&token=efcc86bb-3bab-45ee-b4fd-cef2058a77a1",
-            width: 1517,
-            height: 931
-        },
-        {
-            id:"4",
-            image_url: "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1664161188116.png?alt=media&token=dc254cc2-a9b1-47ec-baf3-b1cebfb0f4ab",
-            width: 250,
-            height: 541
-        },
-    ],
+  "isDeleted": 0,
+  "id": "3YEkxAhOUvfrH5TIXWUH",
+  "createdAt": 1707373077415,
+  "technologies": [
+      "BX6VZ5G2xAon1l9GkHF0",
+      "JSIFPBymKU803SKCCspZ",
+      "8IlrG73NLKiUV4JwNdIj"
+  ],
+  "images": [
+      {
+          "image": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1707373073736.png?alt=media&token=b69108d5-f3a7-4161-afc2-8fc8db7edca6",
+          "isCover": true,
+          "actualWidth": 232,
+          "actualHeight": 482,
+          "type": "iphone",
+          "height": 492.46551724137936
+      },
+      {
+          "isCover": false,
+          "actualWidth": 233,
+          "actualHeight": 477,
+          "image": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1707373074651.png?alt=media&token=67660dd8-fb9e-4e60-a0fe-2503c0861d92",
+          "type": "iphone",
+          "height": 499.33047210300435
+      },
+      {
+          "isCover": false,
+          "image": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1707373337228.png?alt=media&token=d368b85b-cde2-40ec-bb97-5ed862cd8ee2",
+          "actualWidth": 1835,
+          "actualHeight": 926,
+          "type": "mac",
+          "height": 499.89645776566755
+      },
+      {
+          "actualHeight": 913,
+          "image": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/proposal%2F1707373339909.png?alt=media&token=fa371fcf-e1f6-4e41-a0da-c3bc8b75f4e2",
+          "isCover": false,
+          "actualWidth": 1830,
+          "type": "mac",
+          "height": 503.7322404371585
+      }
+  ],
+  "description": "ArborHawk serves arborists by facilitating immediate generation of arborist reports. The Arborist Report Generator (ARG) boasts a user-friendly interface, streamlining the creation of expert reports covering tree removal permits, tree protection zone plans, heritage tree documentation, residential requests, and commuting plans. Utilizing highly advanced AI language models, the ARG significantly reduces the time typically spent on traditional report writing.",
+  "link": "https://arborhawk.com/",
+  "name": "Arborist Report Generator",
+  "technologyDetails": [
+      {
+          "isDeleted": 0,
+          "id": "8IlrG73NLKiUV4JwNdIj",
+          "createdAt": 1707373288044,
+          "title": "ReactJs",
+          "icon": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/technologyicon%2F1707373285311.png?alt=media&token=1503c18d-afc7-4e89-b507-8035e230c377",
+          "description": "ReactJs"
+      },
+      {
+          "icon": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/technologyicon%2F1707372955100.jpg?alt=media&token=cf5b15cc-7b33-4480-86cf-54db7506a448",
+          "createdAt": 1707372961624,
+          "title": "ChatGPT",
+          "id": "BX6VZ5G2xAon1l9GkHF0",
+          "description": "ChatGPT",
+          "isDeleted": 0
+      },
+      {
+          "isDeleted": 0,
+          "id": "JSIFPBymKU803SKCCspZ",
+          "title": "React Native",
+          "createdAt": 1707373310860,
+          "icon": "https://firebasestorage.googleapis.com/v0/b/devroninsportfolio.appspot.com/o/technologyicon%2F1707373307677.png?alt=media&token=759a63b7-d6f7-4bec-8a15-991433777b47",
+          "description": "React Native"
+      }
+  ]
 }
-
 
   const addtionalSkills = [
     {
@@ -97,27 +137,6 @@ const portfolioDetails = {
       type: "android",
       description: 'Download from Play Store'
     },
-  ]
-
-  const progressData = [
-    {
-      id: 1,
-      title: 'ReactJs',
-      value: 90,
-      fillColor: "gradient4"
-    },
-    {
-      id: 2,
-      title: 'ChatGPT',
-      value: 95,
-      fillColor: "gradient7"
-    },
-    {
-      id: 3,
-      title: 'React Native',
-      value: 80,
-      fillColor: "gradient6"
-    }
   ]
 
 
@@ -180,11 +199,6 @@ const OurLandingPortfolioDetails = () => {
                   <TypographyP title='Our Portfolio' className='opacity-85' />
                 </div>
 
-                <MdKeyboardDoubleArrowRight size={20} className='text-primary-foreground' />
-
-                <div className='flex'>
-                  <TypographyP title='Arborist Report Generator' className='opacity-85' />
-                </div>
               </div>
             </div>
           </div>
@@ -214,6 +228,7 @@ const OurLandingPortfolioDetails = () => {
             justify-center'>
                 <PorfolioCard1 item={portfolioDetails}/>
             </div>
+
           {/* porfolio detail section */}
           <div className='
             w-full
@@ -244,7 +259,7 @@ const OurLandingPortfolioDetails = () => {
                      gap-5'>
  
                    <div className='flex -mb-3'>
-                     <TypographyH2 title={'Available Platforms'} className='font-bold text-4xl' />
+                     <TypographyH2 title={'Available Platforms'} className='font-bold lg:text-4xl text-2xl' />
                    </div>
  
                    <div className='
@@ -255,7 +270,7 @@ const OurLandingPortfolioDetails = () => {
                        <div 
                        key={id}
                        className='flex gap-4 items-center'>
-                         <div className='flex'>
+                         <div className='flex hover:animate-bounce'>
                            {/* <FaCheckCircle size={20} /> */}
                            {type==='ios'?
                            <img src={availablePlateform['ios']} className='w-8 h-8'/>
@@ -276,7 +291,8 @@ const OurLandingPortfolioDetails = () => {
                    </div>
                  </div>
                </div>:null}
-              {/* Technology section */}
+
+              {/* Description section */}
               <div className='
                      lg:w-[50%] 
                      flex
@@ -289,71 +305,20 @@ const OurLandingPortfolioDetails = () => {
                     flex-col
                     gap-5'>
 
-                  {progressData?.map((item) => (
-                    <div className='
-                      lg:w-[80%]
-                      w-full
-                      flex
-                      flex-col
-                      gap-3
-                      text-secondary-foreground'
-                      key={item.id}>
-                      <div className='
-                                flex
-                                items-center
-                                justify-between
-                                '>
+                  <div className='flex -mb-3'>
+                    <TypographyH2 title={'Description'} className='font-bold lg:text-4xl text-2xl' />
+                  </div>
 
-                        <div>
-                          <TypographyP
-                            title={item.title}
-                            className='font-bold' />
-                        </div>
-                        <div>
-                          <TypographyP
-                            title={`${item.value}%`}
-                            className='font-bold' />
-                        </div>
-                      </div>
-                      <Progress
-                        value={item.value}
-                        className='h-2 rounded-full'
-                        filledStyle={item.fillColor} />
-                    </div>
-                  ))}
+                  <div className='flex'>
+                    <TypographyP
+                      title={portfolioDetails?.description}
+                      className='text-muted-foreground font-semibold' />
+                  </div>
 
                 </div>
               </div>
+
             </div>
-
-            {/* Project description */}
-
-            <div className='
-                w-full
-                flex
-                flex-col
-                lg:flex-row
-                gap-8
-                lg:items-center
-                '>
-              {/* Team member Additional infromation section */}
-              <div className='
-                        flex
-                        flex-col
-                        gap-5'>
-
-                <div className='flex -mb-3'>
-                  <TypographyH2 title={'Description'} className='font-bold text-4xl' />
-                </div>
-
-                <div className='flex'>
-                  <TypographyP
-                    title={portfolioDetails?.description}
-                    className='text-muted-foreground font-semibold' />
-                </div>
-              </div>
-            </div>
-
           </div>
 
         </div>
