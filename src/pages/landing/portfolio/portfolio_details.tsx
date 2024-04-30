@@ -12,7 +12,7 @@ import { LoadingErrorWrapper } from '../../../components/common/loading_error_wr
 import PorfolioCard1 from './porfolio_card1';
 import { useProjectPlatformHook } from './project-platform-hook';
 import PlayStore from '../../../assets/images/play-app-store.png'
-import WebsiteBackground from '../../../assets/images/website-background.jpg'
+import { BsBrowserChrome, FaAppStoreIos, FaGooglePlay } from "../../../utils/icons"
 import { Tilt } from '../../../utils/parallax';
 
 const dummyData = [
@@ -391,14 +391,14 @@ const OurLandingPortfolioDetails = () => {
                   whileInView={{x: 0, opacity: 100}}
                   transition={{duration: 0.4, delay: 0.1*index}}
                   viewport={{once: true}}>
-                    <div className='flex group-hover:animate-bounce'>
+                    <div className='flex group-hover:animate-bounce text-blue-500'>
                       {/* <FaCheckCircle size={20} /> */}
                       {type==='ios'?
-                      <img src={availablePlateform['ios']} className='w-8 h-8 lg:w-12 lg:h-12'/>
+                      <FaAppStoreIos className='w-8 h-8 lg:w-10 lg:h-10'/>
                       :type==='web'?
-                      <img src={availablePlateform['web']} className='w-8 h-8 lg:w-12 lg:h-12'/>
+                      <BsBrowserChrome className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :type==='android'?
-                      <img src={availablePlateform['android']} className='w-8 h-8 lg:w-12 lg:h-12'/>
+                      <FaGooglePlay className='w-8 h-8 lg:w-12 lg:h-12'/>
                       :null
                       }
                     </div>
