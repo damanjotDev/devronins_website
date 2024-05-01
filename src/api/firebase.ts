@@ -39,6 +39,23 @@ export const firebaseApi = {
       } catch (error) {
         throw error
       }
+    },
+    getManyByIds: async ({collectionName, docIds}:{collectionName: string, docIds: string[]}): Promise<any> => {
+      try {
+        const dataCol = collection(db, collectionName);
+        const dataSnapshot = await getDocs(dataCol);
+        const dataList = dataSnapshot.docs.map(doc => doc.data());
+
+        let data: any = []
+        docIds?.forEach((id)=>{
+          const res = dataList?.find((doc)=>(doc?.id===id));
+          data.push(res)
+        });
+        if(!data) throw({status: 401, message: 'document not found'});
+        return data
+      } catch (error) {
+        throw error
+      }
     }
   
   };

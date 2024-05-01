@@ -7,53 +7,11 @@ import { RoutesName } from '../../../utils/constant';
 import { Carousel, CarouselContent, CarouselItem } from '../../../components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
 import Iphone from "../../../assets/images/iphone-14.png"
-import IphoneSkeletonImage from "../../../assets/images/iphone-skeleton.png"
+import IphoneSkeletonImage from "../../../assets/images/iphone-skeleton.png";
+import { ProjectModal, ImageModal } from "../../../reducers/projects";
 
-interface PortfolioDetails {
-    createdAt: number;
-    link: string;
-    id: string;
-    images: ImageDetails[];
-    description: string;
-    technologies: string[];
-    isDeleted: number;
-    name: string;
-    technologyDetails: TechnologyDetails[];
-  }
-  
-  interface ImageDetails {
-    image: string;
-    actualHeight: number;
-    actualWidth: number;
-    isCover: boolean;
-    type: string;
-    height: number;
-  }
-  
-  interface TechnologyDetails {
-    id: string;
-    icon: string;
-    description: string;
-    isDeleted: number;
-    title: string;
-    createdAt: number;
-  }
+export function CardCarousel({ items }: { items: ImageModal[] }) {
 
-export function CardCarousel({ items }: { items: ImageDetails[] }) {
-
-    const handleImageLoad = (width: number, height: number) => {
-
-        const aspectRatio = width / height
-        if (aspectRatio <= 0.5) { // Mobile Aspect Ratios: 9:16 or 3:4
-            return "mobile";
-        } else if (aspectRatio <= 1.0) { // Tablet Aspect Ratios: 3:4 or 4:3
-            return "ipad";
-        } else if (aspectRatio > 1.0) { // Desktop Aspect Ratios: 16:9 or 16:10
-            return "laptop";
-        } else {
-            return "mobile"; // If aspect ratio doesn't match any common types
-        }
-    };
     return (
         <Carousel
             plugins={[
@@ -120,7 +78,7 @@ export function CardCarousel({ items }: { items: ImageDetails[] }) {
     )
 }
 
-const PorfolioCard1 = ({ item }: { item: PortfolioDetails }) => {
+const PorfolioCard1 = ({ item }: { item: ProjectModal }) => {
     return (
         <div
             className='

@@ -1,42 +1,15 @@
 import { cn } from '../../../lib/utils';
 import React, { useEffect, useState } from 'react'
-import { useImageSize } from 'react-image-size';
 import {animate, motion} from "../../../utils/animation"
 import { TypographyH4, TypographyH6 } from '../../../components/ui/Typography';
 import { useNavigate } from 'react-router-dom';
 import { RoutesName } from '../../../utils/constant';
+import { ProjectModal } from "../../../reducers/projects";
 
-
-const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title: string}, index: number}) => {
+const PorfolioCard = ({item, index}:{item:ProjectModal, index: number}) => {
     const navigate = useNavigate();
 
-    const [dimensions, { loading, error }] = useImageSize(item.image_url);
-    const [deviceType, setDeviceType] = useState('mobile')
-
-    const handleImageLoad = (width: number, height: number) => {
-
-         const  aspectRatio = width/ height
-        if (aspectRatio <= 0.5) { // Mobile Aspect Ratios: 9:16 or 3:4
-            setDeviceType("mobile");
-        } else if (aspectRatio <= 1.0) { // Tablet Aspect Ratios: 3:4 or 4:3
-            setDeviceType("ipad");
-        } else if (aspectRatio>1.0) { // Desktop Aspect Ratios: 16:9 or 16:10
-            setDeviceType("laptop");
-        } else {
-            setDeviceType("mobile"); // If aspect ratio doesn't match any common types
-        }
-    };
-
-
-    useEffect(()=>{
-        if(dimensions?.height && dimensions?.width){
-            handleImageLoad(dimensions.width, dimensions.height)
-        }
-    },[dimensions])
-
-    if(loading){
-        return <h1>loading...</h1>
-    }
+    const coverImage = item.images?.find((ele)=> ele.isCover===true)
     
     return (
         <motion.div 
@@ -60,9 +33,9 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
         onClick={()=> navigate(RoutesName.OurPortfolio+"/"+item.id)}>
             <motion.div 
                className={cn("relative rounded-lg",
-                deviceType==="mobile"?
-                "h-[270px] w-[140px]"
-                :"h-[270px] w-[100%]")}
+                coverImage?.type==="iphone"?
+                "h-[300px] w-[140px]"
+                :"h-[300px] w-[100%]")}
                 whileHover={{scale: 1.1}}
                 transition={{duration: 0.4}}>
                 {/* device image */}
@@ -78,7 +51,7 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
                     } className='w-full h-full'/>
                 </div>  */}
                 <img
-                src={item.image_url}
+                src={coverImage?.image}
                 alt="Your Image"
                 className='w-full h-full rounded-lg'/>
             </motion.div>
@@ -102,7 +75,7 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
                     items-center
                     justify-center'>
                       <div className='flex mt-[-10px]'>
-                        <TypographyH4 title={item?.title} className='text-white group-hover:text-black' />
+                        <TypographyH4 title={item?.name} className='text-white group-hover:text-black' />
                       </div>
                     </div>
               </motion.div>

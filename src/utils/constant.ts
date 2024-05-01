@@ -35,5 +35,7 @@ export const firebaseCollectionName = {
         ClientReviews: 'client_reviews',
         Devronins: 'devronins',
         Services: 'services',
-        TeamMembers:'team_members'
+        TeamMembers: 'team_members',
+        Technologies: 'technologies',
+        Projects: 'projects'
 }
