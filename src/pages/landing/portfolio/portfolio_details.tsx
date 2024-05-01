@@ -325,7 +325,7 @@ const OurLandingPortfolioDetails = () => {
               items-center'
               initial={{x:70,opacity: 0}}
               whileInView={{x:0, opacity: 100}}
-              transition={{duration: 0.4, delay: 0.3*index, ease:'easeIn'}}
+              transition={{duration: 0.7, delay: 0.3*index, ease:'easeIn'}}
               viewport={{once: true}}>
               <img src={technology.icon} className='w-[100px] h-[100px]'/>
               <div className=''>
@@ -370,7 +370,7 @@ const OurLandingPortfolioDetails = () => {
             className='w-full z-[10]'
             initial={{x:-50, opacity: 0}}
             whileInView={{x: 0, opacity: 100}}
-            transition={{duration: 0.5, ease:'easeIn'}}
+            transition={{duration: 0.7, ease:'easeIn'}}
             viewport={{once: true}}>
              <Tilt>
                <img src={PlayStore} className='w-full md:h-[650px]'/>
@@ -404,7 +404,7 @@ const OurLandingPortfolioDetails = () => {
                   className='flex gap-5 items-center group'
                   initial={{x:50, opacity: 0}}
                   whileInView={{x: 0, opacity: 100}}
-                  transition={{duration: 0.4, delay: 0.1*index, ease:'easeIn'}}
+                  transition={{duration: 0.7, delay: 0.1*index, ease:'easeIn'}}
                   viewport={{once: true}}>
                     <div className='flex group-hover:animate-bounce text-blue-500'>
                       {/* <FaCheckCircle size={20} /> */}
