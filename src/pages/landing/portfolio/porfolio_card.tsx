@@ -1,13 +1,13 @@
 import { cn } from '../../../lib/utils';
 import React, { useEffect, useState } from 'react'
 import { useImageSize } from 'react-image-size';
-import {motion} from "../../../utils/animation"
+import {animate, motion} from "../../../utils/animation"
 import { TypographyH6 } from '../../../components/ui/Typography';
 import { useNavigate } from 'react-router-dom';
 import { RoutesName } from '../../../utils/constant';
 
 
-const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string}}) => {
+const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title: string}, index: number}) => {
     const navigate = useNavigate();
 
     const [dimensions, { loading, error }] = useImageSize(item.image_url);
@@ -41,28 +41,32 @@ const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string
     return (
         <motion.div 
         className='
+        relative
         w-full
         h-full
         flex
         flex-col
-        gap-2
         items-center
-        justify-center'
+        justify-center
+        shadow-lg
+        overflow-hidden
+        bg-white'
         key={item.id}
-        initial={{x: 40}}
-        whileInView={{x:0}}
-        transition={{duration: 0.3}}
+        initial={{x: 40, opacity: 0}}
+        whileHover='hover'
+        whileInView={{x:0, opacity: 100}}
+        transition={{duration: 0.5, delay: 0.3*index, ease:'easeIn'}}
         viewport={{once: true}}
         onClick={()=> navigate(RoutesName.OurPortfolio+"/"+item.id)}>
             <motion.div 
-            className={cn("relative px-2 py-1",
+               className={cn("relative p-2 rounded-lg",
                 deviceType==="mobile"?
                 "h-[270px] w-[140px]"
-                :"h-[240px] w-[400px]")}
+                :"h-[270px] w-[full]")}
                 whileHover={{scale: 1.1}}
                 transition={{duration: 0.4}}>
                 {/* device image */}
-                <div className='
+                {/* <div className='
                 absolute
                 top-0
                 bottom-0
@@ -72,19 +76,38 @@ const PorfolioCard = ({item}:{item:{id: string, image_url: string, title: string
                         'https://portal.devronins.com/iphone.png':
                         'https://portal.devronins.com/mac.png'
                     } className='w-full h-full'/>
-                </div> 
+                </div>  */}
                 <img
                 src={item.image_url}
                 alt="Your Image"
-                className='w-full h-full'/>
+                className='w-full h-full rounded-lg'/>
             </motion.div>
 
             <div className='
             flex 
             items-center
-            justify-center'>
+            justify-center
+            p-2'>
                 <TypographyH6 title={item?.title}/>
             </div>
+
+            <motion.div
+              className='absolute border-[1px] border-primary top-0 left-0 right-0 rounded-b-[100px]'
+              whileInView={{width:['0%', '50%', '100%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+               <motion.div
+              className='absolute border-[1px] border-primary top-0 bottom-0 right-0'
+              whileInView={{height:['0%', '50%', '100%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+              <motion.div
+              className='absolute border-[1px] border-primary left-[100%] bottom-0 right-0'
+              whileInView={{left:['100%', '50%', '0%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+              <motion.div
+              className='absolute border-[1px] border-primary top-[100%] bottom-0 left-0'
+              whileInView={{top:['100%', '50%', '0%']}}
+              transition={{duration: 1, ease:'linear'}}/>
+           
         </motion.div>
     )
 }

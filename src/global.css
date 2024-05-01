@@ -78,7 +78,7 @@
   }
 
   .gradient1 {
-    @apply bg-gradient-to-r from-[#F5F8FF] via-[#B7B0FF] to-[#F5F8FF]
+    @apply bg-gradient-to-r from-[#B7B0FF] via-[#F5F8FF] to-[#B7B0FF]
   }
 
   .gradient2 {

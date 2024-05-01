@@ -63,7 +63,7 @@ const OurLandingPortfolio = () => {
       <div className='
       flex
       flex-col'>
-        {/* Contact Background image section */}
+        {/* Portfolio Background image section */}
         <div className='
         relative
         flex
@@ -105,28 +105,56 @@ const OurLandingPortfolio = () => {
           </div>
         </div>
 
-        {/* portfolio section */}
         <div className='
-        relative
-        xl:w-[75%] 
-        mx-auto
-        grid
-        grid-cols-1
-        lg:grid-cols-3
-        md:grid-cols-2
-        items-center
-        h-auto
-        px-5
-        pt-20
-        lg:px-20
-        pb-20
-        md:gap-y-20
-        md:gap-x-20
-        gap-10
-        '>
-          {dummyData?.map((item)=>(
-            <PorfolioCard item={item}/>
-          ))}
+        flex
+        w-full
+        relative'>
+           {/* portfolio section */}
+            <div className='
+            relative
+            xl:w-[75%] 
+            mx-auto
+            grid
+            grid-cols-1
+            lg:grid-cols-3
+            md:grid-cols-2
+            items-center
+            h-auto
+            px-5
+            pt-20
+            pb-20
+            gap-10
+            '>
+              {dummyData?.map((item, index)=>(
+                <PorfolioCard item={item} index={index}/>
+              ))}
+            </div>
+
+            {/* portflio gradient background */}
+            <motion.div className='
+            absolute
+            top-0
+            bottom-0
+            left-0
+            right-0
+            gradient1
+            -z-[10]
+            blur-[100px]'
+            animate={{rotate: 360}}
+            transition={{duration: 20, ease:'linear', repeat: Infinity}}/>
+             {/* portflio gradient background */}
+             <motion.div className='
+            absolute
+            top-0
+            bottom-0
+            left-0
+            right-0
+            gradient1
+            -z-[10]
+            blur-[100px]'
+            initial={{rotate: 180}}
+            animate={{rotate: 540}}
+            transition={{duration: 20, ease:'linear', repeat: Infinity}}/>
         </div>
       </div>
     </div>
