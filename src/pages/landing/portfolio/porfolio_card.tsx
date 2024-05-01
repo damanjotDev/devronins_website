@@ -24,7 +24,8 @@ const PorfolioCard = ({item, index}:{item:ProjectModal, index: number}) => {
         shadow-lg
         overflow-hidden
         bg-white
-        rounded-lg'
+        rounded-lg
+        py-2'
         key={item.id}
         initial={{x: 40, opacity: 0}}
         whileInView={{x:0, opacity: 100}}
