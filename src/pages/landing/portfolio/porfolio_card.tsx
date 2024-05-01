@@ -55,7 +55,7 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
         initial={{x: 40, opacity: 0}}
         whileHover='hover'
         whileInView={{x:0, opacity: 100}}
-        transition={{duration: 0.5, delay: 0.3*index, ease:'easeIn'}}
+        transition={{duration: 0.5, delay: 0.1*index, ease:'easeIn'}}
         viewport={{once: true}}
         onClick={()=> navigate(RoutesName.OurPortfolio+"/"+item.id)}>
             <motion.div 

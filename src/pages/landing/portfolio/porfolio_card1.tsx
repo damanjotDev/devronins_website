@@ -69,37 +69,46 @@ export function CardCarousel({ items }: { items: ImageDetails[] }) {
             <CarouselContent>
                 {items?.map((ele, index)=>(
                      <CarouselItem key={index+1} 
-                     className='flex items-center justify-center'>
-                     <motion.div
-                         className={cn("relative px-2",
-                         ele.type === "iphone" ?
-                         "md:h-[590px] md:w-[280px] h-[450px] py-1"
-                         : "md:h-[590px] lg:w-[60%] md:w-[70%] w-full")}
-                         initial={{x:'100%'}}
-                         animate={{x:'0%'}}
-                         transition={{duration:1}}>
-                         {/* device image */}
-                         <div className='
-                         absolute
-                         top-0
-                         bottom-0
-                         left-0
-                         right-0'>
-                             <img src={ele.type === "iphone" ?
-                                 Iphone :
-                                 'https://portal.devronins.com/mac.png'
-                             } className='w-full h-full' />
-                         </div>
-                         <div className={
-                            cn("w-full h-full bg-white pt-8",
-                            ele.type === "iphone" && 'pt-2 px-1')}>
-                            <img 
-                            src={ele.image}
-                            alt="Your Image"
-                            className='w-auto h-full rounded-[40px]' 
-                            />
-                         </div>
-                     </motion.div>
+                     className='
+                     flex i
+                     tems-center 
+                     justify-center'>
+
+                        <div 
+                        className='
+                        flex
+                        h-[300px]
+                        md:h-[500px]
+                        relative'>
+                            {ele.type==='iphone'?
+                            <img src={Iphone} 
+                            className='w-full h-full'/>:
+                            <img src='https://portal.devronins.com/mac.png' 
+                            className='w-full md:h-full h-auto'/>}
+
+                           {ele.type==='iphone'?
+                           <div className='
+                           absolute
+                           top-[2.3%]
+                           right-[5%]
+                           left-[5%]
+                           bottom-[2.3%]
+                           bg-gray-400
+                           rounded-lg
+                           -z-[1]
+                           '>
+                            <img src={ele.image} className='w-full h-full'/>
+                           </div>:
+                           <div className='
+                           absolute
+                           top-[5.5%]
+                           right-[11.8%]
+                           left-[11.8%]
+                           bottom-[11.4%]'>
+                               <img src={ele.image} className='w-full h-full'/>
+                           </div>}
+                        </div>
+                     
                  </CarouselItem>
                 ))}
             </CarouselContent>
