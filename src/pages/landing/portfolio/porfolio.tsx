@@ -107,9 +107,38 @@ const OurLandingPortfolio = () => {
 
         <div className='
         flex
+        flex-col
         w-full
         relative
-        overflow-hidden'>
+        overflow-hidden
+        lg:gap-20
+        gap-10
+        items-center
+        px-5
+        pt-20
+        pb-20'>
+
+            {/* Portfolio Header section */}
+            <div className='
+                flex
+                justify-center
+                items-center
+                xl:w-[25%]
+                lg:w-[50%]
+                md:w-[60%]'>
+              <div
+                className="
+                text-center
+                    text-3xl
+                    font-bold 
+                    lg:text-4xl">
+                We provide the necessary
+                <span className="text-primary-foreground">{" services "}</span>
+                to you
+              </div>
+            </div>
+        
+
            {/* portfolio section */}
             <div className='
             relative
@@ -121,9 +150,6 @@ const OurLandingPortfolio = () => {
             md:grid-cols-2
             items-center
             h-auto
-            px-5
-            pt-20
-            pb-20
             gap-10
             '>
               {dummyData?.map((item, index)=>(

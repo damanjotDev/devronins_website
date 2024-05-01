@@ -62,7 +62,7 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
                className={cn("relative rounded-lg",
                 deviceType==="mobile"?
                 "h-[270px] w-[140px]"
-                :"h-[270px] w-[full]")}
+                :"h-[270px] w-[100%]")}
                 whileHover={{scale: 1.1}}
                 transition={{duration: 0.4}}>
                 {/* device image */}
@@ -91,7 +91,7 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
               h-[100px]
               -skew-y-6
               opacity-85
-              bg-black'>
+              bg-blue4'>
                  <div className='
                     p-4
                     skew-y-[6deg]
