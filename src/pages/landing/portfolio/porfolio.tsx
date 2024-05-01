@@ -108,7 +108,8 @@ const OurLandingPortfolio = () => {
         <div className='
         flex
         w-full
-        relative'>
+        relative
+        overflow-hidden'>
            {/* portfolio section */}
             <div className='
             relative

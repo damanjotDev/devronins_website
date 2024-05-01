@@ -2,7 +2,7 @@ import { cn } from '../../../lib/utils';
 import React, { useEffect, useState } from 'react'
 import { useImageSize } from 'react-image-size';
 import {animate, motion} from "../../../utils/animation"
-import { TypographyH6 } from '../../../components/ui/Typography';
+import { TypographyH4, TypographyH6 } from '../../../components/ui/Typography';
 import { useNavigate } from 'react-router-dom';
 import { RoutesName } from '../../../utils/constant';
 
@@ -50,16 +50,16 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
         justify-center
         shadow-lg
         overflow-hidden
-        bg-white'
+        bg-white
+        rounded-lg'
         key={item.id}
         initial={{x: 40, opacity: 0}}
-        whileHover='hover'
         whileInView={{x:0, opacity: 100}}
         transition={{duration: 0.5, delay: 0.1*index, ease:'easeIn'}}
         viewport={{once: true}}
         onClick={()=> navigate(RoutesName.OurPortfolio+"/"+item.id)}>
             <motion.div 
-               className={cn("relative p-2 rounded-lg",
+               className={cn("relative rounded-lg",
                 deviceType==="mobile"?
                 "h-[270px] w-[140px]"
                 :"h-[270px] w-[full]")}
@@ -83,30 +83,29 @@ const PorfolioCard = ({item, index}:{item:{id: string, image_url: string, title:
                 className='w-full h-full rounded-lg'/>
             </motion.div>
 
-            <div className='
-            flex 
-            items-center
-            justify-center
-            p-2'>
-                <TypographyH6 title={item?.title}/>
-            </div>
-
-            <motion.div
-              className='absolute border-[1px] border-primary top-0 left-0 right-0 rounded-b-[100px]'
-              whileInView={{width:['0%', '50%', '100%']}}
-              transition={{duration: 1, ease:'linear'}}/>
-               <motion.div
-              className='absolute border-[1px] border-primary top-0 bottom-0 right-0'
-              whileInView={{height:['0%', '50%', '100%']}}
-              transition={{duration: 1, ease:'linear'}}/>
-              <motion.div
-              className='absolute border-[1px] border-primary left-[100%] bottom-0 right-0'
-              whileInView={{left:['100%', '50%', '0%']}}
-              transition={{duration: 1, ease:'linear'}}/>
-              <motion.div
-              className='absolute border-[1px] border-primary top-[100%] bottom-0 left-0'
-              whileInView={{top:['100%', '50%', '0%']}}
-              transition={{duration: 1, ease:'linear'}}/>
+              <motion.div className='
+              absolute
+              left-0
+              right-0
+              bottom-[-25px]
+              h-[100px]
+              -skew-y-6
+              opacity-85
+              bg-black'>
+                 <div className='
+                    p-4
+                    skew-y-[6deg]
+                    w-full
+                    h-full
+                    flex
+                    flex-col
+                    items-center
+                    justify-center'>
+                      <div className='flex mt-[-10px]'>
+                        <TypographyH4 title={item?.title} className='text-white group-hover:text-black' />
+                      </div>
+                    </div>
+              </motion.div>
            
         </motion.div>
     )

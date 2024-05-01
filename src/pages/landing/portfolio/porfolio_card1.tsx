@@ -1,6 +1,5 @@
 import { cn } from '../../../lib/utils';
 import React, { useEffect, useRef, useState } from 'react'
-import { useImageSize } from 'react-image-size';
 import { motion } from "../../../utils/animation"
 import { TypographyH6 } from '../../../components/ui/Typography';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +7,7 @@ import { RoutesName } from '../../../utils/constant';
 import { Carousel, CarouselContent, CarouselItem } from '../../../components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay"
 import Iphone from "../../../assets/images/iphone-14.png"
+import IphoneSkeletonImage from "../../../assets/images/iphone-skeleton.png"
 
 interface PortfolioDetails {
     createdAt: number;
@@ -74,12 +74,16 @@ export function CardCarousel({ items }: { items: ImageDetails[] }) {
                      tems-center 
                      justify-center'>
 
-                        <div 
+                        <motion.div 
                         className='
                         flex
-                        h-[300px]
+                        h-[250px]
                         md:h-[500px]
-                        relative'>
+                        relative'
+                        initial={{x: 80, opacity: 0}}
+                        whileInView={{x:0, opacity: 100}}
+                        exit={{x: -80, opacity: 0}}
+                        transition={{duration: 0.5, ease:'easeOut'}}>
                             {ele.type==='iphone'?
                             <img src={Iphone} 
                             className='w-full h-full'/>:
@@ -93,10 +97,10 @@ export function CardCarousel({ items }: { items: ImageDetails[] }) {
                            right-[5%]
                            left-[5%]
                            bottom-[2.3%]
-                           bg-gray-400
                            rounded-lg
                            -z-[1]
-                           '>
+                           bg-cover
+                           bg-center'style={{ backgroundImage: `url(${IphoneSkeletonImage})` }}>
                             <img src={ele.image} className='w-full h-full'/>
                            </div>:
                            <div className='
@@ -107,7 +111,7 @@ export function CardCarousel({ items }: { items: ImageDetails[] }) {
                            bottom-[11.4%]'>
                                <img src={ele.image} className='w-full h-full'/>
                            </div>}
-                        </div>
+                        </motion.div>
                      
                  </CarouselItem>
                 ))}
@@ -118,20 +122,16 @@ export function CardCarousel({ items }: { items: ImageDetails[] }) {
 
 const PorfolioCard1 = ({ item }: { item: PortfolioDetails }) => {
     return (
-        <motion.div
+        <div
             className='
-        w-full
-        h-full
-        flex
-        flex-col
-        gap-5
-        items-center
-        justify-center'
-            key={item.id}
-            initial={{ x: 40 }}
-            whileInView={{ x: 0 }}
-            transition={{ duration: 1 }}
-            viewport={{ once: true }}>
+            w-full
+            h-full
+            flex
+            flex-col
+            gap-5
+            items-center
+            justify-center'
+            key={item.id}>
             <CardCarousel items={item.images} />
             <div className='
             flex 
@@ -139,7 +139,7 @@ const PorfolioCard1 = ({ item }: { item: PortfolioDetails }) => {
             justify-center'>
                 <TypographyH6 title={item?.name} />
             </div>
-        </motion.div>
+        </div>
     )
 }
 
