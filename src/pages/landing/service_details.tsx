@@ -230,7 +230,7 @@ const LandingOurServiceDetails = () => {
                            <div className='flex'>
                              <TypographyP 
                              title={serviceDetails?.infromation || "n/a"} 
-                             className='text-muted-foreground font-semibold'/>
+                             className='text-muted-foreground'/>
                            </div>
                     </div>
                 </div>
@@ -347,7 +347,7 @@ const LandingOurServiceDetails = () => {
                            <div className='flex'>
                              <TypographyP 
                              title={'By initiating your project with Fingent, you get a dedicated and skilled team backing you up round-the-clock. All our processes are the customer oriented, designed to reduce the cost of business operations.'} 
-                             className='text-muted-foreground font-semibold'/>
+                             className='text-muted-foreground'/>
                            </div>
                     </div>
                  </div>

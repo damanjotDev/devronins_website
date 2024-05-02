@@ -176,7 +176,8 @@ const LandingOurTeamDetails = () => {
                         flex
                         flex-col'>
                   <div className='flex'>
-                    <TypographyP title={'Newton virtual desktop offers a fast and reliable workspace from anywhere. A truly powerful tool where your data and applications are secured in a private location in the prestigious Telehouse data centre in London.'} className='text-muted-foreground font-semibold' />
+                    <TypographyP title={'Newton virtual desktop offers a fast and reliable workspace from anywhere. A truly powerful tool where your data and applications are secured in a private location in the prestigious Telehouse data centre in London.'} 
+                    className='text-muted-foreground' />
                   </div>
                 </div>
 
@@ -285,7 +286,7 @@ const LandingOurTeamDetails = () => {
                   <div className='flex'>
                     <TypographyP
                       title={'A hosted desktop solution allows for the delivery of a consistent and scalable IT experience for all users in an organisation.'}
-                      className='text-muted-foreground font-semibold' />
+                      className='text-muted-foreground' />
                   </div>
 
                   {/* Addional skills */}
@@ -384,7 +385,7 @@ const LandingOurTeamDetails = () => {
                 <div className='flex'>
                   <TypographyP
                     title={teamMember?.infromation}
-                    className='text-muted-foreground font-semibold' />
+                    className='text-muted-foreground' />
                 </div>
               </div>
             </div>

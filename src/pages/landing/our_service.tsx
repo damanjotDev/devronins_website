@@ -130,12 +130,12 @@ import { LoadingErrorWrapper } from '../../components/common/loading_error_wrapp
             {services?.map((ele, index) => (
               <motion.div  
               key={ele.id}
-              className='flex relative group w-full'
+              className='flex relative group w-full shadow-lg'
               initial={{y: 10, opacity: 0}}
               whileInView={{y:0, opacity: 1}}
               viewport={{once: true}}
               transition={{duration:0.3, delay: 0.2*index}}>
-                <div className='md:h-[370px] relative overflow-hidden hover:border-primary hover:border w-full'>
+                <div className='h-[370px] relative overflow-hidden hover:border-primary hover:border w-full'>
                   {/* Image Section */}
                   <img src={ele.image_url} className='w-full h-full' />
 

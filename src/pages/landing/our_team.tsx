@@ -123,7 +123,7 @@ const LandingOurTeam = () => {
             {teamMembers?.map((ele, index) => (
               <motion.div  
               key={ele.id}
-              className='flex relative group w-full'
+              className='flex relative group w-full shadow-lg'
               initial={{y: 10, opacity: 0}}
               whileInView={{y:0, opacity: 1}}
               viewport={{once: true}}
