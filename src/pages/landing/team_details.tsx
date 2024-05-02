@@ -120,7 +120,6 @@ const LandingOurTeamDetails = () => {
         flex-col
         items-center
         h-auto
-        px-5
         pt-20
         lg:px-20
         pb-20
@@ -149,7 +148,7 @@ const LandingOurTeamDetails = () => {
                 '>
               {/* Team member image */}
               <div className='lg:w-[43%] bg-black'>
-                <img src={teamMember?.image_url} className='md:h-[700px] h-[500px] w-full ' />
+                <img src={teamMember?.image_url} className='md:h-[700px] h-[350px] w-full ' />
               </div>
 
               {/* Team member profile details */}
